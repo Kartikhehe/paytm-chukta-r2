@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><title>Interview script</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=block">
+<link rel="stylesheet" href="base.css">
+<style>
+  body { font-size: 9.6pt; line-height: 1.42; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .sec { margin-top: 4.5mm; }
+  .q { display: grid; grid-template-columns: 9mm 1fr; gap: 2mm; padding: 2.2mm 3.5mm; border-top: 1px solid #EDF1F6; }
+  .q:first-of-type { border-top: 0; }
+  .code { font-weight: 800; color: var(--navy); }
+  .say { font-weight: 600; color: var(--ink); }
+  .note { color: var(--grey); font-size: 8.4pt; margin-top: .6mm; }
+  .log { display: inline-block; margin-top: 1mm; font-size: 7.6pt; font-weight: 700; color: #0369A1; background: var(--sky); border-radius: 1.2mm; padding: .2mm 1.6mm; }
+  .callout { border-radius: 2.5mm; padding: 3mm 3.5mm; }
+  .sky { background: var(--sky); } .mist { background: var(--mist); } .warn { background: var(--warnbg); } .bad { background: var(--badbg); } .ok { background: var(--okbg); }
+  table { width: 100%; border-collapse: collapse; font-size: 8.8pt; }
+  th { text-align: left; background: var(--mist); color: var(--ink2); font-weight: 700; padding: 1.6mm 2.5mm; font-size: 8pt; text-transform: uppercase; letter-spacing: .04em; }
+  td { padding: 1.7mm 2.5mm; border-top: 1px solid #EDF1F6; vertical-align: top; }
+  ul.t { list-style: none; } ul.t li { padding-left: 4.5mm; position: relative; margin: .9mm 0; }
+  ul.t li::before { content: ""; position: absolute; left: .5mm; top: 1.9mm; width: 1.6mm; height: 1.6mm; border-radius: 50%; background: var(--cyan); }
+  ul.x li::before { content: "✕"; background: none; color: var(--bad); font-weight: 800; top: 0; left: 0; width: auto; height: auto; font-size: 8.5pt; }
+  ul.c li::before { content: "☐"; background: none; color: var(--navy); top: -.3mm; left: 0; width: auto; height: auto; font-size: 10pt; }
+  .stage { display: flex; align-items: center; gap: 2.5mm; margin-top: 5mm; }
+  .stage .n { background: var(--cyan); color: var(--navy); font-weight: 800; border-radius: 1.5mm; padding: .6mm 2.2mm; font-size: 9pt; }
+  .stage b { font-size: 12.5pt; color: var(--navy); }
+  .stage span.t { margin-left: auto; font-size: 8.5pt; color: var(--grey); font-weight: 600; }
+  .score { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2mm; margin-top: 2mm; }
+  .score div { border-radius: 2mm; padding: 2mm 2.5mm; font-size: 8.6pt; }
+  .score b { display: block; font-size: 9.6pt; }
+</style></head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="page">
+  <div class="top">
+    <div><div class="kicker">Field kit · Annexure A2</div><h1>Interview script · merchants</h1>
+      <div class="muted" style="margin-top:1mm">Same order for everyone. Ask about the last real payment <b>before</b> showing anything. Log answers straight into "R2 Validation Log" (or the /log page).</div></div>
+    <div class="brand">Paytm <span>Chukta</span></div>
+  </div>
+
+  <div class="cols sec">
+    <div class="callout sky">
+      <b style="color:var(--navy)">Consent line (read aloud, every time)</b>
+      <div class="dev say" style="font-size:11pt;margin-top:1.2mm">"Aapka naam ya number nahi likhenge. Bill ki photo sirf padhne ke liye, baad mein delete."</div>
+      <div class="note">If they say no: thank them, leave, log as "declined". Log area + shop type only.</div>
+    </div>
+    <div class="callout bad">
+      <b style="color:var(--bad)">Never</b>
+      <ul class="t x" style="margin-top:1mm">
+        <li>Fill answers for them</li>
+        <li>Show Paytm first (ask about their last real payment before the concept)</li>
+        <li>Offer anything for a "yes"; no gifts, no Paytm branding on you</li>
+        <li>Pay or type a PIN on their behalf, or use test money / dummy payees</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="stage"><span class="n">S</span><b>Screener</b><span class="t">1 min · stop if S1 or S2 fails</span></div>
+  <div class="box sec" style="margin-top:2mm">
+    <div class="q"><span class="code">S1</span><div><span class="say dev">Dukaan ke supplier ka payment aap khud decide karte hain?</span><div class="note">Must be <b>yes</b> (owner, partner or manager who pays suppliers).</div><span class="log">Role</span></div></div>
+    <div class="q"><span class="code">S2</span><div><span class="say dev">Customers kis QR / speaker pe pay karte hain?</span><div class="note">Must <b>include Paytm</b>.</div><span class="log">Receives customer payments on</span></div></div>
+    <div class="q"><span class="code">S3</span><div><span class="say dev">Pichhle 7 din mein kisi supplier ko pay kiya? Kitna, kis app se, kis phone se?</span><div class="note">Then ask: <i>"Woh payment kitni der mein hua?"</i> (minutes, from opening the app to proof sent).</div><span class="log">Last supplier payment ₹ · App used · Paid from which phone · Minutes taken</span></div></div>
+  </div>
+
+  <div class="stage"><span class="n">A</span><b>Stage A · concept</b><span class="t">5 min · show the concept board</span></div>
+  <div class="box sec" style="margin-top:2mm">
+    <div class="q"><span class="code">A1</span><div><span class="say dev">[Concept board dikhaiye] Distributor ka bill seedha Paytm mein, raat 9 baje Soundbox bataye "kal kya dena hai", ek tap mein pay, ya 7 din baad. 1 se 5, kitna kaam ka?</span><div class="note">Let them point at the 1–5 row on the board. Don't explain beyond the board.</div><span class="log">A1 Usefulness 1–5</span></div></div>
+    <div class="q"><span class="code">A2</span><div><span class="say dev">Agla bill isme bharenge ya abhi wale app se? Kyon?</span><div class="note">Forced choice: Yes / Maybe / No. Write the "kyon" in Notes.</div><span class="log">A2 Move next bill to Chukta?</span></div></div>
+    <div class="q"><span class="code">A3</span><div><span class="say dev">Kya cheez aapko rokegi?</span><div class="note"><b>Write their exact words</b>, then pick one code: Distributor must agree · Trust / fraud worry · Prefer current app · Too many steps · Phone / account mismatch · Bills are paper only · Wants credit first · Data privacy · Other · None.</div><span class="log">A3 Objection (exact words) · Objection code</span></div></div>
+  </div>
+
+  <div class="foot"><span>Interview script · Paytm Chukta R2 field test · Kartik Raj, IIT Kanpur</span><span>1 / 4</span></div>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="page">
+  <div class="top"><div><div class="kicker">Field kit · Annexure A2</div><h1>Stage B · prototype tasks</h1></div><div class="brand">Paytm <span>Chukta</span></div></div>
+
+  <div class="stage"><span class="n">B</span><b>Stage B · prototype tasks</b><span class="t">15 min · hand them the phone, don't touch it</span></div>
+  <div class="callout mist sec" style="margin-top:2mm">
+    <b style="color:var(--navy)">Before handing over:</b> open <b>/log</b> → start a new respondent (ID shows as current respondent), then open the app home. Reset demo bills if a previous shop changed them.
+    <div class="score">
+      <div class="ok"><b>Unaided</b>Finished with no hint and no pointing.</div>
+      <div class="warn"><b>Helped once</b>Exactly one hint ("neeche dekhiye"), then finished.</div>
+      <div class="bad"><b>Failed</b>More than one hint, gave up, or you had to do it.</div>
+    </div>
+  </div>
+  <div class="box sec" style="margin-top:3mm">
+    <div class="q"><span class="code">T1</span><div><span class="say dev">Apna koi asli supplier bill scan kijiye.</span>
+      <div class="note">e-invoice QR if the bill has one, else photo or WhatsApp PDF. On the confirm screen, check every field against the paper bill. <b>Fields read correctly:</b> Yes = all right, Partly = some edited, No = none right, n/a = no bill. The app suggests both values in /log; nothing is filled automatically.</div>
+      <span class="log">T1 Capture own bill · Bill route seen · Fields read correctly?</span></div></div>
+    <div class="q"><span class="code">T2</span><div><span class="say dev">Bataiye kal kisko kitna dena hai.</span><div class="note">Correct answer on the demo inbox: Sharma Traders, ₹12,400 ("Kal due").</div><span class="log">T2 Find tomorrow's dues</span></div></div>
+    <div class="q"><span class="code">T3</span><div><span class="say dev">Sharma Traders ka bill pay kijiye aur proof dikhaiye.</span>
+      <div class="note"><b>Sandbox:</b> demo payee ends in @invalid, so no money can move. Start the <b>T3 timer</b> in /log when you finish the sentence; stop when the receipt screen shows.</div>
+      <span class="log">T3 Pay (sandbox) · T3 seconds</span></div></div>
+    <div class="q"><span class="code">T4</span><div><span class="say dev">"7 din baad" dabaiye. Iska matlab kya hai?</span><div class="note">Unaided only if they say, in their words, that the supplier gets paid now and they pay later.</div><span class="log">T4 Explain "7 din baad"</span></div></div>
+  </div>
+
+  <div class="callout sky sec">
+    <b style="color:var(--navy)">After T3, ask:</b> <span class="dev say">"Pichhla asli supplier payment kitni der mein hua?"</span> Compare with T3 seconds; the deck reports both medians.
+  </div>
+  <div class="foot"><span>Interview script · Paytm Chukta R2 field test</span><span>2 / 4</span></div>
+</div>
+
+<!-- ============ PAGE 3 ============ -->
+<div class="page">
+  <div class="top"><div><div class="kicker">Field kit · Annexure A2</div><h1>Ladder and distributors</h1></div><div class="brand">Paytm <span>Chukta</span></div></div>
+  <div class="stage"><span class="n">C</span><b>Stage C · commitment ladder</b><span class="t">stop at the first "no"</span></div>
+  <div class="box sec" style="margin-top:2mm">
+    <div class="q"><span class="code">L1</span><div><span class="say dev">Kya hum aapka ek asli bill Chukta mein padh ke dikhayein?</span><div class="note">Consent → read their bill (T1 may already cover it).</div><span class="log">L1 Shared real bill</span></div></div>
+    <div class="q"><span class="code">L2</span><div><span class="say dev">Apne 2–3 supplier jod dein aur raat 9 baje ka reminder on kar dein?</span><div class="note">They add suppliers themselves (Suppliers → Supplier jodein) and switch on the 9 pm toggle. Yes only if both happen.</div><span class="log">L2 Supplier + reminder on</span></div></div>
+    <div class="q"><span class="code">L3</span><div><span class="say dev">Jo bill aaj ya kal dena hi hai, kya woh yahin se Paytm se chukta karenge?</span>
+      <div class="note">Capture that bill → <b>Abhi chukta</b> opens a UPI intent; owner picks Paytm and enters <b>their own PIN</b>. <b>If Paytm refuses</b> (NPCI blocks link payments to personal UPI IDs and small non-verified merchants): owner opens Paytm, <b>scans the supplier's printed QR</b>, types the amount and writes <b>INV-&lt;no&gt;</b> in the note. Then tap <b>"Paid via Paytm (owner confirmed)"</b>.</div>
+      <span class="log">L3 Paid real bill via Paytm: Yes / No / Already paid / No bill due</span></div></div>
+    <div class="q"><span class="code">L4</span><div><span class="say dev">90-din ke pilot mein shaamil honge?</span><div class="note">Take area + shop type only. Contact details go on a separate paper, never in the workbook.</div><span class="log">L4 Pilot sign-up</span></div></div>
+    <div class="q"><span class="code">+</span><div><span class="say dev">Kya aap yeh apne personal phone ke Paytm app mein bhi chahenge?</span><span class="log">Wants Chukta on personal phone</span></div></div>
+  </div>
+  <div class="callout sky sec">
+    <b style="color:var(--navy)">L3 safety:</b> the owner only pays a bill they already owed today or tomorrow, to a payee whose name they confirm in their own UPI app. No test money, no dummy payees, nothing paid on the owner's behalf. The prototype never moves money.
+  </div>
+
+  <div class="stage"><span class="n">D</span><b>Distributor interview</b><span class="t">owner or accounts head only · mornings, before dispatch</span></div>
+  <div class="box sec" style="margin-top:2mm">
+    <table>
+      <tr><th style="width:56%">Ask (Hinglish)</th><th>"Distributor Log" column</th></tr>
+      <tr><td class="dev">Kitne retailers ko maal dete hain? Mahine ki sale lagbhag kitni?</td><td>Retailers served · Monthly sales ₹ (approx)</td></tr>
+      <tr><td class="dev">Retailers ko kitne din ka udhaar dete hain?</td><td>Retailer credit days</td></tr>
+      <tr><td class="dev">Kaunsa software: Tally / Marg / Busy? e-invoice (IRN) banate hain?</td><td>Billing software · Issues e-invoices (IRN)?</td></tr>
+      <tr><td class="dev">Collection mein kitna cash, kitna UPI QR, kitna bank transfer? (% mein)</td><td>Share: cash % · UPI QR % · bank transfer %</td></tr>
+      <tr><td class="dev">15 Oct se QR par 0.4% MDR: iski chinta hai?</td><td>Concern about 0.4% MDR? (Yes / No / Not aware)</td></tr>
+      <tr><td class="dev">Retailers ka payment-mode ledger 4 hafte share karenge?</td><td>Shared 4-week payment-mode ledger?</td></tr>
+      <tr><td class="dev">Pilot LOI (non-binding) sign karenge?</td><td>Signed non-binding pilot LOI?</td></tr>
+      <tr><td>Write one quote in their exact words.</td><td>Exact words (key quote)</td></tr>
+    </table>
+  </div>
+  <div class="note" style="margin-top:1.5mm">Show Chukta Collect (/collect) only after the questions above: demo data, illustrative.</div>
+
+  <div class="foot"><span>Interview script · Paytm Chukta R2 field test</span><span>3 / 4</span></div>
+</div>
+
+<!-- ============ PAGE 4 ============ -->
+<div class="page">
+  <div class="top"><div><div class="kicker">Field kit · Annexure A2</div><h1>Pushback, logging and kit</h1></div><div class="brand">Paytm <span>Chukta</span></div></div>
+  <div class="sec" style="margin-top:4mm"><b style="color:var(--navy);font-size:11pt">Neutral replies when the owner pushes back</b></div>
+  <div class="box" style="margin-top:2mm">
+    <table>
+      <tr><th style="width:38%">Owner says</th><th>Interviewer says (doesn't sell)</th></tr>
+      <tr><td class="dev"><i>"Isme kya fayda?"</i></td><td class="dev">"Aap bataiye, kis cheez mein kaam aa sakta hai ya nahi?"</td></tr>
+      <tr><td class="dev"><i>"Paytm pe bharosa nahi."</i></td><td class="dev">"Kis wajah se? Pichhli baar kya hua tha?" <span class="muted">(log as objection)</span></td></tr>
+      <tr><td class="dev"><i>"Aap Paytm se ho?"</i></td><td class="dev">"Main IIT Kanpur ka student hoon, ek idea test kar raha hoon."</td></tr>
+      <tr><td class="dev"><i>"Baad mein aana."</i></td><td>Thank, leave, log as "declined"; never push.</td></tr>
+    </table>
+  </div>
+  <div class="sec" style="margin-top:6mm"><b style="color:var(--navy);font-size:11pt">Question → workbook column</b></div>
+  <div class="box" style="margin-top:2mm">
+    <table>
+      <tr><th style="width:20%">Asked</th><th>Logged in "R2 Validation Log"</th></tr>
+      <tr><td>S1–S3</td><td>Role · Receives on · last payment ₹, app, phone, minutes</td></tr>
+      <tr><td>A1–A3</td><td>Usefulness 1–5 · move next bill · objection + code</td></tr>
+      <tr><td>T1–T4</td><td>Task results · bill route · fields correct · T3 seconds</td></tr>
+      <tr><td>L1–L4</td><td>Ladder rungs (Yes / No / Already paid / No bill due for L3)</td></tr>
+      <tr><td>D</td><td>"Distributor Log": software, ledger, LOI</td></tr>
+    </table>
+  </div>
+
+  <div class="cols sec" style="margin-top:6mm">
+    <div class="callout mist">
+      <b style="color:var(--navy)">Kit checklist</b>
+      <ul class="t c" style="margin-top:1.5mm">
+        <li>Prototype open on phone + spare phone, power bank</li>
+        <li>10 printed concept boards (Hindi)</li>
+        <li>Consent line card</li>
+        <li>Workbook / logger link on phone</li>
+        <li>Non-binding LOI sheet for distributors</li>
+        <li>No Paytm branding on me; no gifts</li>
+        <li>Hindi + English OCR loaded once on Wi-Fi</li>
+      </ul>
+    </div>
+    <div class="callout warn">
+      <b style="color:var(--warn)">End of every day</b>
+      <ul class="t c" style="margin-top:1.5mm">
+        <li>/log → Merchants → ⬇ CSV (with header)</li>
+        <li>/log → Distributors → ⬇ CSV</li>
+        <li>/log → Prototype log → ⬇ Events CSV</li>
+        <li>Copy the CSVs off the phone (Drive / laptop)</li>
+        <li>Fill the daily tracker tallies and pass bars</li>
+        <li>Note the 3 most-heard objections and what you'd change</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>Interview script · Paytm Chukta R2 field test</span><span>4 / 4</span></div>
+</div>
+</body></html>

@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #002E6E;
+  --color-navy2: #0A3D86;
+  --color-cyan: #00BAF2;
+  --color-cyan2: #0099CC;
+  --color-sky: #E5F7FE;
+  --color-sky2: #CCEFFC;
+  --color-mist: #F2F5F9;
+  --color-bg: #F4F6FA;
+  --color-ink: #101828;
+  --color-ink2: #344054;
+  --color-grey: #667085;
+  --color-line: #E4E8EF;
+  --color-ok: #067647;
+  --color-okfill: #12B76A;
+  --color-okbg: #ECFDF3;
+  --color-warn: #B54708;
+  --color-warnfill: #F79009;
+  --color-warnbg: #FFFAEB;
+  --color-bad: #B42318;
+  --color-badfill: #F04438;
+  --color-badbg: #FEF3F2;
+  --font-sans: "Inter", "Noto Sans Devanagari", system-ui, -apple-system, sans-serif;
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, .05), 0 1px 3px rgba(16, 24, 40, .06);
+  --shadow-lift: 0 8px 24px -6px rgba(0, 46, 110, .18);
+  --animate-in: fade-up .28s cubic-bezier(.2, .8, .2, 1) both;
+  --animate-pop: pop .45s cubic-bezier(.2, 1.4, .4, 1) both;
+  --animate-scan: scanline 2.2s ease-in-out infinite;
+  --animate-wave: wave 1.2s ease-in-out infinite;
+}
+
+@keyframes fade-up { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: none } }
+@keyframes pop { 0% { transform: scale(.4); opacity: 0 } 100% { transform: scale(1); opacity: 1 } }
+@keyframes scanline { 0%, 100% { top: 8% } 50% { top: 88% } }
+@keyframes wave { 0%, 100% { transform: scaleY(.35) } 50% { transform: scaleY(1) } }
+@keyframes ring { from { transform: scale(.8); opacity: .7 } to { transform: scale(1.6); opacity: 0 } }
+
+html, body { background: #E9EEF5; color: var(--color-ink); -webkit-tap-highlight-color: transparent; }
+body { min-height: 100dvh; -webkit-font-smoothing: antialiased; font-feature-settings: "cv11", "ss01"; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .45; }
+input, select, textarea { font-size: 16px; } /* stops mobile zoom on focus */
+.tnum { font-variant-numeric: tabular-nums; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+.ring-pulse::after { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 2px solid var(--color-cyan); animation: ring 1.4s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

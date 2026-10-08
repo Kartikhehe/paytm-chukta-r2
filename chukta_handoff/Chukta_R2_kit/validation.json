@@ -1,0 +1,48 @@
+{
+  "_note": "Fill ONLY with real field-test results. null renders as an amber blank box in the deck.",
+  "test_dates": "8 Oct 2026",
+  "merchants_tested": 21,
+  "distributors_tested": 4,
+  "concept_n": 21,
+  "concept_top2": 20,
+  "walk_n": 21,
+  "l1_bill": 21,
+  "l2_reminder": 8,
+  "l3_paid": 7,
+  "l4_pilot": 13,
+  "d_loi": 2,
+  "d_ledger": 2,
+  "bills_seen": 21,
+  "einv_bills": 7,
+  "personal_phone": 21,
+  "heard_changed": [
+    {
+      "heard": "“Salesman apna hi QR deta hai, distributor bolega tabhi karunga.”",
+      "n": 5,
+      "changed": "Distributor-first GTM: the pilot signs distributors before shops, and Chukta Collect shows them who paid which invoice."
+    },
+    {
+      "heard": "“GPay ki aadat pad gayi hai, fast hota hai.”",
+      "n": 5,
+      "changed": "Pay screen leads with a ‘payee name matched to GST’ tick: a reason to switch that a plain scan-and-pay app does not give."
+    },
+    {
+      "heard": "“Bhaiya paper challan aata hai, usme QR nahi hota.”",
+      "n": 1,
+      "changed": "Photo-read confirm screen lets the owner edit invoice no. and amount when a paper challan is blurry."
+    }
+  ],
+  "q_kirana": 10,
+  "q_pharma": 4,
+  "q_canteen": 4,
+  "q_other": 3,
+  "d_erp": 3,
+  "proto_link": "https://chukta-r2-prototype.vercel.app",
+  "l3_kirana": 3,
+  "l3_pharma": 3,
+  "l3_canteen": 1,
+  "l3_other": 0,
+  "a2_yes": 8,
+  "a2_maybe": 13,
+  "today_min": 4
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Daily tracker</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&display=block">
+<link rel="stylesheet" href="base.css">
+<style>
+  body { font-size: 9.4pt; line-height: 1.35; }
+  .page { padding-top: 11mm; }
+  .blank { min-width: 9mm !important; }
+  .meta { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 3mm; margin-top: 4mm; }
+  .meta div { border: 1px solid var(--line); border-radius: 2mm; padding: 1.6mm 2.5mm; font-size: 8pt; color: var(--grey); height: 11mm; }
+  .meta b { color: var(--ink2); font-weight: 700; display: block; }
+  h3 { font-size: 11pt; color: var(--navy); margin: 3.8mm 0 1.6mm; display: flex; align-items: baseline; gap: 2mm; }
+  h3 small { font-size: 8pt; color: var(--grey); font-weight: 500; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; background: var(--navy); color: #fff; font-weight: 700; padding: 1.6mm 2.2mm; font-size: 8pt; }
+  td { border: 1px solid var(--line); padding: 1.2mm 2.2mm; vertical-align: middle; height: 6.1mm; }
+  .tally { display: flex; gap: 1.1mm; flex-wrap: wrap; }
+  .tally i { width: 4.6mm; height: 4.6mm; border: 1.3px solid #9FB3C8; border-radius: 1.2mm; display: inline-block; }
+  .tally i.opt { border-style: dashed; }
+  .seg { font-weight: 700; color: var(--ink); }
+  .sub { font-size: 7.6pt; color: var(--grey); display: block; }
+  .num { text-align: center; font-weight: 700; color: var(--navy); }
+  .bar { display: grid; grid-template-columns: 1.15fr 1.6fr 1fr 1fr .9fr; }
+  .blank { border-bottom: 1.3px solid #9FB3C8; display: inline-block; min-width: 12mm; height: 4mm; }
+  .chip { font-size: 7.4pt; }
+  .tip { background: var(--sky); border-radius: 2mm; padding: 2.5mm 3mm; font-size: 8.4pt; color: var(--ink2); margin-top: 3mm; }
+</style></head>
+<body>
+<div class="page">
+  <div class="top">
+    <div><div class="kicker">Field kit · daily tracker · print one per day</div><h1>Kanpur field test · daily tracker</h1>
+      <div class="muted" style="margin-top:1mm">25 merchants + 3–5 distributors · 8–9 Oct · ~12 shops/day in 2 areas · distributors before dispatch</div></div>
+    <div class="brand">Paytm <span>Chukta</span></div>
+  </div>
+
+  <div class="meta">
+    <div><b>Date</b>☐ Thu 8 Oct &nbsp; ☐ Fri 9 Oct &nbsp; ☐ ____</div>
+    <div><b>Area 1 (morning)</b></div>
+    <div><b>Area 2 (afternoon)</b></div>
+    <div><b>Respondent IDs used</b>M__ to M__ · D__ to D__</div>
+  </div>
+
+  <h3>Quota grid <small>tick one box per completed interview</small></h3>
+  <table>
+    <tr><th style="width:34%">Segment</th><th style="width:9%;text-align:center">Quota</th><th>Done (tick)</th><th style="width:12%;text-align:center">Reached L3</th></tr>
+    <tr><td><span class="seg">Kirana / FMCG</span></td><td class="num">10</td><td><div class="tally"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></td><td></td></tr>
+    <tr><td><span class="seg">Pharmacy / chemist</span></td><td class="num">5</td><td><div class="tally"><i></i><i></i><i></i><i></i><i></i></div></td><td></td></tr>
+    <tr><td><span class="seg">Canteen / dairy / bakery</span></td><td class="num">5</td><td><div class="tally"><i></i><i></i><i></i><i></i><i></i></div></td><td></td></tr>
+    <tr><td><span class="seg">Other</span></td><td class="num">5</td><td><div class="tally"><i></i><i></i><i></i><i></i><i></i></div></td><td></td></tr>
+    <tr><td><span class="seg">Distributors</span></td><td class="num">3–5</td><td><div class="tally"><i></i><i></i><i></i><i class="opt"></i><i class="opt"></i></div></td><td style="background:var(--mist);font-size:7.6pt;color:var(--grey);white-space:nowrap">LOI <span class="blank"></span></td></tr>
+    <tr><td class="seg" style="background:var(--mist)">Declined / screened out</td><td class="num" style="background:var(--mist)">–</td><td style="background:var(--mist)"><div class="tally"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></td><td style="background:var(--mist)"></td></tr>
+  </table>
+  <div style="font-size:7.4pt;color:var(--grey);margin-top:1mm">Workbook column D: Kirana/FMCG = "Kirana / grocery" + "General / FMCG store" · Canteen/dairy = "Restaurant / dhaba / canteen" + "Dairy / bakery / sweets" · Other = hardware, mobile, stationery, clothing, other</div>
+
+  <h3>Areas <small>plan two per day; mark visited</small></h3>
+  <table>
+    <tr><th style="width:30%">Area</th><th style="width:16%">Day planned</th><th style="width:14%;text-align:center">Shops visited</th><th style="width:14%;text-align:center">Interviews</th><th>Notes (market type, best time, distributors nearby)</th></tr>
+    <tr><td class="seg">Kalyanpur</td><td>☐ 8 &nbsp;☐ 9</td><td></td><td></td><td></td></tr>
+    <tr><td class="seg">Kakadeo</td><td>☐ 8 &nbsp;☐ 9</td><td></td><td></td><td></td></tr>
+    <tr><td class="seg">Nankari</td><td>☐ 8 &nbsp;☐ 9</td><td></td><td></td><td></td></tr>
+    <tr><td class="seg">Swaroop Nagar</td><td>☐ 8 &nbsp;☐ 9</td><td></td><td></td><td></td></tr>
+    <tr><td class="seg">IITK</td><td>☐ 8 &nbsp;☐ 9</td><td></td><td></td><td></td></tr>
+    <tr><td class="seg">MT Section</td><td>☐ 8 &nbsp;☐ 9</td><td></td><td></td><td></td></tr>
+    <tr><td class="seg">Generalganj / Nayaganj </td><td>☐ 8 &nbsp;☐ 9</td><td></td><td></td><td></td></tr>
+  </table>
+
+  <h3>Pass bars <small>fixed before fieldwork; fill running totals each evening; report BELOW BAR honestly</small></h3>
+  <table>
+    <tr><th style="width:17%">Hypothesis</th><th style="width:31%">Pass bar</th><th style="width:20%">Count (÷ base)</th><th style="width:12%">Result</th><th style="width:20%;text-align:center">Verdict</th></tr>
+    <tr><td class="seg">H1 Desirability</td><td>≥ 30% of walkthroughs reach <b>L3</b></td><td>L3 <span class="blank"></span> / <span class="blank"></span></td><td><span class="blank" style="min-width:16mm"></span> %</td><td style="text-align:center">☐ PASS &nbsp; ☐ BELOW</td></tr>
+    <tr><td class="seg">H2 Channel</td><td>≥ 2 distributors sign an <b>LOI</b></td><td>LOIs <span class="blank"></span></td><td><span class="blank" style="min-width:16mm"></span></td><td style="text-align:center">☐ PASS &nbsp; ☐ BELOW</td></tr>
+    <tr><td class="seg">H3 Feasibility</td><td>≥ 70% of bills <b>without typing</b></td><td>QR+OK <span class="blank"></span> / <span class="blank"></span></td><td><span class="blank" style="min-width:16mm"></span> %</td><td style="text-align:center">☐ PASS &nbsp; ☐ BELOW</td></tr>
+    <tr><td class="seg">Usability</td><td>≥ 70% do <b>all 4 tasks unaided</b></td><td>4/4 <span class="blank"></span> / <span class="blank"></span></td><td><span class="blank" style="min-width:16mm"></span> %</td><td style="text-align:center">☐ PASS &nbsp; ☐ BELOW</td></tr>
+  </table>
+  <div class="tip"><b style="color:var(--navy)">Top objections today</b> <span style="color:var(--grey)">(exact words → code → what I'd change)</span>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-top:3.5mm">
+      <div style="border-bottom:1.3px solid #9FB3C8;height:5mm">1.</div><div style="border-bottom:1.3px solid #9FB3C8;height:5mm">2.</div><div style="border-bottom:1.3px solid #9FB3C8;height:5mm">3.</div>
+    </div></div>
+
+  <div class="foot"><span>Daily tracker · Paytm Chukta R2 · Kartik Raj, IIT Kanpur · the workbook dashboard is the source of truth</span><span>A4</span></div>
+</div>
+</body></html>

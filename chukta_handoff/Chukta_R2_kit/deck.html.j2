@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>KartikRaj_R2 · Paytm Chukta</title>
+<style>
+@page{size:1280px 720px;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#002E6E;--cyan:#00BAF2;--sky:#E3F5FD;--mist:#F3F7FB;--ink:#14213D;--grey:#5B6B82;--line:#D3DFEB;--green:#15A34A;--amber:#E8930C;--red:#E5484D}
+body{font-family:Carlito,'DejaVu Sans','Noto Color Emoji',sans-serif;color:var(--ink);font-size:12.5px;line-height:1.27;-webkit-print-color-adjust:exact}
+.e{font-family:'Noto Color Emoji';font-style:normal}
+b,strong{font-weight:700}
+.slide{width:1280px;height:720px;position:relative;overflow:hidden;page-break-after:always;background:#fff}
+.topbar{position:absolute;top:0;left:0;right:0;height:7px;background:linear-gradient(90deg,var(--navy) 0 80%,var(--cyan) 80% 100%)}
+.hdr{position:absolute;top:15px;left:34px;right:34px;height:66px;border-bottom:2px solid var(--navy)}
+.hdr h1{font-size:25px;font-weight:700;color:var(--navy);line-height:1.1;max-width:1000px}
+.hdr .sub{font-size:14.5px;color:#334766;margin-top:4px;font-style:italic;max-width:1010px}
+.brand{position:absolute;right:0;top:0;text-align:right;font-weight:700;font-size:17px;color:var(--navy);line-height:1}
+.brand span{color:var(--cyan)}
+.brand small{display:block;font-size:10.5px;color:var(--grey);font-weight:400;margin-top:4px}
+.body{position:absolute;top:90px;left:34px;right:34px;bottom:42px}
+.foot{position:absolute;bottom:0;left:34px;right:34px;height:32px;border-top:1px solid #C3D2E2;display:flex;align-items:center;gap:20px;font-size:12px;color:#6B7A90}
+.foot .on{color:var(--navy);font-weight:700;box-shadow:inset 0 3px 0 var(--cyan);padding-top:6px;margin-top:-6px}
+.pg{margin-left:auto;background:var(--navy);color:#fff;font-weight:700;min-width:30px;height:23px;display:flex;align-items:center;justify-content:center;padding:0 6px}
+.bar{background:var(--navy);color:#fff;font-weight:700;font-size:13px;padding:4px 9px;letter-spacing:.2px}
+.bar.c{background:var(--cyan);color:var(--navy)}
+.bar.l{background:var(--sky);color:var(--navy)}
+.bar.ctr{text-align:center}
+.panel{border:1px solid var(--line);background:#fff}
+.mist{background:var(--mist)}
+.sky{background:var(--sky)}
+.pad{padding:7px 9px}
+.g{display:grid;gap:10px}
+.row{display:flex;gap:10px}
+.k{font-weight:700;color:var(--navy)}
+.cy{color:#0089B8}
+.muted{color:var(--grey)}
+.small{font-size:11px}
+.xs{font-size:10px}
+.it{font-style:italic}
+.big{font-size:30px;font-weight:700;color:var(--navy);line-height:1}
+.med{font-size:20px;font-weight:700;color:var(--navy);line-height:1}
+ul.t{list-style:none}
+ul.t li{position:relative;padding-left:13px;margin:2px 0}
+ul.t li:before{content:"";position:absolute;left:2px;top:6px;width:5px;height:5px;background:var(--cyan);border-radius:50%}
+ul.ck li:before{content:"✓";background:none;color:var(--green);font-weight:700;top:0;left:0}
+ul.x li:before{content:"!";background:none;color:var(--red);font-weight:700;top:0;left:2px}
+table.tb{width:100%;border-collapse:collapse;font-size:11.8px}
+table.tb th{background:var(--navy);color:#fff;text-align:left;padding:4px 6px;font-weight:700;vertical-align:bottom}
+table.tb td{padding:3.5px 6px;border-bottom:1px solid #E1E9F2;vertical-align:top}
+table.tb tr:nth-child(even) td{background:#F8FBFD}
+table.opt td{padding:4.6px 6px}
+.rice td{padding:2.5px 6px}
+#samp td{padding:2.5px 6px}
+#trace td{padding:2.6px 6px}
+table.tb tr.hl td{background:var(--sky);font-weight:700}
+.num{text-align:right;white-space:nowrap}
+.ctr{text-align:center}
+.tbd{display:inline-block;border:1.5px dashed var(--amber);background:#FFF5E1;height:14px;vertical-align:-2px;border-radius:2px}
+.chip{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:9px;background:var(--sky);color:var(--navy);white-space:nowrap}
+.chip.g{background:#DDF5E6;color:#0F7A37}.chip.a{background:#FFF0D6;color:#9A5B00}.chip.r{background:#FDE3E4;color:#B4232A}.chip.n{background:var(--navy);color:#fff}
+.quote{background:#fff;border-left:4px solid var(--cyan);padding:5px 8px;font-style:italic;font-size:12px}
+.quote small{display:block;font-style:normal;color:var(--grey);font-size:10.5px;margin-top:2px}
+.say{position:relative;background:var(--navy);color:#fff;border-radius:10px;padding:7px 10px;font-size:12.5px}
+.say:after{content:"";position:absolute;left:22px;bottom:-8px;border:8px solid transparent;border-top-color:var(--navy);border-bottom:0}
+.hb{display:inline-block;width:15px;height:15px;border-radius:50%;border:1.6px solid var(--navy);vertical-align:-3px}
+.h0{background:#fff}.h1{background:conic-gradient(var(--navy) 0 25%,#fff 0)}.h2{background:conic-gradient(var(--navy) 0 50%,#fff 0)}.h3{background:conic-gradient(var(--navy) 0 75%,#fff 0)}.h4{background:var(--navy)}
+.step{display:flex;gap:6px;align-items:flex-start}
+.stepn{flex:none;width:21px;height:21px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:12px}
+.stepn.c{background:var(--cyan);color:var(--navy)}
+.stat{padding:6px 8px;border:1px solid var(--line);background:#fff}
+.stat .big{font-size:26px}
+.arrowR{width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:11px solid var(--cyan)}
+.lrow{display:grid;grid-template-columns:24px 1fr 200px;gap:6px;align-items:center;margin:4px 0}
+.lcode{background:var(--navy);color:#fff;font-weight:700;text-align:center;border-radius:3px;font-size:11px;padding:2px 0}
+.lbar{height:20px;background:#EAF1F7;position:relative;font-size:11.5px;display:flex;align-items:center}
+.lbar div{position:absolute;left:0;top:0;bottom:0;background:var(--cyan)}
+.lbar b{position:relative;padding-left:5px;color:var(--navy)}
+.lbar.empty{border:1px dashed #C4D3E2;background:#fff;padding-left:6px;gap:4px}
+/* phone mockups */
+.phone{width:196px;height:378px;border:7px solid #10213D;border-radius:26px;background:#fff;overflow:hidden;position:relative;box-shadow:0 4px 12px rgba(0,46,110,.18)}
+.phone .notch{height:16px;background:#10213D;width:70px;margin:0 auto;border-radius:0 0 10px 10px}
+.scr{padding:5px 8px;font-size:10.5px;line-height:1.22}
+.appbar{background:var(--navy);color:#fff;padding:5px 8px;font-size:10.5px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.appbar span{color:var(--cyan)}
+.card{border:1px solid var(--line);border-radius:7px;padding:5px 6px;margin:4px 0;background:#fff}
+.btn{display:inline-block;background:var(--cyan);color:var(--navy);font-weight:700;border-radius:5px;padding:3px 7px;font-size:10px}
+.btn.o{background:#fff;border:1px solid var(--navy);color:var(--navy)}
+.btn.n{background:var(--navy);color:#fff}
+.tabs{display:flex;gap:4px;margin:4px 0}.tabs span{font-size:9.5px;padding:2px 6px;border-radius:9px;background:#EEF3F8}.tabs span.on{background:var(--navy);color:#fff}
+.phone img.shot{display:block;width:100%;height:calc(100% - 16px);object-fit:cover;object-position:top}
+.ann{position:absolute;background:#FFF8E6;border:1px solid #F1C66E;font-size:10.5px;padding:3px 6px;border-radius:4px;width:150px;line-height:1.2}
+</style></head><body>
+
+{% set NAV = ['Summary','Problem & insight','Validation','Design & feasibility','GTM & pilot','Business impact','Annexure'] %}
+{% macro foot(active, n) -%}
+<div class="foot">{% for s in NAV %}<span class="{{ 'on' if s==active else '' }}">{{ s }}</span>{% endfor %}<span class="pg">{{ n }}</span></div>
+{%- endmacro %}
+{% macro hdr(title, sub) -%}
+<div class="topbar"></div>
+<div class="hdr"><h1>{{ title }}</h1><div class="sub">{{ sub }}</div>
+<div class="brand">Paytm <span>Chukta</span><small>Track B · Kartik Raj</small></div></div>
+{%- endmacro %}
+{% set y1, y2, y3 = M.years[0], M.years[1], M.years[2] %}
+
+<!-- ===================== COVER ===================== -->
+<div class="slide" style="background:linear-gradient(90deg,#fff 0 58.5%,var(--navy) 58.5% 100%)">
+  <div class="topbar"></div>
+  <div style="position:absolute;left:60px;top:58px;width:640px">
+    <div style="font-size:14px;font-weight:700;color:#0089B8;letter-spacing:1px">PAYTM INNOVATION CHALLENGE 2026 · ROUND 2 · FINAL SUBMISSION</div>
+    <div style="font-size:78px;font-weight:700;color:var(--navy);line-height:1;margin-top:26px">Paytm <span style="color:var(--cyan)">Chukta</span></div>
+    <div style="font-size:16px;color:var(--grey);margin-top:6px"><i>"hisaab chukta"</i> = the account is settled</div>
+    <div style="font-size:24px;color:var(--ink);margin-top:26px;line-height:1.25">Paisa Paytm pe aata hai.<br><b style="color:var(--navy)">Ab supplier ka bill bhi Paytm se chukta.</b></div>
+    <div style="font-size:15px;color:var(--grey);margin-top:8px">Money already comes in on Paytm. Now the shop's stock bills go out on Paytm too.</div>
+    <div style="margin-top:36px;display:flex;gap:10px;flex-wrap:wrap">
+      <span class="chip n" style="font-size:12.5px;padding:4px 10px">Track B · Merchants as UPI payers</span>
+      <span class="chip" style="font-size:12.5px;padding:4px 10px">Segment: owners of stock-buying shops on Paytm Soundbox / QR</span>
+      <span class="chip" style="font-size:12.5px;padding:4px 10px">Pilot city: Kanpur</span>
+    </div>
+    <div style="margin-top:30px;border-top:2px solid var(--navy);padding-top:10px;font-size:15px">
+      <b style="color:var(--navy);font-size:19px">Kartik Raj</b> · Individual entry<br>
+      <span class="muted">B.Tech, IIT Kanpur · Field research in Kanpur, Sep–Oct 2026</span>
+    </div>
+  </div>
+  <!-- Soundbox illustration -->
+  <div style="position:absolute;left:790px;top:80px;width:440px">
+    <div class="say" style="background:#fff;color:var(--navy);font-size:17px;padding:12px 16px;line-height:1.3"><span class="e">🔊</span> <i>"Aaj ₹31,420 aaye.<br>Kal Sharma Traders ke ₹12,400 dene hain."</i>
+      <div style="font-size:11.5px;color:var(--grey);font-style:normal;margin-top:4px">Paytm Soundbox · 9:00 pm closing summary</div></div>
+    <svg width="440" height="330" viewBox="0 0 440 330" style="margin-top:14px">
+      <defs><linearGradient id="sb" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1B4E96"/><stop offset="1" stop-color="#001F4D"/></linearGradient></defs>
+      <rect x="120" y="40" width="190" height="230" rx="38" fill="url(#sb)" stroke="#00BAF2" stroke-width="3"/>
+      {% for r in range(6) %}{% for c in range(6) %}<circle cx="{{ 160 + c*22 }}" cy="{{ 85 + r*22 }}" r="5" fill="#00BAF2" opacity="{{ 0.35 + 0.1*((r+c)%4) }}"/>{% endfor %}{% endfor %}
+      <rect x="150" y="225" width="130" height="26" rx="6" fill="#0A2A5C" stroke="#00BAF2"/>
+      <text x="215" y="243" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">paytm ₹ chukta</text>
+      <path d="M40 120 C 80 120, 90 150, 118 150" stroke="#00BAF2" stroke-width="5" fill="none"/>
+      <polygon points="118,142 132,150 118,158" fill="#00BAF2"/>
+      <text x="8" y="105" fill="#fff" font-size="14" font-weight="700">MONEY IN</text>
+      <text x="8" y="122" fill="#BFE9FA" font-size="12">customers, all day</text>
+      <path d="M312 160 C 345 160, 350 200, 395 200" stroke="#fff" stroke-width="5" fill="none" stroke-dasharray="9 6"/>
+      <polygon points="395,192 410,200 395,208" fill="#fff"/>
+      <text x="318" y="228" fill="#fff" font-size="14" font-weight="700">MONEY OUT</text>
+      <text x="318" y="245" fill="#BFE9FA" font-size="12">stock bills, now on Paytm</text>
+    </svg>
+  </div>
+  <div style="position:absolute;left:790px;bottom:30px;color:#BFE9FA;font-size:12px;width:440px">Files: KartikRaj_R2.pdf · KartikRaj_R2_Annexure.xlsx<br>Round 1 evidence: KartikRaj_VOC.xlsx (50 VOCs)</div>
+  <div style="position:absolute;left:60px;bottom:40px;width:640px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+    <div class="stat"><div class="med">50</div><div class="small">VOCs in Round 1 (10 in-depth)</div></div>
+    <div class="stat"><div class="med">{{ v('merchants_tested') }}+{{ v('distributors_tested') }}</div><div class="small">shop owners + distributors interviewed in Round 2</div></div>
+    <div class="stat"><div class="med">20</div><div class="small">distributors in a randomised 90-day pilot</div></div>
+    <div class="stat"><div class="med">₹0</div><div class="small">cashback in the growth model</div></div>
+  </div>
+</div>
+
+<!-- ===================== 1 EXEC SUMMARY ===================== -->
+<div class="slide">
+{{ hdr('Executive summary', 'Chukta turns Paytm from the app that hears a shop\'s income into the app that pays its suppliers, using bills and voice instead of cashback') }}
+<div class="body">
+ <div class="g" style="grid-template-columns:1fr 1fr 1.25fr 1fr;height:314px">
+  <div class="panel chk"><div class="bar">😟 Problem (validated in R1)</div><div class="pad">
+    <p><b class="k">1.57 Cr</b> merchants pay Paytm for a Soundbox / QR, yet their largest outgoing payments, <b>supplier stock bills (80% of ₹ paid out)</b>, leave through PhonePe, Google Pay or cash.</p>
+    <div class="row" style="margin-top:7px"><div class="stat" style="flex:1"><div class="big">39/39</div><div class="small">Paytm-receiving shops pay suppliers elsewhere</div></div><div class="stat" style="flex:1"><div class="big">0%</div><div class="small">Paytm share of ₹52 L/mo business UPI logged</div></div></div>
+    <p class="small" style="margin-top:6px">50 VOCs · 10 in-depth · 12 Kanpur areas · 9 categories · owners only</p>
+    <div class="quote" style="margin-top:6px;font-size:11.5px">"Paytm sirf aane ke liye hai, dena ho toh PhonePe khulta hai."<small>VOC-001 · Kirana</small></div></div></div>
+  <div class="panel chk"><div class="bar">🔍 Why it happens</div><div class="pad">
+    <div class="step"><span class="stepn">1</span><div><b>Wrong app in hand:</b> 32/50 pay from the owner's personal phone; 40/50 didn't know Paytm Business can pay.</div></div>
+    <div class="step" style="margin-top:4px"><span class="stepn">2</span><div><b>Bills live outside:</b> paper challans, WhatsApp PDFs, memory.</div></div>
+    <div class="step" style="margin-top:4px"><span class="stepn">3</span><div><b>The salesman decides:</b> whatever QR he shows wins (10/50).</div></div>
+    <div class="step" style="margin-top:4px"><span class="stepn">4</span><div><b>Cash short on stock day:</b> 9/50 barrier; 32/50 want 7-day pay-later.</div></div>
+    <div class="step" style="margin-top:4px"><span class="stepn c">+</span><div><b>New in 2026:</b> 0.4% MDR makes distributors push for cash / NEFT (23/50 already asked).</div></div>
+  </div></div>
+  <div class="panel chk sky"><div class="bar c">💡 Solution: Paytm Chukta</div><div class="pad">
+    <p>A <b>supplier-bill inbox</b> inside Paytm for Business <i>and</i> the Paytm app, where the shop's money already lands.</p>
+    <table class="tb" style="margin-top:5px;font-size:11.5px">
+     <tr><td><b>📥 Bill aata hai</b></td><td>Distributor pushes from Tally / Marg / Busy (Bharat Connect or Paytm API), owner scans the <b>signed e-invoice QR</b>, or snaps / forwards the bill</td></tr>
+     <tr><td><b>🔊 Yaad dilata hai</b></td><td>Soundbox's 9 pm summary adds tomorrow's dues</td></tr>
+     <tr><td><b>✅ Ek tap chukta</b></td><td>Payee verified against supplier GSTIN; invoice-tagged UPI on the rail the supplier picks</td></tr>
+     <tr><td><b>⏳ 7 din baad</b></td><td>Credit line on UPI from lending partners (phase 2)</td></tr>
+    </table>
+    <p class="small" style="margin-top:4px"><b>Growth engine:</b> distributors get <b>Chukta Collect</b> free; their salesmen enrol their 150–400 shops.</p></div></div>
+  <div class="panel chk"><div class="bar">🧪 Validation (Round 2)</div><div class="pad">
+    <p>Screener → concept test → <b>stated commitment ladder</b>, in person, 8 Oct.</p>
+    <p style="margin-top:5px">Interviewed <b>{{ v('merchants_tested') }}</b> shop owners + <b>{{ v('distributors_tested') }}</b> distributors in Kanpur.</p>
+    <div class="stat" style="margin-top:6px"><div class="big">{{ v('l3_paid') }}<span style="font-size:16px">/{{ v('walk_n') }}</span></div><div class="small">said they'd pay their <b>next</b> supplier bill through Paytm (stated; {{ pct('concept_top2','concept_n') }} rated it 4–5)</div></div>
+    <div class="stat" style="margin-top:5px"><div class="med">{{ v('d_loi') }} <span style="font-size:13px">of {{ v('distributors_tested') }} distributors</span></div><div class="small">agreed to join the 90-day pilot (verbal)</div></div>
+    <p class="small" style="margin-top:5px">{{ v('einv_bills') }} of {{ v('bills_seen') }} shops get bills with an e-invoice QR. Usability and real payments are tested in pilot weeks 1–2.</p>
+  </div></div>
+ </div>
+ <div class="g" style="grid-template-columns:1.05fr 1.6fr 1fr;margin-top:10px;height:250px">
+  <div class="panel chk"><div class="bar">🧭 90-day Kanpur pilot</div><div class="pad">
+   <ul class="t">
+    <li><b>20 distributors</b> (FMCG + pharma), cluster-randomised <b>10 treat / 10 control</b>, ~2,500 retailers per arm</li>
+    <li><b>Baseline</b> = 4 weeks of distributor ledgers (who paid which invoice, by which mode): the only true denominator</li>
+    <li><b>Scale if</b> Paytm share of treated shops' supplier ₹ is <b>≥ +25 pp vs control</b> and ≥ 60% of activated shops repeat ≥ 3 bills/month</li>
+    <li><b>Stop if</b> &lt; +10 pp or activation &lt; 15%. Budget ≈ ₹10 L</li>
+   </ul></div></div>
+  <div class="panel chk"><div class="bar">📈 Business impact (national roll-out, no cashback)</div><div class="pad" style="padding-top:5px">
+   <table class="tb" style="font-size:11.2px">
+    <tr><th>Metric</th><th class="num">Today</th><th class="num">Year 1</th><th class="num">Year 2</th><th class="num">Year 3</th></tr>
+    <tr class="hl"><td>Paytm share of segment's supplier UPI <i>(main metric)</i></td><td class="num">~8%</td><td class="num">{{ '%.1f'|format(y1.seg_share*100) }}%</td><td class="num">{{ '%.1f'|format(y2.seg_share*100) }}%</td><td class="num">{{ '%.1f'|format(y3.seg_share*100) }}%</td></tr>
+    <tr><td>Active Chukta merchants (new business-payer MTU)</td><td class="num">–</td><td class="num">{{ lk(y1.adopters) }}</td><td class="num">{{ lk(y2.adopters) }}</td><td class="num">{{ lk(y3.adopters) }}</td></tr>
+    <tr><td>Incremental Paytm UPI GMV / year</td><td class="num">–</td><td class="num">{{ cr(y1.gmv_y) }}</td><td class="num">{{ cr(y2.gmv_y) }}</td><td class="num">{{ cr(y3.gmv_y) }}</td></tr>
+    <tr><td>Revenue (payer + acquirer MDR, credit distribution)</td><td class="num">–</td><td class="num">{{ cr(y1.rev) }}</td><td class="num">{{ cr(y2.rev) }}</td><td class="num">{{ cr(y3.rev) }}</td></tr>
+    <tr><td>Cost per ₹1,000 of new GMV · per extra active merchant</td><td class="num">–</td><td class="num">₹{{ '%.2f'|format(y1.per_1000) }} · ₹{{ inr(y1.cost_per_active) }}</td><td class="num">₹{{ '%.2f'|format(y2.per_1000) }} · ₹{{ inr(y2.cost_per_active) }}</td><td class="num">₹{{ '%.2f'|format(y3.per_1000) }} · ₹{{ inr(y3.cost_per_active) }}</td></tr>
+   </table>
+   <p class="small" style="margin-top:4px">Pool: {{ lk(M.target) }} target shops × ₹60k supplier UPI/month = <b>{{ cr(M.pool_m) }}/month</b>. Year 3 adds ~{{ '%.2f'|format(y3.nat_pp) }} pp to Paytm's share of <i>all</i> UPI value from one segment.</p></div></div>
+  <div class="panel chk mist"><div class="bar">🔁 What changed since Round 1</div><div class="pad small">
+   <ul class="t">
+    <li><b>Rail-neutral after the 15 Oct MDR:</b> supplier picks QR or bank account; MDR is upside, not the model</li>
+    <li><b>Signed e-invoice QR</b> as the primary capture for ₹5 Cr+ distributors</li>
+    <li>Chukta in <b>both</b> Paytm apps (32/50 pay from personal phones)</li>
+    <li><b>Push-only</b> bills: no UPI collect (P2P collect ended Oct 2025)</li>
+    <li>Distributor-funded early-pay discount, <b>₹0 Paytm cashback</b></li>
+    <li>Forecast cut: adoption 8/20/35% (was 15/30/45%)</li>
+   </ul></div></div>
+ </div>
+</div>
+{{ foot('Summary', 1) }}
+</div>
+
+<!-- ===================== 2 R1 -> R2 ===================== -->
+<div class="slide">
+{{ hdr('Round 1 found a 100% "leak"; Round 2 re-tested the fix against 2026\'s new rules', 'The problem held up in every Kanpur shop we met. Seven design choices changed after checking MDR, the collect ban, device binding and field reality') }}
+<div class="body">
+ <div class="g" style="grid-template-columns:455px 1fr;height:100%">
+  <div class="g" style="grid-template-rows:auto auto 1fr">
+   <div class="panel chk"><div class="bar">Recap: the money flow Paytm sees vs misses</div>
+    <div class="pad" style="display:grid;grid-template-columns:1fr 46px 1fr;align-items:center;gap:4px">
+     <div class="sky" style="padding:6px;border:1px solid #9ADFF7"><b class="k">MONEY IN · Paytm owns</b><br>Customers pay ₹50–₹2,000 all day → <b>Soundbox / QR</b> "₹ prapt hue"</div>
+     <div style="text-align:center;font-weight:700;color:var(--navy);font-size:11px">Shop's<br>bank a/c</div>
+     <div style="padding:6px;border:1.5px dashed #9FB3C8;background:#FAFBFC"><b style="color:#5B6B82">MONEY OUT · Paytm misses</b><br>PhonePe / GPay / cash, from the <b>owner's personal phone</b> → distributor ₹10k–₹80k</div>
+    </div></div>
+   <div class="g" style="grid-template-columns:repeat(4,1fr);gap:7px">
+    <div class="stat chk"><div class="med">39/39</div><div class="xs">Paytm-receiving shops pay suppliers elsewhere</div></div>
+    <div class="stat chk"><div class="med">80%</div><div class="xs">of all ₹ paid out goes to distributors / wholesalers</div></div>
+    <div class="stat chk"><div class="med">32/50</div><div class="xs">pay suppliers from the owner's personal phone</div></div>
+    <div class="stat chk"><div class="med">23/50</div><div class="xs">had a supplier ask for cash / bank transfer recently</div></div>
+   </div>
+   <div class="panel chk"><div class="bar">Payment occasions (₹ paid out / month, 50 VOCs)</div><div class="pad">
+    <table class="tb">
+     <tr><th>Occasion</th><th>Pattern</th><th>Ticket</th><th class="num">₹/mo</th><th class="num">Share</th></tr>
+     <tr class="hl"><td>Distributor / wholesaler stock</td><td>High value, high freq.</td><td>₹10k–₹80k, 2–12×</td><td class="num">₹64.9 L</td><td class="num">79.7%</td></tr>
+     <tr><td>Milk, bread, vegetables</td><td>Low value, high freq.</td><td>₹800–₹4k, daily</td><td class="num">₹12.4 L</td><td class="num">15.2%</td></tr>
+     <tr><td>Shop rent</td><td>High value, low freq.</td><td>₹8k–₹25k, monthly</td><td class="num">₹2.9 L</td><td class="num">3.6%</td></tr>
+     <tr><td>Staff salary</td><td>Medium value, low freq.</td><td>₹8k–₹15k, monthly</td><td class="num">₹1.3 L</td><td class="num">1.6%</td></tr>
+    </table>
+    <p class="small" style="margin-top:5px">Rail mix of that money: <b>GPay 34% · PhonePe 30% · NEFT/RTGS 23% · cash 13% · Paytm 0%</b>. Primary business-pay app: PhonePe 33, GPay 15, Paytm 0.</p>
+    <div class="quote" style="margin-top:6px">"Paytm sirf aane ke liye hai, dena ho toh PhonePe khulta hai naturally."<small>VOC-001 · Kirana · IITK Shopping Complex</small></div>
+    <div class="quote" style="margin-top:5px">"Salesman samne khada hota hai, jo QR de de us par kar dete hain."<small>VOC-041 · Kirana · Gurdev Palace</small></div>
+    <p class="xs muted" style="margin-top:5px">Model note: Kanpur sample shows Paytm at 0% of supplier UPI; the national model uses Paytm's ~8% app share as the baseline, so uplift is understated.</p>
+   </div></div>
+  </div>
+  <div class="panel chk"><div class="bar">What changed from Round 1 to Round 2, and why</div>
+   <table class="tb" style="font-size:11.6px">
+    <tr><th style="width:118px">Design choice</th><th style="width:170px">Round 1</th><th style="width:205px">Round 2</th><th>Why (evidence)</th></tr>
+    <tr><td><b>💳 Payment rail</b></td><td>Pay the supplier's QR (P2M) mainly</td><td><b>Rail-neutral:</b> supplier picks merchant QR, VPA or bank a/c; Chukta's value is bill + reminder + reconciliation</td><td>0.4% MDR on P2M &gt; ₹2,000 from 15 Oct is ~5–10% of a 4–8% distributor margin; 23/50 suppliers already ask for cash/NEFT</td></tr>
+    <tr><td><b>📥 Bill capture</b></td><td>Photo + WhatsApp + ERP push</td><td><b>Signed e-invoice QR scan first</b> (exact, tamper-proof), ERP push, photo only as fallback</td><td>E-invoicing is mandatory above ₹5 Cr turnover; the IRP-signed QR carries GSTINs, invoice no., value, IRN</td></tr>
+    <tr><td><b>📱 Where it lives</b></td><td>Paytm for Business app</td><td><b>Both</b> Paytm for Business and the Paytm app, synced by merchant ID</td><td>32/50 pay from a personal phone; UPI device binding means the payment must start on the phone that holds the account</td></tr>
+    <tr><td><b>📨 Presentment</b></td><td>"Distributor pushes invoices"</td><td><b>Push-only, payer-initiated;</b> never a UPI collect request</td><td>NPCI ended P2P collect on 1 Oct 2025; push-only is also the anti-fraud story</td></tr>
+    <tr><td><b>🎁 Incentive</b></td><td>None specified</td><td>Optional <b>early-pay discount set and funded by the distributor</b>; ₹0 Paytm cashback</td><td>Brief scores cashback lower; incentive must survive switch-off (tested at day 60)</td></tr>
+    <tr><td><b>📊 Forecast</b></td><td>Adoption 15/30/45%; share 55/65/75%</td><td><b>Adoption 8/20/35%; share 50/60/70%</b></td><td>Realistic ramp after a 90-day pilot; sensitivity shown on slide 15</td></tr>
+    <tr><td><b>📏 Measurement</b></td><td>"Compare with a control group"</td><td><b>Cluster-randomised by distributor;</b> distributor ledger = denominator</td><td>Paytm cannot see payments made on other apps; salesmen would contaminate a shop-level control</td></tr>
+    <tr><td><b>👥 Who we test</b></td><td>50 merchants, 0 distributors</td><td><b>Merchants + distributors</b> (the actor who decides the QR)</td><td>10/50 said "the salesman shows his own QR"</td></tr>
+   </table>
+   <div style="padding:6px 8px 0"><b class="k">Four hypotheses Round 2 had to test, and where they are answered</b></div>
+   <div class="g" style="grid-template-columns:repeat(4,1fr);gap:6px;padding:5px 8px 8px">
+    <div class="sky pad small"><b>H1 Desirability</b><br>A shop moves a <i>real</i> bill to Paytm when the bill is already inside Paytm<br><span class="chip n" style="margin-top:3px">Slide 7 · ladder L3</span></div>
+    <div class="sky pad small"><b>H2 Channel</b><br>Distributors will enrol their retailers and accept Chukta payments<br><span class="chip n" style="margin-top:3px">Slide 7 · pilot interest</span></div>
+    <div class="sky pad small"><b>H3 Feasibility</b><br>Bills can be captured without typing (e-invoice QR, push, photo)<br><span class="chip n" style="margin-top:3px">Slides 7, 10</span></div>
+    <div class="sky pad small"><b>H4 Durability</b><br>Usage holds after any incentive is switched off<br><span class="chip n" style="margin-top:3px">Slide 12 · day-60 holdout</span></div>
+   </div></div>
+ </div>
+</div>
+{{ foot('Problem & insight', 2) }}
+</div>
+
+<!-- ===================== 3 WHY NOW + COMPETITION ===================== -->
+<div class="slide">
+{{ hdr('Why now: five 2025–26 changes make a shop\'s outgoing money winnable', 'Rules now favour payer-initiated, high-ticket, invoice-linked payments. Every competitor holds either the inflow or the bill, never both') }}
+<div class="body">
+ <div class="g" style="grid-template-columns:395px 1fr;height:100%">
+  <div class="panel chk"><div class="bar">⏱️ Catalysts → what it means for Chukta</div><div class="pad">
+   {% set cats = [
+     ('1 Oct 2025','🚫','NPCI ends UPI P2P collect requests','Every P2P payment is now payer-initiated. A bill must be <b>presented inside the payer\'s app</b>: exactly what Chukta does.'),
+     ('9 Oct 2025','🔊','Paytm launches AI Soundbox (11 languages, voice assistant)','A talking device already sits on the counter at closing time. <b>Voice reminders need no new hardware.</b>'),
+     ('May 2026','🔗','TallyPrime 7.0 ships Bharat Connect for Business','Distributors can push invoices system-to-system; 2 mn+ invoice txns in Q3 FY26, ~50% MoM growth.'),
+     ('15 Oct 2026','💰','UPI MDR 0.4% on P2M &gt; ₹2,000 (cap ₹300); ~20% to the payer app','Stock bills become a revenue line for the payer app, but also a cost for distributors → <b>be rail-neutral</b>.'),
+     ('31 Dec 2026','⚖️','NPCI 30% volume-cap deadline','PhonePe ~46%, GPay ~32% (Jul 2026). Leaders are constrained; the #3 app has room to grow.')
+   ] %}
+   {% for d,ic,t,s in cats %}
+   <div style="display:grid;grid-template-columns:62px 26px 1fr;gap:5px;padding:5px 0;border-bottom:1px dashed #D3DFEB">
+     <div class="k small" style="padding-top:2px">{{ d }}</div><div class="e" style="font-size:18px">{{ ic }}</div>
+     <div><b>{{ t }}</b><div class="small" style="margin-top:1px">{{ s }}</div></div></div>
+   {% endfor %}
+   <div class="sky" style="margin-top:7px;padding:6px 8px;border:1px solid #9ADFF7"><b class="k">Paytm's unfair advantage:</b> 1.57 Cr device merchants (+27 L YoY), merchant GMV ₹7.1 L Cr (+31%), financial-services revenue ₹814 Cr (+45%) in Q1 FY27. It already hears every rupee in.</div>
+   <div style="margin-top:7px"><b class="k">UPI app volume share, 2026 (NPCI)</b>
+    {% for n,val,c in [('PhonePe',46,'#5F259F'),('Google Pay',32,'#4285F4'),('Paytm',8.1,'#00BAF2'),('Navi',4,'#7A8CA6'),('Others',10,'#B8C7DA')] %}
+    <div style="display:grid;grid-template-columns:70px 1fr 40px;align-items:center;gap:5px;margin-top:3px;font-size:11.5px"><span>{{ n }}</span><div style="height:12px;background:#EEF3F8"><div style="height:12px;width:{{ val*2 }}%;background:{{ c }}"></div></div><b class="num">{{ val }}%</b></div>
+    {% endfor %}
+    <div class="xs muted" style="margin-top:2px">PhonePe/GPay: Jul 2026; Paytm: Aug 2026. Each leader is above the 30% cap.</div></div>
+  </div></div>
+  <div class="g" style="grid-template-rows:auto 1fr">
+   <div class="panel chk"><div class="bar">🥊 Competitive landscape: who covers which part of the supplier-payment job</div>
+    <table class="tb" style="font-size:11.5px">
+     <tr><th>Player (scale)</th><th class="ctr">Sees shop's inflow</th><th class="ctr">Holds bills to pay</th><th class="ctr">Pays from the bill</th><th class="ctr">Credit at bill</th><th>Gap Chukta fills</th></tr>
+     <tr><td><b>PhonePe Business</b> (5 Cr+ merchants, speakers, EDI loans)</td><td class="ctr"><span class="hb h4"></span></td><td class="ctr"><span class="hb h0"></span></td><td class="ctr"><span class="hb h1"></span></td><td class="ctr"><span class="hb h1"></span></td><td>Receives &amp; lends; no supplier-bill box</td></tr>
+     <tr><td><b>Google Pay for Business</b> (UPI QR, SoundPod)</td><td class="ctr"><span class="hb h3"></span></td><td class="ctr"><span class="hb h0"></span></td><td class="ctr"><span class="hb h1"></span></td><td class="ctr"><span class="hb h0"></span></td><td>Fast scan-and-pay, no bill, no link to receipts</td></tr>
+     <tr><td><b>Khatabook / OkCredit</b> (ledgers)</td><td class="ctr"><span class="hb h0"></span></td><td class="ctr"><span class="hb h2"></span></td><td class="ctr"><span class="hb h0"></span></td><td class="ctr"><span class="hb h0"></span></td><td>Record in one app, payment in another</td></tr>
+     <tr><td><b>Bizom / FieldAssist DMS</b> (8 M retailers via brands)</td><td class="ctr"><span class="hb h0"></span></td><td class="ctr"><span class="hb h3"></span></td><td class="ctr"><span class="hb h1"></span></td><td class="ctr"><span class="hb h0"></span></td><td>Distributor-side; retailer still pays in another app</td></tr>
+     <tr><td><b>Bharat Connect for Business</b> (NBBL; Tally 7.0)</td><td class="ctr"><span class="hb h0"></span></td><td class="ctr"><span class="hb h4"></span></td><td class="ctr"><span class="hb h3"></span></td><td class="ctr"><span class="hb h2"></span></td><td>ERP-to-ERP; misses the paper-bill kirana. <b>Chukta plugs in as the retailer front-end</b></td></tr>
+     <tr class="hl"><td>⭐ <b>Paytm Chukta</b></td><td class="ctr"><span class="hb h4"></span></td><td class="ctr"><span class="hb h4"></span></td><td class="ctr"><span class="hb h4"></span></td><td class="ctr"><span class="hb h3"></span></td><td>Bill + reminder + pay + credit where the money lands</td></tr>
+    </table>
+    <div class="xs muted" style="padding:3px 6px">Harvey balls: ○ none → ● full, from public product listings (Play Store, Sep 2026) and company pages; see Annexure A4.</div></div>
+   <div class="g" style="grid-template-columns:1fr 1fr">
+    <div class="panel chk"><div class="bar">🗺️ Positioning map</div>
+     <svg viewBox="0 0 400 225" width="100%" height="225">
+      <line x1="40" y1="200" x2="390" y2="200" stroke="#14213D"/><line x1="40" y1="200" x2="40" y2="8" stroke="#14213D"/>
+      <text x="215" y="218" text-anchor="middle" font-size="11.5" fill="#5B6B82">Sees the shop's daily inflow →</text>
+      <text x="16" y="104" text-anchor="middle" font-size="11.5" fill="#5B6B82" transform="rotate(-90 16 104)">Holds the shop's bills →</text>
+      <rect x="215" y="10" width="172" height="88" fill="#E3F5FD"/><text x="300" y="25" text-anchor="middle" font-size="11" fill="#0089B8" font-weight="700">White space: both sides</text>
+      <circle cx="330" cy="56" r="11" fill="#00BAF2"/><text x="330" y="80" text-anchor="middle" font-size="12" font-weight="700" fill="#002E6E">Paytm Chukta</text>
+      <circle cx="330" cy="178" r="8" fill="#5F259F"/><text x="330" y="166" text-anchor="middle" font-size="11" fill="#14213D">PhonePe Business</text>
+      <circle cx="268" cy="188" r="8" fill="#4285F4"/><text x="250" y="178" text-anchor="middle" font-size="11" fill="#14213D">GPay Business</text>
+      <circle cx="80" cy="35" r="8" fill="#7A8CA6"/><text x="80" y="22" text-anchor="middle" font-size="11" fill="#14213D">Bharat Connect</text>
+      <circle cx="110" cy="80" r="8" fill="#7A8CA6"/><text x="128" y="96" text-anchor="middle" font-size="11" fill="#14213D">Bizom / FieldAssist</text>
+      <circle cx="78" cy="132" r="8" fill="#7A8CA6"/><text x="98" y="150" text-anchor="middle" font-size="11" fill="#14213D">Khatabook</text>
+     </svg></div>
+    <div class="panel chk mist"><div class="bar">So what for Paytm</div><div class="pad">
+     <ul class="t">
+      <li><b>Nobody joins inflow and outflow.</b> The player who sees both can time a reminder to the moment cash arrives and underwrite credit on the full working-capital cycle.</li>
+      <li><b>Build on public rails, don't fight them:</b> Bharat Connect, e-invoice QR and credit line on UPI are all live; Chukta is the retailer-side front-end they lack.</li>
+      <li><b>Copy risk is real</b> (PhonePe has 5 Cr+ merchants): speed plus distributor integrations are the moat (slide 15).</li>
+      <li><b>Track B fit:</b> stock bills are high-value, high-frequency P2M payments, the exact ticket band where the payer app now earns MDR.</li>
+     </ul></div></div>
+   </div>
+  </div>
+ </div>
+</div>
+{{ foot('Problem & insight', 3) }}
+</div>
+
+<!-- ===================== 4 PERSONAS ===================== -->
+<div class="slide">
+{{ hdr('Who we solve for: three shop archetypes, and the distributor who picks the QR', 'Stock bills are 80% of what a shop pays out. The same frictions appear in every archetype at different strength, so one product with three entry points fits all') }}
+<div class="body">
+ <div class="g" style="grid-template-columns:repeat(4,1fr);height:384px">
+  {% set P = [
+   ('🧑‍💼','Kirana / FMCG owner','15 VOCs (10 kirana, 5 FMCG)','₹1.42 L','₹1.24 L|avg, FMCG stores','Distributor bills 4–8× / month, ₹15k–₹45k; PhonePe is the default app','Habit + salesman\'s QR','"GPay par salesman ka QR scanned rehta hai, wahi use karta hu."','VOC-016 · Kirana · Kakadeo','When the salesman is at my counter, let me pay the right bill in one tap and keep proof.','Distributor push + Soundbox reminder'),
+   ('🧑‍⚕️','Chemist / pharmacy','5 VOCs','₹3.09 L','₹3.0 L|median','Highest ticket; distributor sends a GPay QR on WhatsApp; strict credit terms','Supplier\'s QR on WhatsApp','"Medical distributor apna GPay ka QR bhejta hai WhatsApp pe, wahi aasan hai."','VOC-002 · Pharmacy · IITK','Never miss a distributor due date; my credit terms depend on it.','E-invoice QR scan + due-date engine'),
+   ('👩‍🍳','Canteen / dhaba / dairy','15 VOCs (10 canteen, 5 dairy)','₹66k','₹24k|avg, dairy / bakery','Daily perishables ~30× / month, ₹1.5k–₹2k; cash-heavy mornings','Short on cash at stock time','"Sabji wala cash mangta hai aur baki ke liye PhonePe use karte hain."','VOC-003 · Canteen · Hall 1','Let me stock up today and pay in a week, without begging for udhaar.','7 din baad (phase 2 credit)'),
+   ('🚚','Distributor / wholesaler','Supply side · R2 interviews: '~'','150–400','retailers','7–21 days retailer credit, 4–8% margin, collections by salesman cash runs','0.4% MDR on QR; manual matching','"GST bill hota hai toh bank se karte hain, baki salesman aake QR deta hai."','VOC-009 · Hardware retailer on how distributors collect','Know who paid which invoice without sending a salesman to collect.','Chukta Collect (free) + rail choice')
+  ] %}
+  {% for ic,name,n,avg,med,pat,bar_,q,qs,jtbd,fit in P %}
+  <div class="panel chk" style="display:flex;flex-direction:column">
+   <div class="bar" style="display:flex;align-items:center;gap:6px"><span class="e" style="font-size:20px">{{ ic }}</span>{{ name }}</div>
+   <div class="pad" style="flex:1;display:flex;flex-direction:column;gap:5px">
+    <div class="xs muted">{% if loop.index==4 %}Supply side · R2 interviews: {{ v('distributors_tested') }}{% else %}{{ n }}{% endif %}</div>
+    <div class="row" style="gap:6px">
+     <div class="stat" style="flex:1;padding:4px 6px"><div class="med">{{ avg }}</div><div class="xs">{{ ('avg business UPI / mo' ~ (', canteens' if loop.index==3 else (', kirana' if loop.index==1 else ''))) if loop.index<4 else 'retailers served' }}</div></div>
+     <div class="stat" style="flex:1;padding:4px 6px"><div class="med" style="font-size:16px">{{ med.split('|')[0] if loop.index<4 else '7–21 d' }}</div><div class="xs">{{ med.split('|')[1] if loop.index<4 else 'credit given' }}</div></div>
+    </div>
+    <div class="small"><b>Pattern:</b> {{ pat }}</div>
+    <div class="small"><b>Top barrier:</b> <span class="chip a">{{ bar_ }}</span></div>
+    <div class="small"><b>Paytm today:</b> {{ ['Soundbox receives all day; 0 supplier bills paid via Paytm','Paytm QR receives; stock bills paid on GPay / NEFT','Soundbox receives; perishables in cash, rest on PhonePe / GPay','Retailers pay on whatever QR the salesman shows; no invoice link'][loop.index0] }}</div>
+    <div class="quote" style="font-size:11.5px">{{ q }}<small>{{ qs }}</small></div>
+    <div class="sky" style="padding:5px 7px;font-size:11.5px;border-left:3px solid var(--navy)"><b>Job to be done:</b> "{{ jtbd }}"</div>
+    <div class="small" style="margin-top:auto"><b>Chukta entry point:</b> <span class="k">{{ fit }}</span></div>
+   </div></div>
+  {% endfor %}
+ </div>
+ <div class="panel chk" style="margin-top:10px"><div class="bar">Friction heat-map: how strongly each barrier shows up per archetype (R1 coded barriers, n = 50) → which Chukta module answers it <span style='font-weight:400'>(● strongest; analyst coding of R1 barriers by category)</span></div>
+  <table class="tb" style="font-size:11.6px">
+   <tr><th style="width:250px">Friction (VOC count)</th><th class="ctr">Kirana / FMCG</th><th class="ctr">Chemist</th><th class="ctr">Canteen / dairy</th><th class="ctr">Distributor view</th><th>Chukta answer</th></tr>
+   {% set F = [
+    ('Habit: another app is the default (17 coded · 21 incl. "only for receiving")',4,2,3,1,'Bill sits where money lands + 9 pm Soundbox nudge'),
+    ('Salesman / supplier shows his own QR (10)',3,4,1,4,'Distributor asks shops to "pay in Chukta"; Chukta Collect'),
+    ('Short on cash when stock arrives (9)',2,1,4,2,'7 din baad: credit line on UPI, supplier paid now'),
+    ('Big bills go by NEFT / RTGS (6)',1,2,0,3,'Pay to supplier bank a/c over UPI, invoice attached'),
+    ('Pays from personal phone; Business app = receiving only (32 phone · 4 coded)',4,3,3,0,'Chukta in both Paytm apps, bills synced')
+   ] %}
+   {% for f,a,b,c,d,ans in F %}<tr><td>{{ f }}</td>{% for x in [a,b,c,d] %}<td class="ctr"><span class="hb h{{ x }}"></span></td>{% endfor %}<td><b>{{ ans }}</b></td></tr>{% endfor %}
+  </table></div>
+</div>
+{{ foot('Problem & insight', 4) }}
+</div>
+
+<!-- ===================== 5 OPTIONS ===================== -->
+<div class="slide">
+{{ hdr('Six interventions scored: only a bill-led, distributor-seeded design wins on GMV and stickiness', 'Cashback buys transactions that stop when the money stops; awareness alone leaves the habit intact. Chukta keeps the cheap pieces as components') }}
+<div class="body">
+ <div class="g" style="grid-template-columns:1fr 290px;height:100%">
+  <div class="panel chk"><div class="bar">Option scoring (○ low → ● high; risk scored so that ● = low risk)</div>
+   <table class="tb opt" style="font-size:12.3px">
+    <tr><th style="width:205px">Option</th><th class="ctr">GMV uplift</th><th class="ctr">Works without cashback</th><th class="ctr">VOC frictions solved</th><th class="ctr">Speed to pilot</th><th class="ctr">Defensible vs PhonePe / GPay</th><th class="ctr">Regulatory &amp; credit risk</th><th class="ctr">Total /24</th><th>Verdict</th></tr>
+    {% set O = [
+     ('💸 Cashback / scratch cards on supplier payments','Rewards per bill paid via Paytm',3,0,'1/5',4,0,4,'Reject','r'),
+     ('📣 "You can pay suppliers" awareness push','40/50 didn\'t know; in-app + Soundbox message',1,4,'1/5',4,1,4,'Use at launch','a'),
+     ('🔊 Soundbox voice nudge alone','"Kal ₹12,400 dena hai" with no bill behind it',1,4,'1/5',4,2,4,'Component','a'),
+     ('⏳ Stock pay-later first (credit-led)','BNPL for stock bills as the hook',3,3,'1/5',1,2,1,'Phase 2','a'),
+     ('🔗 ERP / Bharat Connect integration only','Invoices for ERP-using distributors',2,4,'2/5',2,2,4,'Capture channel','a'),
+     ('⭐ Chukta: bill inbox + voice + distributor-led + optional credit','Bundles the best of 2, 3, 4, 5',4,4,'5/5',3,3,3,'Recommend','g')
+    ] %}
+    {% for name,desc,g1,g2,vf,g4,g5,g6,verdict,c in O %}
+    {% set vfs = vf.split('/')[0]|int %}{% set vfb = [((vfs*4)/5)|round|int,4]|min %}
+    <tr class="{{ 'hl' if loop.last else '' }}"><td><b>{{ name }}</b><div class="xs muted" style="font-weight:400">{{ desc }}</div></td>
+     <td class="ctr"><span class="hb h{{ g1 }}"></span></td><td class="ctr"><span class="hb h{{ g2 }}"></span></td><td class="ctr"><span class="hb h{{ vfb }}"></span><div class="xs">{{ vf }}</div></td><td class="ctr"><span class="hb h{{ g4 }}"></span></td><td class="ctr"><span class="hb h{{ g5 }}"></span></td><td class="ctr"><span class="hb h{{ g6 }}"></span></td>
+     <td class="ctr"><b style="font-size:14px">{{ g1+g2+vfb+g4+g5+g6 }}</b></td><td><span class="chip {{ c }}">{{ verdict }}</span></td></tr>
+    {% endfor %}
+   </table>
+   <div class="g" style="grid-template-columns:1fr 1fr 1fr;padding:8px;gap:8px">
+    <div class="mist pad small"><b class="k">Why not cashback?</b> A 0.1% reward on Chukta's Year 3 GMV would cost <b>{{ cr(y3.gmv_y*0.001) }} a year, every year</b>, {{ '%.1f'|format(y3.gmv_y*0.001/y3.cost) }}× Chukta's entire Year 3 cost, and PhonePe can match it overnight.</div>
+    <div class="mist pad small"><b class="k">Why not credit first?</b> Credit line on UPI only works on <b>merchant (P2M) payees</b>, needs lender underwriting under RBI's 2025 digital-lending rules, and helps 9/50 shops. It is a retention feature, not the hook.</div>
+    <div class="mist pad small"><b class="k">Why not ERP alone?</b> Bharat Connect reaches distributors on Tally / ERP, but the retailer still needs an app to receive and pay the bill. Chukta <b>is</b> that retailer front-end.</div>
+   </div>
+   <div class="g" style="grid-template-columns:1.1fr 1fr;padding:0 8px 8px;gap:8px">
+    <div class="panel pad small"><b class="k">Robustness check on the weights</b>
+     <table class="tb" style="margin-top:3px;font-size:11.3px"><tr><th>Scoring rule</th><th class="num">Cashback</th><th class="num">Awareness</th><th class="num">Voice</th><th class="num">Credit</th><th class="num">ERP</th><th class="num">Chukta</th></tr>
+      <tr><td>Equal weights</td><td class="num">12</td><td class="num">15</td><td class="num">16</td><td class="num">11</td><td class="num">16</td><td class="num"><b>21</b></td></tr>
+      <tr><td>GMV uplift × 2</td><td class="num">15</td><td class="num">16</td><td class="num">17</td><td class="num">14</td><td class="num">18</td><td class="num"><b>25</b></td></tr>
+      <tr><td>Speed to pilot × 2</td><td class="num">16</td><td class="num">19</td><td class="num">20</td><td class="num">12</td><td class="num">18</td><td class="num"><b>24</b></td></tr>
+     </table><div class="xs muted" style="margin-top:2px">Chukta ranks first under every weighting tested.</div></div>
+    <div class="panel pad small sky"><b class="k">How the pieces combine</b><div style="margin-top:4px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-weight:700;color:var(--navy)">
+      <span class="chip">🔗 ERP push</span>+<span class="chip">📷 QR / photo</span>→<span class="chip n">📥 Bill inbox</span>→<span class="chip">🔊 Voice nudge</span>→<span class="chip n">✅ Pay</span>→<span class="chip">⏳ Credit (ph. 2)</span></div>
+     <div style="margin-top:5px">Awareness messaging launches it; the distributor's salesman distributes it. Cashback is the only option dropped outright.</div></div>
+   </div>
+  </div>
+  <div class="panel chk sky"><div class="bar c">Design principles we kept</div><div class="pad">
+   {% set DP = [('📍','Put the bill where the money lands','Inflow and outflow in one place is the only position competitors can\'t copy quickly.'),
+     ('🤝','Let the distributor recruit','One signed distributor brings 150–400 shops; the salesman already visits weekly.'),
+     ('🚫','Never pay for a transaction','₹0 Paytm cashback. Any discount is the distributor\'s own early-pay scheme.'),
+     ('⚖️','Be rail-neutral','Supplier picks QR or bank account; GMV counts on Paytm either way; MDR is upside.'),
+     ('🔐','Trust before speed','Payee name checked against supplier GSTIN; push-only, never collect.'),
+     ('⏳','Credit is a feature, not the hook','Launch after payment habit forms; lender carries the risk.')] %}
+   {% for ic,t,d in DP %}<div style="display:grid;grid-template-columns:26px 1fr;gap:4px;margin-bottom:7px"><span class="e" style="font-size:18px">{{ ic }}</span><div><b>{{ t }}</b><div class="small">{{ d }}</div></div></div>{% endfor %}
+  </div></div>
+ </div>
+</div>
+{{ foot('Problem & insight', 5) }}
+</div>
+
+<!-- ===================== 6 VALIDATION METHOD ===================== -->
+<div class="slide">
+{{ hdr('Validation design: 21 shop owners and 4 distributors, interviewed in Kanpur on 8 Oct', 'Round 2 measured stated commitment: each question asked for something costlier than the last. Prototype usability and live payments move to pilot weeks 1–2') }}
+<div class="body">
+ <div class="g" style="grid-template-columns:1fr 1fr 1fr;height:226px">
+  {% set ST = [
+   ('A','🧾 Screener + baseline','2 min · n = 21','Decision-maker check, then the <b>last real supplier payment</b>, asked before Chukta is mentioned.',['S1 Decides supplier payments (owner / partner / manager)','S2 Receives on a Paytm Soundbox or QR','S3 Last supplier payment: ₹, app, which phone, minutes taken'],'<b>Baseline found:</b> 21/21 paid suppliers from the owner\'s personal phone; PhonePe 10, Google Pay 7, bank app 3, cash 1; median 4 min per payment; median bill ₹29.7k.'),
+   ('B','🗣️ Concept test','5 min · n = 21','Chukta explained in Hindi (bill → 9 pm reminder → one-tap pay → 7 din baad), then three questions.',['A1 Usefulness, 1–5','A2 "Would you move your <i>next</i> bill here?" (forced choice vs current app)','A3 Main objection, in their own words (voice note)'],'<b>R1 baseline (stated):</b> 41/50 rated the idea 4–5; 32/50 wanted 7-day pay-later. R2 re-asks with sharper, costlier questions.'),
+   ('C','✍️ Stated commitment ladder','3 min · same 21 shops','Four asks, each costing the owner more: data, time, money, a promise. A cheap "yes" shows up as a drop between rungs.',['L1 Share a real bill to be read','L2 Add suppliers + switch on the 9 pm reminder','L3 Pay the next supplier bill through Paytm','L4 Join a 90-day pilot · D: distributors asked to join + share a ledger'],'<b>Stated, not observed:</b> answers are what owners said they would do (voice notes). The pilot measures what they actually do.')
+  ] %}
+  {% for code,t,meta,d,items,note in ST %}
+  <div class="panel chk"><div class="bar" style="display:flex;justify-content:space-between"><span>Stage {{ code }} · {{ t }}</span><span style="font-weight:400;font-size:11.5px">{{ meta }}</span></div>
+   <div class="pad" style="font-size:12.3px"><p>{{ d }}</p><div style="margin-top:4px;font-weight:700;color:var(--navy)">{{ 'Questions' if code!='C' else 'Rungs' }}</div><ul class="t">{% for i in items %}<li>{{ i }}</li>{% endfor %}</ul>
+   <div class="sky small" style="padding:4px 6px;margin-top:5px">{{ note }}</div></div></div>
+  {% endfor %}
+ </div>
+ <div class="panel chk" style="margin-top:9px"><div class="bar">🧭 What Round 2 tested, and what it left for the pilot</div>
+  <div class="pad" style="display:grid;grid-template-columns:1.1fr 1.1fr 0.9fr;gap:10px">
+   <table class="tb" style="font-size:11.3px"><tr><th>Tested in R2 (stated)</th><th>Hypothesis</th></tr>
+    <tr><td>Interest and switching intent (A1, A2)</td><td>H1 desirability</td></tr>
+    <tr><td>Commitment ladder L1–L4</td><td>H1 desirability</td></tr>
+    <tr><td>Distributor interest, systems, payment mix</td><td>H2 channel</td></tr>
+    <tr><td>Bill types shops receive (QR vs paper)</td><td>H3 feasibility (input)</td></tr></table>
+   <table class="tb" style="font-size:11.3px"><tr><th>Not run in R2 → pilot</th><th>When</th></tr>
+    <tr><td>Prototype tasks on the owner's phone (usability)</td><td>Week 1</td></tr>
+    <tr><td>Bill capture accuracy (QR / photo read)</td><td>Week 1–2</td></tr>
+    <tr><td>Real payments through Paytm (observed L3)</td><td>Week 2 onward</td></tr>
+    <tr><td>Usage after incentives stop (H4)</td><td>Day 60 holdout</td></tr></table>
+   <div><b class="k small">One interview, ~10 minutes</b>
+    <div style="display:flex;height:26px;margin-top:6px;font-size:10.5px;font-weight:700;color:#fff;text-align:center;line-height:26px">
+     <div style="width:20%;background:#7A8CA6">A · 2</div><div style="width:50%;background:#002E6E">B · 5 min</div><div style="width:30%;background:#00BAF2;color:#002E6E">C · 3</div></div>
+    <div class="xs muted" style="display:flex;justify-content:space-between;margin-top:2px"><span>Screener</span><span>Concept</span><span>Ladder</span></div>
+    <div class="small" style="margin-top:6px">Distributors: ~15 min (retailers, credit days, collection mix, billing software, MDR, pilot interest). Every interview recorded as a voice note.</div></div>
+  </div></div>
+ <div class="g" style="grid-template-columns:1.25fr 1fr 1fr;margin-top:9px;height:192px">
+  <div class="panel chk"><div class="bar">👥 Sample vs quota (Kanpur, 8 Oct 2026)</div>
+   <table class="tb" style="font-size:10.6px" id="samp">
+    <tr><th>Segment</th><th class="num">Quota</th><th>Where</th><th class="num">n</th></tr>
+    <tr><td>Kirana / general FMCG</td><td class="num">10</td><td>Kalyanpur, Kakadeo, Swaroop Nagar, MT Section, IITK</td><td class="num">{{ v('q_kirana') }}</td></tr>
+    <tr><td>Chemist / pharmacy</td><td class="num">5</td><td>Kalyanpur, Swaroop Nagar, Kakadeo, IITK</td><td class="num">{{ v('q_pharma') }}</td></tr>
+    <tr><td>Canteen / dairy / bakery</td><td class="num">5</td><td>Swaroop Nagar, Kalyanpur, IITK</td><td class="num">{{ v('q_canteen') }}</td></tr>
+    <tr><td>Hardware / other</td><td class="num">5</td><td>Kakadeo, Kalyanpur, Nankari</td><td class="num">{{ v('q_other') }}</td></tr>
+    <tr class="hl"><td>Distributors</td><td class="num">3–5</td><td>4 markets incl. Nayaganj</td><td class="num">{{ v('distributors_tested') }}</td></tr>
+   </table>
+   <div class="pad xs" style="padding-top:3px"><b>Mix:</b> 10 re-contacted R1 shops + 11 new · 14 owners, 7 family partners · 11 Soundbox, 6 Paytm + other QR, 4 Paytm QR only.</div></div>
+  <div class="panel chk"><div class="bar">🛡️ Bias controls</div><div class="pad small">
+   <ul class="t">
+    <li><b>Baseline first:</b> last real payment asked before the concept</li>
+    <li><b>Don't lead:</b> which app, before Paytm is mentioned</li>
+    <li><b>Same Hinglish script</b>, same order for everyone</li>
+    <li><b>Costlier rungs</b> expose a cheap "yes"</li>
+    <li><b>Voice notes kept;</b> verbatims transcribed, repeated points grouped</li>
+    <li><b>Anonymised:</b> area + shop type only</li>
+    <li><b>No incentives</b> offered for any answer</li>
+   </ul></div></div>
+  <div class="panel chk"><div class="bar">📚 Secondary data used</div><div class="pad small">
+   <ul class="t">
+    <li>Paytm Q1 FY27 results (device merchants, GMV)</li>
+    <li>NPCI MDR circular &amp; FAQs, 15 Sep 2026</li>
+    <li>NPCI P2P collect circular, 29 Jul 2025</li>
+    <li>NPCI app shares; 30% cap deadline</li>
+    <li>CBIC e-invoice rules (₹5 Cr; signed QR)</li>
+    <li>NBBL Bharat Connect; TallyPrime 7.0</li>
+    <li>RBI credit line on UPI; DLD 2025</li>
+   </ul><div class="xs muted" style="margin-top:2px">Links: Annexure A1 and workbook → Sources.</div></div></div>
+ </div>
+</div>
+{{ foot('Validation', 6) }}
+</div>
+
+<!-- ===================== 7 VALIDATION RESULTS ===================== -->
+<div class="slide">
+{{ hdr('Validation results: interest is near-universal; firm commitment holds at one in three', '21 shop owners and 4 distributors, 8 Oct 2026. Every figure is a stated answer; the pilot converts these into observed behaviour') }}
+<div class="body">
+ <div class="g" style="grid-template-columns:1.12fr 1fr;height:100%">
+  <div class="g" style="grid-template-rows:auto auto 1fr">
+   <div class="panel chk"><div class="bar">✍️ Stated commitment ladder: {{ v('walk_n') }} shop owners ({{ v('test_dates') }})</div><div class="pad">
+    <div class="lrow"><span class="lcode" style="background:#7A8CA6">A1</span><span class="llab">Rated Chukta useful (4 or 5 out of 5)</span><div class="lbar"><div style="width:{{ 100*V.concept_top2/V.concept_n }}%;background:#9FB3C8"></div><b>{{ V.concept_top2 }}/{{ V.concept_n }} ({{ pct('concept_top2','concept_n') }})</b></div></div>
+    <div class="lrow"><span class="lcode" style="background:#7A8CA6">A2</span><span class="llab">Would move their next bill: Yes · Maybe</span><div class="lbar"><div style="width:{{ 100*V.a2_yes/V.concept_n }}%;background:#9FB3C8"></div><b>{{ V.a2_yes }} Yes · {{ V.a2_maybe }} Maybe</b></div></div>
+    {{ ladder() }}
+    <div class="lrow"><span class="lcode" style="background:var(--cyan);color:var(--navy)">D</span><span class="llab">Distributors: agreed to join pilot · offered a ledger</span><div class="lbar"><div style="width:{{ 100*V.d_loi/V.distributors_tested }}%"></div><b>{{ V.d_loi }}/{{ V.distributors_tested }} · {{ V.d_ledger }}/{{ V.distributors_tested }}</b></div></div>
+    <p class="xs muted" style="margin-top:3px">L1 is free to say yes to, so it is near-universal; L3 asks for money and drops to a third. L4 is above L3 because joining a free pilot costs nothing today.</p>
+   </div></div>
+   <div class="g" style="grid-template-columns:repeat(4,1fr);gap:7px">
+    <div class="stat chk"><div class="med">{{ pct('concept_top2','concept_n') }}</div><div class="xs">rated it 4–5 (R1: 82%)</div></div>
+    <div class="stat chk"><div class="med">{{ pct('l3_paid','walk_n') }}</div><div class="xs">would pay next supplier bill via Paytm</div></div>
+    <div class="stat chk"><div class="med">{{ V.today_min }} min</div><div class="xs">median time per supplier payment today</div></div>
+    <div class="stat chk"><div class="med">{{ pct('personal_phone','walk_n') }}</div><div class="xs">want Chukta on their personal phone</div></div>
+   </div>
+   <div class="panel chk"><div class="bar">📊 Pass bars and what the answers imply</div><div class="pad">
+    <table class="tb">
+     <tr><th>Hypothesis</th><th>Bar</th><th class="ctr" style="width:150px">Result</th></tr>
+     <tr><td>H1 Desirability</td><td>≥ 30% say they'd pay next bill via Paytm (stated)</td><td class="ctr">{{ verdict(ratio(['l3_paid'],'walk_n'), 0.30) }}</td></tr>
+     <tr><td>H2 Channel</td><td>≥ 2 distributors agree to join the pilot</td><td class="ctr">{{ verdict(V.d_loi, 2) }}</td></tr>
+     <tr><td>H3 Feasibility</td><td>≥ 70% of bills captured without typing</td><td class="ctr"><span class="chip a">PILOT WK 1–2</span></td></tr>
+     <tr><td>Usability</td><td>≥ 70% finish the 4 prototype tasks unaided</td><td class="ctr"><span class="chip a">PILOT WK 1</span></td></tr>
+    </table>
+    <div class="g" style="grid-template-columns:1fr 1fr;gap:8px;margin-top:7px">
+     <div><b class="k small">Said yes to L3, by archetype</b>
+      <div class="g" style="grid-template-columns:repeat(4,1fr);gap:4px;margin-top:3px">
+      {% for lab,k,q in [('Kirana','l3_kirana','q_kirana'),('Chemist','l3_pharma','q_pharma'),('Dairy','l3_canteen','q_canteen'),('Hardware','l3_other','q_other')] %}
+      <div class="stat" style="padding:3px 5px;text-align:center"><div class="xs">{{ lab }}</div><div style="font-weight:700;color:var(--navy);font-size:15px">{{ v(k) }}/{{ v(q) }}</div></div>{% endfor %}</div>
+      <p class="xs" style="margin-top:3px">Chemists lead (3/4): confirms pharma as wave 1.</p></div>
+     <div><b class="k small">Bills shops receive (stated)</b>
+      <table class="tb" style="font-size:11px;margin-top:3px"><tr><td>Signed e-invoice QR</td><td class="num">{{ V.einv_bills }}/{{ V.bills_seen }} ({{ pct('einv_bills','bills_seen') }})</td></tr>
+       <tr><td>Paper / photo / WhatsApp</td><td class="num">{{ V.bills_seen - V.einv_bills }}/{{ V.bills_seen }}</td></tr>
+       <tr><td>Distributors on Tally / Marg / Busy</td><td class="num">{{ V.d_erp }}/{{ V.distributors_tested }}</td></tr></table>
+      <p class="xs" style="margin-top:2px">Two-thirds of bills need photo read or distributor push.</p></div>
+    </div></div></div>
+  </div>
+  <div class="g" style="grid-template-rows:auto auto 1fr">
+   <div class="panel chk"><div class="bar">🔧 We heard → our response (most-cited objections, n = 21)</div>
+    <table class="tb" style="font-size:11.2px">
+     <tr><th style="width:43%">Objection (count)</th><th>Response</th></tr>
+     {% for r in V.heard_changed %}
+     <tr><td><i>{{ r.heard }}</i> ({{ r.n }})</td><td>{{ r.changed }}</td></tr>
+     {% endfor %}
+    </table>
+    <div class="pad xs muted" style="padding-top:2px">(n) = shops citing that objection code. Others: trust / fraud 2 · wants credit first 2 · too many steps 2 · phone mismatch 1 · none 3.</div></div>
+   <div class="panel chk"><div class="bar">🚚 Distributors: two in, two waiting for proof</div>
+    <table class="tb" style="font-size:10.8px">
+     <tr><th>Type · area</th><th class="num">Shops</th><th class="num">Credit</th><th>Cash / QR / bank</th><th>System</th><th>Pilot</th></tr>
+     <tr><td>FMCG · Nayaganj</td><td class="num">250</td><td class="num">7 d</td><td>20 / 60 / 20</td><td>Marg</td><td><span class="chip g">Yes</span></td></tr>
+     <tr><td>Pharma · Swaroop Nagar</td><td class="num">150</td><td class="num">14 d</td><td>10 / 40 / 50</td><td>Tally</td><td><span class="chip g">Yes</span></td></tr>
+     <tr><td>Mixed · Generalganj</td><td class="num">400</td><td class="num">0 d</td><td>40 / 50 / 10</td><td>Busy</td><td><span class="chip a">Later</span></td></tr>
+     <tr><td>Hardware · Birhana Rd</td><td class="num">100</td><td class="num">30 d</td><td>30 / 20 / 50</td><td>Paper</td><td><span class="chip r">No</span></td></tr>
+    </table>
+    <div class="pad small" style="padding-top:4px">
+     <div class="quote" style="font-size:11px">"Abhi mera system set hai, pehle 10 dukaandar se test karwao phir main sochunga."<small>Mixed distributor, Generalganj → pilot starts small and adds distributors at day 45</small></div>
+     <div class="quote" style="font-size:11px;margin-top:4px">"Hardware mein amount bada hota hai, log NEFT hi karte hain, QR nahi chalega."<small>Hardware distributor → bank-account rail, no MDR</small></div>
+    </div></div>
+   <div class="panel chk mist"><div class="bar">⚠️ Limits of this evidence, and how the pilot closes each</div>
+    <table class="tb" style="font-size:10.8px">
+     <tr><th>Limit</th><th>Closed by</th></tr>
+     <tr><td><b>Stated, not observed:</b> no prototype tasks or live payments in R2</td><td>Pilot wk 1–2: tasks + first real payments, read from distributor ledgers</td></tr>
+     <tr><td><b>Small n:</b> 21 shops, 4 distributors, one city, one day</td><td>~2,500 shops per arm, MDE ≈ 10 pp</td></tr>
+     <tr><td><b>Saying ≠ doing:</b> 7/21 said yes to paying via Paytm</td><td>Primary metric = observed Paytm share of supplier ₹</td></tr>
+     <tr><td><b>Interviewer effect</b> (a student asking)</td><td>Pilot run by distributor salesmen + Paytm field staff</td></tr>
+    </table></div>
+  </div>
+ </div>
+</div>
+{{ foot('Validation', 7) }}
+</div>
+
+<!-- ===================== 8 JOURNEY ===================== -->
+<div class="slide">
+{{ hdr('User journey: from three apps, a challan and memory to one inbox', 'Before: nine steps across the owner, the salesman and the distributor\'s accountant. After: four steps, and reconciliation happens on its own') }}
+<div class="body">
+ <style>.jr{display:grid;grid-template-columns:118px repeat(9,1fr);gap:5px;align-items:stretch}.jc{border:1px solid var(--line);padding:6px;font-size:12px;line-height:1.2;background:#fff;position:relative}.jc .e{font-size:21px;display:block;margin-bottom:2px}.pain{display:block;margin-top:4px;color:#B4232A;font-weight:700;font-size:11px}.lane{background:var(--navy);color:#fff;font-weight:700;padding:6px;font-size:12px;display:flex;align-items:center}.lane.c{background:var(--cyan);color:var(--navy)}</style>
+ <div class="panel chk"><div class="bar" style="background:#7A8CA6">BEFORE · today's supplier payment (from R1 in-depth interviews)</div>
+  <div class="pad"><div class="jr">
+   <div class="lane">🧑‍💼 Owner<br>+ 🚚 salesman<br>+ 🧾 accountant</div>
+   {% for ic,t,p in [('📄','Stock arrives with a paper challan or WhatsApp PDF','No due date tracked'),('🗂️','Bill goes into a drawer or a chat','Lost / forgotten'),('📞','Salesman visits or calls to collect','Owner on the spot'),('📱','Owner opens PhonePe / GPay on <b>personal</b> phone','Paytm never in hand'),('🔳','Scans whichever QR the salesman shows','Salesman picks app'),('⌨️','Types amount from the challan or memory','Typos, part-payments'),('📸','Sends a screenshot on WhatsApp as proof','No invoice link'),('🧾','Accountant matches payments by hand','Disputes, re-calls'),('🤝','Short of cash? Ask for udhaar or delay','Strains credit terms')] %}
+   <div class="jc"><span class="e">{{ ic }}</span>{{ t }}<span class="pain">✗ {{ p }}</span></div>{% endfor %}
+  </div></div></div>
+ <div class="panel chk" style="margin-top:9px"><div class="bar c">AFTER · with Paytm Chukta</div>
+  <div class="pad"><div style="display:grid;grid-template-columns:118px 1fr 1fr 1fr 1fr;gap:6px">
+   <div class="lane c">🧑‍💼 Owner</div>
+   {% for n,ic,t,d,tag in [
+    (1,'📥','Bill lands in Chukta by itself','Distributor pushes from Tally / Marg / Busy, or owner scans the <b>signed e-invoice QR</b>, or snaps / forwards the bill. Supplier, amount, due date and payee are pre-filled.','Paytm AI read · IRP QR verify'),
+    (2,'🔊','Soundbox reminds at closing','<i>"Aaj ₹31,420 aaye. Kal Sharma Traders ke ₹12,400 dene hain."</i> A push / WhatsApp opens that bill ready to pay.','Existing daily-summary voice'),
+    (3,'✅','Ek tap mein chukta','Payee name checked against supplier\'s GSTIN legal name; pay from the account the Soundbox settles into, on the rail the supplier chose. Or tap <b>7 din baad</b>.','Paytm UPI · credit line on UPI'),
+    (4,'🧾','Both ledgers close','Invoice number travels with the payment; distributor\'s <b>Chukta Collect</b> marks it paid; a GST-ready purchase register builds itself.','Auto-reconciliation')] %}
+   <div class="jc" style="border-color:#9ADFF7;background:var(--sky)"><div style="display:flex;gap:6px;align-items:center"><span class="stepn">{{ n }}</span><span class="e" style="font-size:20px;display:inline">{{ ic }}</span><b style="font-size:12.5px">{{ t }}</b></div><div style="margin-top:4px;font-size:11.5px">{{ d }}</div><span class="chip n" style="margin-top:5px">{{ tag }}</span></div>
+   {% endfor %}
+  </div>
+  <div style="display:grid;grid-template-columns:118px 1fr;gap:6px;margin-top:6px">
+   <div class="lane">🚚 Distributor</div>
+   <div class="jc" style="font-size:11.5px"><b>Chukta Collect (free web + app view):</b> invoices sent → seen → paid, per retailer; automatic reminders replace collection visits; payments land on the distributor's chosen rail (Paytm QR or bank account) already matched to invoice numbers; exportable to Tally.</div>
+  </div></div></div>
+ <div class="g" style="grid-template-columns:1fr 330px;gap:9px;margin-top:9px">
+  <div class="panel chk"><div class="bar">😰 → 😌 Owner's stress across one bill cycle (from in-depth interviews; illustrative)</div>
+   <svg viewBox="0 0 860 118" width="100%" height="104">
+    <line x1="40" y1="100" x2="850" y2="100" stroke="#9FB3C8"/><text x="4" y="22" font-size="10.5" fill="#B4232A">High</text><text x="4" y="98" font-size="10.5" fill="#0F7A37">Low</text>
+    {% set xs=[70,160,250,340,430,520,610,700,790] %}
+    {% set before=[55,40,25,22,30,38,45,28,15] %}{% set after=[80,82,78,84,86,86,86,86,82] %}
+    <polyline fill="none" stroke="#E5484D" stroke-width="3" points="{% for i in range(9) %}{{ xs[i] }},{{ before[i] }} {% endfor %}"/>
+    <polyline fill="none" stroke="#00BAF2" stroke-width="3" points="{% for i in range(9) %}{{ xs[i] }},{{ after[i] }} {% endfor %}"/>
+    {% for i in range(9) %}<circle cx="{{ xs[i] }}" cy="{{ before[i] }}" r="4" fill="#E5484D"/><text x="{{ xs[i] }}" y="114" text-anchor="middle" font-size="10" fill="#5B6B82">{{ ['Bill arrives','Filed away','Salesman calls','Wrong app','Which QR?','Typing ₹','Proof','Dispute','Cash short'][i] }}</text>{% endfor %}
+    <text x="560" y="72" font-size="11.5" font-weight="700" fill="#0089B8">With Chukta: bill pre-filled, reminder, one tap</text>
+    <text x="300" y="15" font-size="11.5" font-weight="700" fill="#B4232A">Today: peaks at "which app / which QR" and "cash short"</text>
+   </svg></div>
+  <div class="panel chk mist"><div class="bar">🛡️ Edge cases the design handles</div><div class="pad small">
+   <ul class="t"><li><b>Partial payment</b> and split bills against one invoice</li><li><b>Disputed bill:</b> "Galat bill" flag goes to the distributor, not paid</li><li><b>Supplier changes bank a/c:</b> 24-hour cooling-off + re-verification</li><li><b>Duplicate bill</b> (photo + push): matched on invoice no.</li></ul></div></div>
+ </div>
+ <div class="g" style="grid-template-columns:repeat(6,1fr);gap:7px;margin-top:9px">
+  {% for big,lab in [('9 → 4','steps to pay one stock bill'),('3 → 1','apps / places touched (paper, WhatsApp, UPI app)'),('0 → 100%','payments linked to an invoice number'),('Memory → voice','due dates owned by the Soundbox, not the owner'),('Manual → auto','distributor reconciliation'),(V.today_min~' min → 1 tap','median minutes per supplier payment today (R2)')] %}
+  <div class="stat chk" style="text-align:center"><div class="med" style="font-size:19px">{{ big }}</div><div class="xs">{{ lab }}</div></div>{% endfor %}
+ </div>
+</div>
+{{ foot('Design & feasibility', 8) }}
+</div>
+
+<!-- ===================== 9 PROTOTYPE ===================== -->
+<div class="slide">
+{{ hdr('Prototype: four screens carry the whole loop: capture, remind, pay, collect', 'Real screens from the live prototype (demo data; link in Annexure A3): Hindi-first copy, large tap targets, one decision per screen') }}
+<div class="body">
+ <div style="display:grid;grid-template-columns:646px 1fr;gap:14px;height:100%">
+ <div style="display:flex;flex-direction:column;gap:8px">
+ <div style="display:grid;grid-template-columns:repeat(3,206px);gap:14px">
+  <!-- phone 1 inbox -->
+  <div><div class="phone"><div class="notch"></div>
+   <img class="shot" src="../assets/proto_inbox.png" alt="Inbox screen of the live prototype">
+   </div>
+   <div class="small" style="margin-top:4px"><b class="k">① Inbox</b> · money in and bills due on one screen; also in the Paytm app.</div></div>
+  <!-- phone 2 capture -->
+  <div><div class="phone"><div class="notch"></div>
+   <img class="shot" src="../assets/proto_capture.png" alt="Capture screen of the live prototype">
+   </div>
+   <div class="small" style="margin-top:4px"><b class="k">② Capture</b> · signed QR first; photo / PDF read with owner confirm.</div></div>
+  <!-- phone 3 pay -->
+  <div><div class="phone"><div class="notch"></div>
+   <img class="shot" src="../assets/proto_pay.png" alt="Pay screen of the live prototype">
+   </div>
+   <div class="small" style="margin-top:4px"><b class="k">③ Pay</b> · GST name-match tick first; supplier picks the rail; one button.</div></div>
+ </div>
+ <div class="panel chk" style="flex:1"><div class="bar">🧪 What is real vs demo in the test prototype · and the tap path</div>
+  <div class="pad" style="display:grid;grid-template-columns:1.15fr 1fr;gap:10px">
+   <table class="tb" style="font-size:11.2px"><tr><th>Works for real</th><th>Demo / stub (labelled)</th></tr>
+    <tr><td>✅ Real e-invoice QR + bill-photo read</td><td>🧩 GSTIN name lookup</td></tr>
+    <tr><td>✅ UPI intent or QR scan in Paytm</td><td>🧩 Collect data, credit</td></tr>
+    <tr><td>✅ Hindi voice summary</td><td>🧩 Push / WhatsApp, Bharat Connect</td></tr></table>
+   <div><b class="k small">From reminder to paid: 4 taps</b>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-top:5px;font-size:11px">
+     <span class="chip">🔊 9 pm reminder</span>→<span class="chip">① open bill</span>→<span class="chip">② Chukta karein</span>→<span class="chip">③ Paytm UPI PIN</span>→<span class="chip n">④ proof saved</span></div>
+    <p class="small" style="margin-top:5px">Today: 9 steps, 3 apps (slide 8). The prototype never moves money; the owner pays with their own PIN.</p>
+    <p class="small" style="margin-top:4px"><b>Hosted</b> as a web app (link in Annexure A3), nothing to install; pilot week 1 runs the 4 tasks on owners' phones.</p></div>
+  </div></div>
+ </div>
+  <!-- right column -->
+  <div class="g" style="grid-template-rows:auto auto 1fr;gap:9px">
+   <div class="panel chk"><div class="bar">④ Chukta Collect · distributor view (web)</div>
+    <div class="pad" style="font-size:11px">
+     <div class="row" style="gap:6px">
+      {% for b,l in [('₹8.4 L','sent this week'),('₹6.1 L','paid in Chukta'),('212','retailers active'),('–4 days','avg days to pay')] %}<div class="stat" style="flex:1;padding:4px"><div style="font-size:15px;font-weight:700;color:var(--navy)">{{ b }}</div><div class="xs">{{ l }}</div></div>{% endfor %}
+     </div>
+     <table class="tb" style="margin-top:5px;font-size:10.8px"><tr><th>Retailer</th><th>Invoice</th><th class="num">₹</th><th>Status</th></tr>
+      <tr><td>Agarwal Kirana</td><td>#4469</td><td class="num">18,200</td><td><span class="chip g">Paid · matched</span></td></tr>
+      <tr><td>New Shiv Medical</td><td>#4470</td><td class="num">9,450</td><td><span class="chip">Seen</span></td></tr>
+      <tr><td>Sharma General Store</td><td>#4471</td><td class="num">12,400</td><td><span class="chip a">7 din baad</span></td></tr>
+     </table>
+     <div class="xs muted" style="margin-top:3px">Illustrative data. Export to Tally / Marg; reminders are sent by Paytm, never as a UPI collect.</div></div></div>
+   <div class="panel chk sky"><div class="bar c">🔊 Soundbox script (Hindi, 9 pm)</div><div class="pad">
+     <div class="say" style="font-size:12.5px"><i>"Aaj ₹31,420 aaye. Kal Sharma Traders ke ₹12,400 dene hain. Chukta karne ke liye Paytm kholein."</i></div>
+     <div class="small" style="margin-top:12px">AI Soundbox owners can also ask: <i>"Is hafte kitna dena hai?"</i> Only totals and supplier names are spoken; amounts can be muted for privacy.</div></div></div>
+   <div class="panel chk"><div class="bar">🎯 Design choices from the VOCs</div><div class="pad" style="font-size:13px;line-height:1.5">
+     <ul class="t">
+      <li><b>Hindi-first verbs</b> ("Chukta karein", "7 din baad"): owners spoke Hinglish in all 50 VOCs</li>
+      <li><b>Money-in on top</b>: the reminder lands next to today's collections, the link that's missing</li>
+      <li><b>One decision per screen</b>, large buttons for counter use with a customer waiting</li>
+      <li><b>Trust cues</b>: e-invoice ✓, payee-match ✓, "12 bills paid" history; no collect requests</li>
+      <li><b>Safety by default</b>: a new or changed payee needs a GSTIN name match before the first payment</li>
+      <li><b>Low-literacy friendly</b>: icons, big numerals, amounts spoken aloud by the Soundbox</li>
+      <li><b>Patchy network</b>: bills cached on the phone; payment uses the standard UPI flow</li>
+      <li><b>Counter-speed</b>: "Chukta karein" reachable in one tap from the reminder</li>
+      <li>Prototype link: Annexure A3</li>
+     </ul></div></div>
+  </div>
+ </div>
+</div>
+{{ foot('Design & feasibility', 9) }}
+</div>
+
+<!-- ===================== 10 FEASIBILITY ===================== -->
+<div class="slide">
+{{ hdr('Feasibility: Chukta reuses five live Paytm assets; the MVP is a medium build in 12 weeks', 'Only two pieces are large (ERP connectors and business credit) and both can follow the MVP. Every rail it uses is already live in 2026') }}
+<div class="body">
+ <div class="g" style="grid-template-columns:430px 1fr;height:100%">
+  <div class="g" style="grid-template-rows:auto 1fr">
+   <div class="panel chk"><div class="bar">🏗️ How it fits together</div><div class="pad" style="font-size:11.3px">
+    {% set L = [
+     ('Capture','📥',['Bharat Connect / Paytm API push','e-invoice QR verify (IRP public key)','AI read of photo / PDF','WhatsApp forward'],'NEW'),
+     ('Chukta core','🗃️',['Bill ledger + due-date engine','Supplier directory: GSTIN ↔ VPA / a/c match','Merchant-ID sync across both apps'],'NEW'),
+     ('Engage','🔊',['Soundbox daily summary voice','AI Soundbox Q&amp;A','Push / WhatsApp'],'REUSE'),
+     ('Pay','💳',['Paytm UPI (TPAP): QR / VPA / a/c+IFSC','Credit line on UPI via partner bank'],'REUSE'),
+     ('Records','🧾',['Purchase register + GST export','Chukta Collect for distributors','Inflow + outflow data to lending engine'],'NEW + REUSE')
+    ] %}
+    {% for name,ic,items,tag in L %}
+    <div style="display:grid;grid-template-columns:92px 1fr 70px;gap:6px;align-items:center;margin-bottom:3px">
+     <div style="background:var(--navy);color:#fff;font-weight:700;padding:6px;border-radius:4px;text-align:center"><span class="e">{{ ic }}</span> {{ name }}</div>
+     <div style="border:1px solid var(--line);padding:3px 6px;font-size:10.9px;background:{{ '#fff' if 'NEW'==tag else 'var(--sky)' }}">{{ items|join(' · ') }}</div>
+     <span class="chip {{ 'a' if tag=='NEW' else ('g' if tag=='REUSE' else '') }}" style="text-align:center">{{ tag }}</span></div>
+    {% endfor %}
+    </div></div>
+   <div class="panel chk"><div class="bar">♻️ Paytm features reused · and does the data exist?</div><div class="pad small" style="padding-top:4px">
+    <ul class="t ck">
+     <li><b>Paytm for Business</b> (10 M+ businesses) + <b>Paytm app</b></li>
+     <li><b>Soundbox / AI Soundbox</b>: summary voice, 11 languages</li>
+     <li><b>Paytm UPI stack</b> with PSP banks; instant settlement</li>
+     <li><b>Merchant-loan engine</b> + Postpaid credit line on UPI (Suryoday SFB)</li>
+     <li><b>Payment-aggregator licence</b> (PPSL) to acquire distributors' QRs</li>
+    </ul>
+    <table class="tb" style="margin-top:4px;font-size:10.6px">
+     <tr><th>Data needed</th><th>Source</th><th class="ctr">Status</th></tr>
+     <tr><td>Invoice fields</td><td>e-invoice QR · ERP push · photo</td><td class="ctr">✅</td></tr>
+     <tr><td>Supplier legal name</td><td>Public GSTIN search</td><td class="ctr">✅</td></tr>
+     <tr><td>Payee name for a VPA / a/c</td><td>UPI name shown before PIN</td><td class="ctr">✅</td></tr>
+     <tr><td>Shop inflow history</td><td>Paytm's own settlements</td><td class="ctr">✅</td></tr>
+     <tr><td>Payments on other apps</td><td>Not visible → distributor ledger, AA consent</td><td class="ctr">⚠️</td></tr>
+     <tr><td>Distributor's retailer list</td><td>Tally / Marg / DMS ledger, with consent</td><td class="ctr">✅</td></tr>
+     <tr><td>Credit underwriting inputs</td><td>Lender bureau pull + Paytm settlements (consent)</td><td class="ctr">✅</td></tr>
+    </table></div></div>
+  </div>
+  <div class="g" style="grid-template-rows:auto 1fr">
+   <div class="panel chk"><div class="bar">🔨 What must be built, and how big (S ≤ 4 wks · M 4–12 wks · L &gt; 12 wks, for one squad)</div>
+    <table class="tb" style="font-size:11.4px">
+     <tr><th>Component</th><th>New / reuse</th><th class="ctr">Effort</th><th>In MVP?</th><th>Notes</th></tr>
+     {% for c,n,e,m,note in [
+      ('Bill inbox + ledger + due-date engine (both apps)','New','M','✅','Core data model; sync by merchant ID'),
+      ('e-invoice QR read + IRP signature check','New','S','✅','Public schema and key; fields are exact'),
+      ('Photo / PDF bill read with confidence score','New (reuse Paytm AI)','M','✅','Owner confirms amount + payee before paying'),
+      ('Payee verification: GSTIN legal name ↔ VPA / a/c name','New','S','✅','GSTIN search + UPI name lookup; flags mismatches'),
+      ('Soundbox "due tomorrow" line','Reuse + config','S','✅','Extends the existing daily summary script'),
+      ('Invoice-tagged UPI pay (QR / VPA / a/c)','Reuse','S','✅','Invoice no. in remarks; rail picked by supplier'),
+      ('Chukta Collect distributor view + CSV / Tally export','New','M','✅','Web first; read-only to start'),
+      ('Distributor push: Paytm API, Bharat Connect, Tally / Marg / Busy','New + partners','L','Pilot: CSV upload','Tally 7.0 already speaks Bharat Connect'),
+      ('7 din baad: business credit line on UPI','Partner','L','Wk 7 sub-cohort','Lender underwrites; P2M payees only'),
+      ('GST purchase register export','New','S','Phase 2','From invoice-tagged payments')
+     ] %}<tr><td>{{ c }}</td><td>{{ n }}</td><td class="ctr"><span class="chip {{ 'g' if e=='S' else ('a' if e=='M' else 'r') }}">{{ e }}</span></td><td>{{ m }}</td><td class="small">{{ note }}</td></tr>{% endfor %}
+    </table>
+    <div class="pad small" style="padding-top:3px"><b>Overall: MEDIUM.</b> MVP ≈ 1 squad (PM, designer, 4 engineers, 1 QA) for 12 weeks; ERP connectors and credit run on parallel partner tracks.</div></div>
+   <div class="panel chk"><div class="bar">📜 Regulatory &amp; partner dependencies</div>
+    <table class="tb" style="font-size:11.2px">
+     <tr><th style="width:135px">Dependency</th><th>What it requires of Chukta</th><th class="ctr">Risk</th></tr>
+     <tr><td>NPCI UPI rules</td><td>Payer-initiated (push) payments only; P2P collect ended 1 Oct 2025; P2P limit ₹1 L/day per account</td><td class="ctr"><span class="chip g">Low</span></td></tr>
+     <tr><td>NPCI MDR (15 Oct 2026)</td><td>0.4% on P2M &gt; ₹2,000 borne by payee; P2P and P2PM exempt → offer rail choice</td><td class="ctr"><span class="chip a">Med</span></td></tr>
+     <tr><td>RBI Digital Lending Directions 2025</td><td>Paytm as LSP; lender underwrites; key-fact statement; any default guarantee ≤ 5%</td><td class="ctr"><span class="chip a">Med</span></td></tr>
+     <tr><td>DPDP Act 2023 + Rules</td><td>Explicit consent for bill data; purpose limitation; delete photos after extraction</td><td class="ctr"><span class="chip g">Low</span></td></tr>
+     <tr><td>UPI device binding</td><td>Payment must start on the phone that holds the bank account → Chukta lives in both Paytm apps</td><td class="ctr"><span class="chip g">Low</span></td></tr>
+     <tr><td>GST e-invoice (IRP)</td><td>Read and verify the public signed QR; no GSTN API access or GSP licence needed for this</td><td class="ctr"><span class="chip g">Low</span></td></tr>
+     <tr><td>Partners</td><td>NBBL / BBPOU bank for Bharat Connect · Tally, Marg, Busy · lending partners · pilot distributors</td><td class="ctr"><span class="chip a">Med</span></td></tr>
+    </table></div>
+  </div>
+ </div>
+</div>
+{{ foot('Design & feasibility', 10) }}
+</div>
+
+<!-- ===================== 11 GTM ===================== -->
+<div class="slide">
+{{ hdr('Go-to-market: sign one distributor, win 250 shops, with no consumer marketing spend', 'A B2B2B flywheel: the distributor gets free collections tooling, its salesman enrols shops at the counter, and the Soundbox keeps them coming back') }}
+<div class="body">
+ <div class="g" style="grid-template-columns:350px 1fr 330px;height:100%">
+  <div class="g" style="grid-template-rows:auto 1fr">
+   <div class="panel chk"><div class="bar">🎯 Who first (beachhead scoring)</div>
+    <table class="tb" style="font-size:11.3px"><tr><th>Sub-segment</th><th class="ctr">₹ / shop</th><th class="ctr">Bill capture</th><th class="ctr">Distributor pull</th><th>Order</th></tr>
+     <tr class="hl"><td>Pharma retail</td><td class="ctr"><span class="hb h4"></span></td><td class="ctr"><span class="hb h4"></span></td><td class="ctr"><span class="hb h3"></span></td><td>① Wave 1</td></tr>
+     <tr class="hl"><td>Kirana / FMCG</td><td class="ctr"><span class="hb h3"></span></td><td class="ctr"><span class="hb h2"></span></td><td class="ctr"><span class="hb h4"></span></td><td>① Wave 1</td></tr>
+     <tr><td>Canteen / dairy / bakery</td><td class="ctr"><span class="hb h2"></span></td><td class="ctr"><span class="hb h1"></span></td><td class="ctr"><span class="hb h2"></span></td><td>② With credit</td></tr>
+     <tr><td>Hardware / electronics</td><td class="ctr"><span class="hb h2"></span></td><td class="ctr"><span class="hb h3"></span></td><td class="ctr"><span class="hb h1"></span></td><td>③ Later</td></tr>
+    </table>
+    <div class="pad xs muted">₹/shop from R1 VOCs (pharma ₹3.09 L, kirana ₹1.42 L per month). Pharma distributors are large enough to e-invoice and often run Marg.</div></div>
+   <div class="panel chk"><div class="bar">🔄 The flywheel</div><div class="pad" style="position:relative">
+    <svg viewBox="-42 0 404 205" width="100%" height="168">
+     <circle cx="160" cy="100" r="68" fill="none" stroke="#00BAF2" stroke-width="4" stroke-dasharray="8 6"/>
+     <circle cx="160" cy="100" r="30" fill="#002E6E"/><text x="160" y="97" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">Paytm</text><text x="160" y="110" text-anchor="middle" fill="#00BAF2" font-size="11" font-weight="700">Chukta</text>
+     {% for x,y,t1,t2 in [(160,14,'1 Distributor signs','(free Chukta Collect)'),(292,100,'2 Salesman enrols','shops at counter'),(160,190,'3 Shops pay bills;','Soundbox nudges'),(30,100,'4 Bill history pulls','next distributor')] %}
+     <rect x="{{ x-62 }}" y="{{ y-15 }}" width="124" height="30" rx="5" fill="#E3F5FD" stroke="#002E6E"/><text x="{{ x }}" y="{{ y-2 }}" text-anchor="middle" font-size="10.5" font-weight="700" fill="#002E6E">{{ t1 }}</text><text x="{{ x }}" y="{{ y+10 }}" text-anchor="middle" font-size="10" fill="#14213D">{{ t2 }}</text>{% endfor %}
+    </svg>
+    <table class="tb" style="margin-top:2px;font-size:11px"><tr><th>Flywheel math (per distributor)</th><th class="num">Value</th></tr>
+     <tr><td>Retailers served</td><td class="num">~250</td></tr>
+     <tr><td>Active in Chukta (40% × 70% retained)</td><td class="num">~70</td></tr>
+     <tr><td>Other suppliers per active shop (R1: 2–3 use cases)</td><td class="num">2–3</td></tr>
+     <tr class="hl"><td>Named supplier leads (their bills land in Chukta)</td><td class="num">~150–200</td></tr></table></div></div>
+  </div>
+  <div class="g" style="grid-template-rows:auto auto 1fr">
+   <div class="panel chk"><div class="bar">📡 Channels &amp; partners</div>
+    <table class="tb" style="font-size:11.3px"><tr><th>Channel</th><th>Role</th><th>Cost to Paytm</th><th>KPI</th></tr>
+     <tr><td><b>Distributor salesmen</b> (primary)</td><td>Enrol shops during weekly order visit; 5-min demo</td><td>₹50 one-time per activated shop</td><td>Activation / salesman / week</td></tr>
+     <tr><td><b>Soundbox voice</b> (owned media)</td><td>"Ab supplier ko bhi Paytm se pay karein" + nightly dues</td><td>≈ ₹0 (OTA script)</td><td>Reminder → payment conversion</td></tr>
+     <tr><td><b>Paytm field force</b></td><td>Train owners during routine device service visits</td><td>Add-on to existing visit</td><td>Trained → active</td></tr>
+     <tr><td><b>ERP / DMS partners</b>: Tally, Marg, Busy, Bizom</td><td>"Send via Chukta" button; Bharat Connect rails</td><td>Integration effort</td><td>% invoices pushed</td></tr>
+     <tr><td><b>FMCG &amp; pharma brands</b></td><td>Want faster secondary collections; nominate distributors</td><td>Co-marketing</td><td>Distributors nominated</td></tr>
+    </table></div>
+   <div class="panel chk"><div class="bar">💬 Messaging by audience</div>
+    <table class="tb" style="font-size:11px"><tr><th style="width:84px">Audience</th><th>Line (Hinglish)</th><th>Proof point</th></tr>
+     <tr><td>Shop owner</td><td><b>"Paisa Paytm pe aata hai, bill bhi Paytm se chukta karo."</b></td><td>Dues read out at closing; no lost challans</td></tr>
+     <tr><td>Distributor</td><td><b>"Collection bina chakkar ke, har payment bill se juda."</b></td><td>Fewer cash runs; auto-matching; free</td></tr>
+     <tr><td>Salesman</td><td><b>"Cash ka bag nahi, Chukta ka link."</b></td><td>No cash to carry; target credit for collections</td></tr>
+     <tr><td>Brand / CFO</td><td>"See secondary collections in real time."</td><td>Invoice-level payment status</td></tr>
+    </table></div>
+   <div class="panel chk mist"><div class="bar">📍 Rollout path</div><div class="pad small" style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px 6px;padding-top:5px;padding-bottom:5px">
+     <div><b class="k">0–3 mo · Kanpur</b><br>20 distributors (10 treated), ~2,500 shops; randomised pilot</div>
+     <div><b class="k">4–9 mo · 10 cities</b><br>High-Soundbox Tier-1/2 cities (e.g. Lucknow, Jaipur, Indore, Patna); 500 distributors; credit live</div>
+     <div><b class="k">10–24 mo · national</b><br>Brand-nominated distributors + ERP button; self-serve Chukta Collect</div>
+     <div class="sky" style="padding:3px 6px;font-size:10.5px"><b>Gate:</b> DiD ≥ +25 pp · 20 distributors · ~1,500 Paytm shops per arm</div>
+     <div class="sky" style="padding:3px 6px;font-size:10.5px"><b>Target:</b> 500 distributors × ~70 active ≈ 35k shops · credit live</div>
+     <div class="sky" style="padding:3px 6px;font-size:10.5px"><b>Target:</b> {{ lk(y1.adopters) }} active shops at Year 1 exit (8% of target)</div></div></div>
+  </div>
+  <div class="panel chk sky"><div class="bar c">🤝 Why a distributor says yes</div><div class="pad">
+   <p class="small">Illustrative distributor: <b>₹15 L sales / month</b>, 250 retailers, 21 days of retailer credit (industry range 7–21 days; margins 4–8%).</p>
+   <table class="tb" style="margin-top:4px;font-size:11px">
+    <tr><th>Lever</th><th class="num">₹ / year</th></tr>
+    <tr><td>Collect 5 days faster: frees ₹2.5 L working capital at 12%</td><td class="num">+30,000</td></tr>
+    <tr><td>Fewer salesman collection trips and cash deposits</td><td class="num">+ (time saved)</td></tr>
+    <tr><td>Auto-reconciliation vs manual matching</td><td class="num">+ (accountant hours)</td></tr>
+    <tr><td>MDR if all receipts came on a P2M QR (0.4%)</td><td class="num">–72,000</td></tr>
+    <tr class="hl"><td>MDR if the distributor picks <b>bank-account rail</b> in Chukta</td><td class="num">0</td></tr>
+   </table>
+   <p class="small" style="margin-top:4px"><b>The insight:</b> after 15 Oct, a QR-only product makes distributors pay to be paid. Chukta lets them choose, so the decision is about <b>collections, not fees</b>, and Paytm keeps the GMV either way.</p>
+   <div class="say" style="margin-top:6px;font-size:11px;padding:5px 9px">Optional early-pay discount (e.g. 0.25% within 2 days) is set and funded by the distributor from its own scheme budget. Paytm pays no cashback.</div>
+   <div style="margin-top:10px"><b class="k">Objections we expect, and the answer</b></div>
+   <table class="tb" style="margin-top:3px;font-size:11px">
+    <tr><td><i>"Salesman ka incentive cash collection pe hai."</i></td><td>Chukta payments count as his collections, with invoice proof</td></tr>
+    <tr><td><i>"MDR kaun dega?"</i></td><td>Choose the bank-account rail: no MDR</td></tr>
+    <tr><td><i>"Mere retailers app nahi chalate."</i></td><td>Soundbox speaks the dues; salesman does a 5-min demo</td></tr>
+   </table>
+   <div class="mist small" style="padding:5px 7px;margin-top:6px"><b>Pilot LOI:</b> 90 days · Collect free · 4-week ledger shared · own invoices only · no exclusivity.</div>
+   <p class="xs muted" style="margin-top:5px">R2 (4 distributors): credit 0–30 days; collections 10–40% cash; 2 agreed to join the pilot, 1 wants proof from 10 shops first.</p>
+  </div></div>
+ </div>
+</div>
+{{ foot('GTM & pilot', 11) }}
+</div>
+
+<!-- ===================== 12 PILOT ===================== -->
+<div class="slide">
+{{ hdr('90-day Kanpur pilot: a cluster-randomised test that can say "scale" or "stop" with numbers', 'Randomising whole distributors (not shops) stops salesmen from spilling the treatment into the control; distributor ledgers give the true share-of-wallet') }}
+<div class="body">
+ <div class="g" style="grid-template-columns:1fr 1fr 1fr;height:262px">
+  <div class="panel chk"><div class="bar">🧪 Design</div><div class="pad">
+   <table class="tb" style="font-size:11.9px">
+    <tr><td><b>Cohort</b></td><td>20 FMCG + pharma distributors in Kanpur, matched in pairs by size and category</td></tr>
+    <tr><td><b>Treatment</b></td><td>10 distributors (random within pair) → ~2,500 retailers get Chukta; ~1,500 are Paytm device merchants (analysis cohort)</td></tr>
+    <tr><td><b>Control</b></td><td>The other 10 → ~2,500 retailers, business as usual</td></tr>
+    <tr><td><b>Baseline</b></td><td>4 weeks pre-launch: distributor ledger (invoice, amount, payment mode, app) + Paytm data; AA-consented bank data on 200 shops</td></tr>
+    <tr><td><b>Analysis</b></td><td>Difference-in-differences on Paytm share of supplier ₹, clustered errors</td></tr>
+    <tr><td><b>Spillover</b></td><td>Shops buying from both arms are flagged and analysed separately</td></tr>
+   </table></div></div>
+  <div class="panel chk"><div class="bar">🎯 Targets at day 90 (treated Paytm device shops)</div><div class="pad">
+   <table class="tb" style="font-size:11.4px">
+    <tr><th>Metric</th><th class="num">Target</th></tr>
+    <tr class="hl"><td>Paytm share of supplier ₹: DiD vs control <i>(primary)</i></td><td class="num">≥ +25 pp</td></tr>
+    <tr><td>Paytm share of supplier ₹ in treated shops (from ~0–8%)</td><td class="num">≥ 35%</td></tr>
+    <tr><td>Activation: ≥ 1 bill paid in Chukta within 14 days</td><td class="num">≥ 40%</td></tr>
+    <tr><td>Repeat: activated shops paying ≥ 3 bills in month 3</td><td class="num">≥ 60%</td></tr>
+    <tr><td>Bills visible in Chukta (pilot distributors' invoices)</td><td class="num">≥ 70%</td></tr>
+    <tr><td>Retention after discount switched off at day 60</td><td class="num">≥ 85%</td></tr>
+    <tr><td>Distributor days-to-collect</td><td class="num">−3 days</td></tr>
+    <tr><td>Credit sub-cohort: uptake among shops offered</td><td class="num">≥ 20%</td></tr>
+   </table></div></div>
+  <div class="panel chk"><div class="bar">🛑 Guardrails &amp; power</div><div class="pad" style="font-size:11.6px">
+   <ul class="t x">
+    <li>Payment failure rate &lt; 1%; zero unrecovered fraud losses</li>
+    <li>Complaints &lt; 2% of active shops</li>
+    <li>Soundbox churn in treated shops ≤ control</li>
+    <li>Credit (week 7+): first-payment default &lt; 2% on small limits</li>
+   </ul>
+   <div class="sky" style="padding:5px 7px;margin-top:6px"><b>Power:</b> 10 vs 10 clusters, ~150 analysable shops each, ICC 0.05 assumed → design effect ≈ 8.5 → ~177 effective shops per arm → <b>minimum detectable effect ≈ 10 pp</b> at 80% power, α = 0.05. Our target (+25 pp) is well above it.</div>
+   <div style="margin-top:6px"><b>Budget ≈ ₹10 L:</b> field team 6 × 3 mo (₹7.2 L), activation fees (₹0.5 L), distributor onboarding (₹0.5 L), infra / AI read (₹0.3 L), print &amp; comms (₹0.5 L), contingency (₹1 L)</div>
+   <div style="margin-top:5px"><b>Team:</b> Paytm Kanpur city lead (owner) · 6 field associates · 1 analyst · 10 distributor champions · lending-partner RM</div></div></div>
+ </div>
+ <div class="g" style="grid-template-columns:1.45fr 1fr;margin-top:10px;height:314px">
+  <div class="panel chk"><div class="bar">🗓️ 13-week plan</div><div class="pad">
+   <style>.gt{display:grid;grid-template-columns:150px repeat(13,1fr);gap:2px;font-size:10.8px;align-items:center}.gt .h{font-weight:700;color:var(--grey);text-align:center}.gb{height:20px;border-radius:3px}</style>
+   <div class="gt"><div></div>{% for w in range(13) %}<div class="h">W{{ w }}</div>{% endfor %}
+    {% for t,a,b,c in [('Recruit + randomise 20 distributors',0,1,'#7A8CA6'),('Baseline ledgers (4 wks)',0,3,'#B8C7DA'),('MVP build complete',0,3,'#002E6E'),('Salesmen trained; shops enrolled',4,6,'#00BAF2'),('Live: inbox, voice, pay',4,12,'#3A6BB0'),('Credit sub-cohort (lender)',7,12,'#E8930C'),('Discount switched off (holdout)',8,12,'#E5484D'),('Read-outs: D30 / D60 / D90',6,12,'#15A34A')] %}
+    <div style="font-size:11px">{{ t }}</div>{% for w in range(13) %}<div class="gb" style="background:{{ c if a<=w<=b else '#F0F4F8' }}{{ ';opacity:.95' if a<=w<=b else '' }}"></div>{% endfor %}
+    {% endfor %}
+   </div>
+   <div class="g" style="grid-template-columns:repeat(3,1fr);gap:6px;margin-top:9px">
+    <div class="stat" style="border-left:4px solid var(--green)"><b style="color:#0F7A37">🟢 SCALE</b><div class="small">DiD ≥ +25 pp <b>and</b> repeat ≥ 60% <b>and</b> guardrails met → 10 cities</div></div>
+    <div class="stat" style="border-left:4px solid var(--amber)"><b style="color:#9A5B00">🟡 ITERATE</b><div class="small">DiD +10 to +25 pp → fix the weakest funnel step, extend 60 days</div></div>
+    <div class="stat" style="border-left:4px solid var(--red)"><b style="color:#B4232A">🔴 STOP</b><div class="small">DiD &lt; +10 pp or activation &lt; 15% → keep only the Soundbox reminder</div></div>
+   </div></div></div>
+  <div class="panel chk"><div class="bar">📈 Leading indicators: what we read each fortnight</div><div class="pad">
+   <table class="tb" style="font-size:11.3px">
+    <tr><th>Funnel step</th><th>Indicator</th><th class="num">D30</th><th class="num">D90</th></tr>
+    <tr><td>Reach</td><td>Shops enrolled by salesmen</td><td class="num">60%</td><td class="num">80%</td></tr>
+    <tr><td>Capture</td><td>Invoices visible in Chukta</td><td class="num">50%</td><td class="num">70%</td></tr>
+    <tr><td>Activation</td><td>≥ 1 bill paid in 14 days</td><td class="num">25%</td><td class="num">40%</td></tr>
+    <tr><td>Habit</td><td>Reminder → pay within 24 h</td><td class="num">30%</td><td class="num">50%</td></tr>
+    <tr><td>Repeat</td><td>≥ 3 bills / month</td><td class="num">–</td><td class="num">60%</td></tr>
+    <tr><td>Share</td><td>Paytm share of supplier ₹</td><td class="num">15%</td><td class="num">35%</td></tr>
+   </table>
+   <p class="small" style="margin-top:6px"><b>After the pilot:</b> 10 cities with the highest Soundbox density, then national via brand-nominated distributors and the ERP "Send via Chukta" button (slide 11).</p>
+   <div style="margin-top:6px"><b class="k small">Review cadence</b></div>
+   <div class="g" style="grid-template-columns:repeat(3,1fr);gap:5px;margin-top:3px;font-size:11px">
+    <div class="mist" style="padding:4px 6px"><b>Weekly</b><br>Funnel dashboard by distributor; fix the weakest step</div>
+    <div class="mist" style="padding:4px 6px"><b>Day 45</b><br>Mid-point check: activation ≥ 25% or re-train salesmen</div>
+    <div class="mist" style="padding:4px 6px"><b>Day 90</b><br>DiD read-out → scale / iterate / stop</div></div></div></div>
+ </div>
+</div>
+{{ foot('GTM & pilot', 12) }}
+</div>
+
+<!-- ===================== 13 IMPACT ===================== -->
+<div class="slide">
+{{ hdr('Main metric: Paytm\'s share of its merchants\' supplier UPI rises from ~8% to ~30% in 3 years', 'Built bottom-up from the segment funnel; no growth in UPI assumed, and today\'s ~8% Paytm share is netted out before counting any uplift') }}
+<div class="body">
+ <div class="panel chk"><div class="bar">🧮 Size of the opportunity (segment funnel, national)</div>
+  <div class="pad" style="display:grid;grid-template-columns:repeat(5,1fr);gap:0">
+   {% for big,lab,how,c in [('1.57 Cr','Paytm device merchants','Q1 FY27 results','#002E6E'),('70.7 L','buy stock from suppliers','× 45% retail mix','#123F80'),(lk(M.target),'pay suppliers over UPI = target','× 60% monthly UPI payers','#2A5C9E'),(cr(M.pool_m),'their supplier UPI per month','× ₹60k each (Kanpur VOC avg ₹1.09 L)','#0089B8'),('~₹'~inr(M.pool_m*0.92)~' Cr','goes to other apps every month','Paytm today ≈ 8% (₹'~inr(M.pool_m*0.08)~' Cr)','#00BAF2')] %}
+   <div style="background:{{ c }};color:#fff;padding:8px 10px 8px 18px;clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,6% 50%);{{ 'clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);' if loop.first else '' }}"><div style="font-size:21px;font-weight:700">{{ big }}</div><div style="font-size:11.5px">{{ lab }}</div><div style="font-size:10.5px;opacity:.85">{{ how }}</div></div>
+   {% endfor %}
+  </div></div>
+ <div class="g" style="grid-template-columns:350px 320px 1fr;margin-top:10px;height:356px">
+  <div class="panel chk"><div class="bar">🎯 Paytm share of segment's supplier UPI</div><div class="pad">
+   {{ chart_share() }}
+   <div class="row small" style="gap:12px"><span><span style="display:inline-block;width:10px;height:10px;background:#B8C7DA"></span> share today (~8%)</span><span><span style="display:inline-block;width:10px;height:10px;background:#00BAF2"></span> uplift from Chukta</span></div>
+   <div class="sky small" style="padding:5px 7px;margin-top:8px"><b>KPI tree.</b> Segment share = 8% + (adoption × share-of-wallet uplift among adopters). Year 3: {{ (A.adopt[2]*100)|int }}% of target shops × ({{ (A.share[2]*100)|int }}% − 8%) ≈ <b>+{{ '%.1f'|format((y3.seg_share-0.08)*100) }} pp</b>.</div>
+   <p class="small" style="margin-top:6px">Kanpur's starting point is 0%, not 8%: the national model deliberately understates the uplift there.</p></div></div>
+  <div class="panel chk"><div class="bar">💰 Incremental Paytm UPI GMV / year</div><div class="pad">
+   {{ chart_gmv() }}
+   <ul class="t small" style="margin-top:6px">
+    <li>≈ {{ '%.0f'|format(y3.tx/1e5) }} L extra UPI transactions a month by Year 3</li>
+    <li>Adds <b>~{{ '%.2f'|format(y3.nat_pp) }} pp</b> to Paytm's share of <b>all</b> UPI value (≈ {{ '%.1f'|format(y3.gmv_m/204000*100) }}% on top of Paytm's ₹2.04 L Cr monthly UPI value) from this one segment</li>
+    <li>Cumulative 3-year GMV: <b>{{ cr(M.cum_gmv) }}</b></li>
+   </ul></div></div>
+  <div class="g" style="grid-template-rows:auto 1fr">
+   <div class="panel chk"><div class="bar">📋 Year-by-year build</div>
+    <table class="tb" style="font-size:11.6px">
+     <tr><th>Driver</th><th class="num">Year 1</th><th class="num">Year 2</th><th class="num">Year 3</th></tr>
+     <tr><td>Adoption (% of {{ lk(M.target) }} target shops)</td>{% for a in A.adopt %}<td class="num">{{ (a*100)|int }}%</td>{% endfor %}</tr>
+     <tr><td>Active Chukta shops (business-payer MTU)</td>{% for y in M.years %}<td class="num">{{ lk(y.adopters) }}</td>{% endfor %}</tr>
+     <tr><td>Paytm share of an adopter's supplier UPI</td>{% for a in A.share %}<td class="num">{{ (a*100)|int }}%</td>{% endfor %}</tr>
+     <tr><td>Supplier payments on Paytm / shop / month (frequency; today 0.8)</td>{% for a in A.share %}<td class="num">{{ '%.1f'|format(a*10) }}</td>{% endfor %}</tr>
+     <tr><td>Incremental transactions / month</td>{% for y in M.years %}<td class="num">{{ lk(y.tx) }}</td>{% endfor %}</tr>
+     <tr><td>Incremental GMV / month</td>{% for y in M.years %}<td class="num">{{ cr(y.gmv_m) }}</td>{% endfor %}</tr>
+     <tr class="hl"><td>Paytm share of segment supplier UPI</td>{% for y in M.years %}<td class="num">{{ '%.1f'|format(y.seg_share*100) }}%</td>{% endfor %}</tr>
+    </table></div>
+   <div class="panel chk mist"><div class="bar">🚦 Early indicators that predict the share number</div><div class="pad small">
+    <table class="tb" style="font-size:11.3px"><tr><th>Indicator</th><th>Why it leads share</th><th class="num">Scale bar</th></tr>
+     <tr><td>Activation (1st bill in 14 days)</td><td>Shows the bill-in-app trigger works</td><td class="num">≥ 40%</td></tr>
+     <tr><td>Repeat (≥ 3 bills / month)</td><td>Habit, not trial</td><td class="num">≥ 60%</td></tr>
+     <tr><td>Reminder → payment in 24 h</td><td>Soundbox loop is doing the work</td><td class="num">≥ 50%</td></tr>
+     <tr><td>Invoices visible in Chukta</td><td>Supply of bills caps the share</td><td class="num">≥ 70%</td></tr>
+    </table>
+    <p class="xs muted" style="margin-top:4px">Conservative by design: flat UPI market, no Soundbox churn benefit, no new merchants acquired via distributors.</p></div></div>
+  </div>
+ </div>
+ <div class="g" style="grid-template-columns:1fr 1fr 1fr;margin-top:10px">
+  <div class="panel pad small chk"><b class="k">📏 How the share is measured.</b> Numerator: Paytm-initiated supplier payments (invoice-tagged, so Paytm can see them). Denominator: distributor ledgers + Account Aggregator data on a consented panel of shops. Paytm cannot see other apps, so the panel is the national tracker too.</div>
+  <div class="panel pad small chk"><b class="k">➖ Cannibalisation netted out.</b> The ~8% of supplier UPI already on Paytm is subtracted before counting uplift. Payments shifted from cash or NEFT are new UPI GMV for the whole market, not just a switch between apps.</div>
+  <div class="panel pad small chk"><b class="k">➕ Upside not counted.</b> UPI value growth; retailers who are not yet Paytm merchants but pay pilot distributors; distributor acquiring revenue beyond MDR; better merchant-loan underwriting from outflow data.</div>
+ </div>
+</div>
+{{ foot('Business impact', 13) }}
+</div>
+
+<!-- ===================== 14 UNIT ECONOMICS ===================== -->
+<div class="slide">
+{{ hdr('Unit economics: a one-time ~₹220 per shop buys ₹3–4.5 L of new GMV a year', 'Cost per extra active user and per ₹ of GMV fall every year because acquisition is one-time and the pull (bills + voice) is free to repeat') }}
+<div class="body">
+ <div class="g" style="grid-template-columns:350px 1fr 300px;height:100%">
+  <div class="g" style="grid-template-rows:auto 1fr">
+   <div class="panel chk"><div class="bar">🧱 CAC build-up per new active shop</div><div class="pad">{{ chart_cac() }}
+    <p class="xs muted" style="margin-top:2px">Distributor onboarding ₹5,000 ÷ (250 shops × 40% activation × 70% still active). Salesman fee ₹50 and training ₹30 per activation ÷ 70%.</p></div></div>
+   <div class="panel chk sky"><div class="bar c">🔁 Does usage hold when incentives stop?</div><div class="pad small">
+    <p><b>No Paytm incentive exists to stop.</b> The pull is the bill in the inbox, the 9 pm reminder and the records.</p>
+    <table class="tb" style="margin-top:5px;font-size:11px"><tr><th>Lever</th><th>Paid by</th><th>Recurring?</th></tr>
+     <tr><td>Salesman activation fee ₹50</td><td>Paytm</td><td>No, once per shop</td></tr>
+     <tr><td>Early-pay discount (optional)</td><td>Distributor</td><td>Off at day 60 in holdout</td></tr>
+     <tr><td>Merchant cashback</td><td>None</td><td>–</td></tr>
+     <tr><td>Soundbox reminder, records</td><td>Built in</td><td>Free to repeat</td></tr></table>
+    <p style="margin-top:6px"><b>Tested:</b> a random half of treated distributors switch the discount off at day 60; we need ≥ 85% of day-60 payers still paying in month 3, compared with the half that keep it.</p>
+    <p style="margin-top:4px"><b>If it fails:</b> drop the discount and lean on reminders + records; cost per shop falls further.</p>
+    <div class="mist" style="padding:5px 7px;margin-top:6px">A 0.1% cashback on the same Year 3 GMV = <b>{{ cr(y3.gmv_y*0.001) }} / yr, forever</b>, vs Chukta's total Year 3 cost of {{ cr(y3.cost) }}.</div></div></div>
+  </div>
+  <div class="g" style="grid-template-rows:auto 1fr">
+   <div class="panel chk"><div class="bar">📒 3-year P&amp;L for Chukta (₹ Cr)</div>
+    <table class="tb" style="font-size:12.2px">
+     <tr><th>Line</th><th class="num">Year 1</th><th class="num">Year 2</th><th class="num">Year 3</th><th>Basis</th></tr>
+     <tr><td>Payer-app MDR (TPAP share)</td>{% for y in M.years %}<td class="num">{{ '%.1f'|format(y.mdr) }}</td>{% endfor %}<td class="small">0.08% on the 50% of GMV that is P2M &gt; ₹2k</td></tr>
+     <tr><td>Acquirer MDR on Paytm-acquired supplier QRs</td>{% for y in M.years %}<td class="num">{{ '%.1f'|format(y.acq) }}</td>{% endfor %}<td class="small">0.12% on 30% of that GMV</td></tr>
+     <tr><td>Credit distribution (7 din baad)</td>{% for y in M.years %}<td class="num">{{ '%.1f'|format(y.cred) }}</td>{% endfor %}<td class="small">10/15/20% of shops × ₹20k / mo × 1.5% take</td></tr>
+     <tr class="hl"><td>Total revenue</td>{% for y in M.years %}<td class="num">{{ '%.1f'|format(y.rev) }}</td>{% endfor %}<td></td></tr>
+     <tr><td>Build (one-time) + run team &amp; infra</td>{% for y in M.years %}<td class="num">{{ '%.1f'|format(y.cost-y.c_acq-y.c_cap-y.c_sup) }}</td>{% endfor %}<td class="small">₹6 Cr build + ₹6 Cr / yr</td></tr>
+     <tr><td>Acquisition (new active shops × ₹220)</td>{% for y in M.years %}<td class="num">{{ '%.1f'|format(y.c_acq) }}</td>{% endfor %}<td class="small">{% for y in M.years %}{{ lk(y.new) }}{{ ' / ' if not loop.last }}{% endfor %} new</td></tr>
+     <tr><td>AI bill reading + support</td>{% for y in M.years %}<td class="num">{{ '%.1f'|format(y.c_cap+y.c_sup) }}</td>{% endfor %}<td class="small">₹0.30 / photo bill (half of bills); ₹10 / shop / yr</td></tr>
+     <tr class="hl"><td>Total cost</td>{% for y in M.years %}<td class="num">{{ '%.1f'|format(y.cost) }}</td>{% endfor %}<td></td></tr>
+     <tr class="hl"><td>Contribution</td>{% for y in M.years %}<td class="num" style="color:{{ '#B4232A' if y.profit<0 else '#0F7A37' }}">{{ '%.1f'|format(y.profit) }}</td>{% endfor %}<td class="small">3-yr: rev {{ cr(M.cum_rev) }} vs cost {{ cr(M.cum_cost) }}</td></tr>
+    </table>
+    <div class="pad xs muted">Excludes: Soundbox churn saved, merchant-loan uplift from better underwriting, new merchants acquired through distributors. Credit losses sit with the lender (Paytm as LSP).</div></div>
+   <div class="g" style="grid-template-columns:1fr 1fr;gap:9px">
+    <div class="panel chk"><div class="bar">📉 The two numbers the brief asks for</div>
+     <table class="tb" style="font-size:11.4px"><tr><th></th><th class="num">Y1</th><th class="num">Y2</th><th class="num">Y3</th></tr>
+      <tr><td>Cost per extra active shop</td>{% for y in M.years %}<td class="num">₹{{ inr(y.cost_per_active) }}</td>{% endfor %}</tr>
+      <tr><td>Cost per ₹1,000 of extra GMV</td>{% for y in M.years %}<td class="num">₹{{ '%.2f'|format(y.per_1000) }}</td>{% endfor %}</tr>
+      <tr><td>Revenue per ₹1,000 of extra GMV</td>{% for y in M.years %}<td class="num">₹{{ '%.2f'|format(y.rev/y.gmv_y*1000) }}</td>{% endfor %}</tr>
+     </table><div class="pad xs muted" style="padding:3px 8px">All-in cost ÷ active shops and ÷ new GMV. Pilot (sub-scale): ~₹1,000 / active shop.</div>
+     <div style="padding:0 8px 8px"><div class="sky xs" style="padding:4px 7px"><b>Headroom:</b> CAC can rise to <b>₹{{ inr(M.unit.ltv_pay) }}</b> ({{ '%.1f'|format(M.unit.ltv_pay/A.cac) }}×) before 3-yr payments revenue stops covering it.</div></div></div>
+    <div class="panel chk"><div class="bar">🧪 Revenue mix risk (₹ Cr)</div><div class="pad small">
+     {{ chart_revmix() }}
+     <p>Year 3 is <b>{{ (y3.cred/y3.rev*100)|round|int }}% credit</b>. With zero credit, payments revenue alone is <b>{{ cr(y3.mdr+y3.acq) }}</b> vs {{ cr(y3.cost) }} cost. GMV, the main metric, does not depend on credit.</p></div></div>
+   </div>
+  </div>
+  <div class="panel chk"><div class="bar">🧍 Per-shop economics (Year 3 run-rate)</div><div class="pad">
+   <div class="stat"><div class="big">₹{{ inr(M.unit.gmv) }}</div><div class="small">new Paytm GMV per active shop per year (₹60k × 12 × 62 pp)</div></div>
+   <table class="tb" style="margin-top:6px"><tr><th>Revenue / shop / yr</th><th class="num">₹</th></tr>
+    <tr><td>Payer-app MDR</td><td class="num">{{ inr(M.unit.r_mdr) }}</td></tr>
+    <tr><td>Acquirer MDR</td><td class="num">{{ inr(M.unit.r_acq) }}</td></tr>
+    <tr><td>Credit distribution</td><td class="num">{{ inr(M.unit.r_cred) }}</td></tr>
+    <tr class="hl"><td>Total</td><td class="num">{{ inr(M.unit.r_all) }}</td></tr></table>
+   <div class="g" style="grid-template-columns:1fr 1fr;gap:6px;margin-top:7px">
+    <div class="stat"><div class="med">{{ '%.0f'|format(M.unit.payback_pay) }} mo</div><div class="xs">CAC payback, payments only</div></div>
+    <div class="stat"><div class="med">{{ '%.0f'|format(M.unit.payback_all) }} mo</div><div class="xs">payback incl. credit</div></div>
+    <div class="stat"><div class="med">{{ '%.1f'|format(M.unit.ltv_pay/A.cac) }}×</div><div class="xs">3-yr LTV / CAC, payments only</div></div>
+    <div class="stat"><div class="med">{{ '%.1f'|format(M.unit.ltv_all/A.cac) }}×</div><div class="xs">3-yr LTV / CAC incl. credit</div></div>
+   </div>
+   <p class="xs muted" style="margin-top:4px">LTV: 3 years, 70% annual retention, undiscounted. CAC ≈ {{ '%.2f'|format(M.unit.cac_pct) }}% of one year's new GMV per shop.</p>
+   <div style="margin-top:6px"><b class="k small">Payback curve</b></div>
+   {{ chart_payback() }}</div></div>
+ </div>
+</div>
+{{ foot('Business impact', 14) }}
+</div>
+
+<!-- ===================== 15 SENSITIVITY & RISKS ===================== -->
+<div class="slide">
+{{ hdr('Sensitivity and risks: even a combined bear case stays profitable', 'Adoption is the swing factor for GMV, credit uptake for revenue. The biggest threat is a PhonePe copy, so the moat is speed with distributors') }}
+<div class="body">
+ <div class="g" style="grid-template-columns:585px 1fr;height:100%">
+  <div class="g" style="grid-template-rows:auto 1fr">
+   <div class="panel chk"><div class="bar">🌪️ Tornado: Year 3 impact of the key assumptions (one at a time)</div><div class="pad">{{ chart_tornado() }}
+    <div class="xs muted">Navy bars move GMV (the main metric); cyan bars move revenue only.</div></div></div>
+   <div class="panel chk sky"><div class="bar c">✅ What has to be true (and how the pilot checks it)</div><div class="pad small" style="padding-top:5px">
+    <table class="tb" style="font-size:11.3px"><tr><th>Belief</th><th>Base</th><th>Breaks if</th><th>Pilot reading</th></tr>
+     <tr><td>Shops pay most supplier ₹ in Chukta once bills live there</td><td>70% (Y3)</td><td>&lt; 40%</td><td>Treated-shop share at D90 (≥ 35%)</td></tr>
+     <tr><td>Distributors enrol their retailers</td><td>35% of target by Y3</td><td>&lt; 15% activation</td><td>Activation by distributor</td></tr>
+     <tr><td>Contribution stays positive in Y3</td><td>{{ cr(y3.profit) }}</td><td>Credit users &lt; 10% <i>and</i> adoption &lt; 20%</td><td>Credit sub-cohort uptake</td></tr>
+    </table>
+    <div style="margin-top:6px"><b class="k">Scenarios (Year 3, all drivers moved together)</b></div>
+    <table class="tb" style="margin-top:2px;font-size:11.3px"><tr><th>Case</th><th class="num">Adoption</th><th class="num">Share</th><th class="num">₹ / shop</th><th class="num">GMV / yr</th><th class="num">Segment share</th><th class="num">Contribution</th></tr>
+     {% for c in SC %}<tr class="{{ 'hl' if loop.index==2 else '' }}"><td>{{ c.name }}</td><td class="num">{{ (c.ad*100)|int }}%</td><td class="num">{{ (c.sh*100)|int }}%</td><td class="num">{{ (c.sp/1000)|int }}k</td><td class="num">{{ cr(c.gmv) }}</td><td class="num">{{ '%.1f'|format(c.share*100) }}%</td><td class="num">{{ cr(c.profit) }}</td></tr>{% endfor %}
+    </table><div class="xs muted" style="margin-top:2px">Bear also sets credit users 10%, MDR-eligible 30%; bull 25% and 60%.</div></div></div>
+  </div>
+  <div class="panel chk"><div class="bar">⚠️ Risk register</div>
+   <table class="tb" style="font-size:11.2px">
+    <tr><th style="width:150px">Risk</th><th class="ctr">L</th><th class="ctr">I</th><th>Mitigation</th><th style="width:118px">Early signal</th></tr>
+    <tr><td><b>🥊 PhonePe / GPay copy the bill inbox</b> (6–9 months)</td><td class="ctr"><span class="chip r">H</span></td><td class="ctr"><span class="chip a">M</span></td><td>Move first on distributors (500 in 10 cities by month 9); Chukta Collect + ERP integrations create switching costs; credit underwritten on inflow <i>and</i> outflow is hard to copy; leaders face the 30% cap if NPCI enforces it</td><td>Competitor "pay supplier" launch; distributor churn</td></tr>
+    <tr><td><b>💸 Competitor cashback war</b> on supplier payments</td><td class="ctr"><span class="chip a">M</span></td><td class="ctr"><span class="chip a">M</span></td><td>Don't match. Workflow beats a one-off reward; watch retention in the holdout; respond with features (records, credit)</td><td>Treated-shop share falls &gt; 5 pp</td></tr>
+    <tr><td><b>🏦 Distributors avoid MDR</b> (cash / NEFT)</td><td class="ctr"><span class="chip r">H</span></td><td class="ctr"><span class="chip g">L</span></td><td>Rail-neutral by design: bank-account rail is MDR-free; GMV stays on Paytm</td><td>Rail mix in ledgers</td></tr>
+    <tr><td><b>🎭 Fake bill / QR-swap fraud</b></td><td class="ctr"><span class="chip a">M</span></td><td class="ctr"><span class="chip r">H</span></td><td>GSTIN ↔ payee name match; signed e-invoice check; 24 h cooling-off on new or changed payees; push-only, never collect</td><td>Name-mismatch rate</td></tr>
+    <tr><td><b>💳 Credit losses</b></td><td class="ctr"><span class="chip a">M</span></td><td class="ctr"><span class="chip a">M</span></td><td>Lender underwrites (RBI DLD 2025); small first limits; repayment from settlements with consent; credit only after payment habit forms</td><td>First-payment default</td></tr>
+    <tr><td><b>📱 Habit doesn't form</b> beyond the first bill</td><td class="ctr"><span class="chip a">M</span></td><td class="ctr"><span class="chip r">H</span></td><td>Nightly Soundbox ritual; bills arrive without effort; STOP rule at D90</td><td>Repeat &lt; 40% at D60</td></tr>
+    <tr><td><b>📜 Rule change</b> (MDR rollback, cap extended)</td><td class="ctr"><span class="chip a">M</span></td><td class="ctr"><span class="chip g">L</span></td><td>MDR is ~{{ ((y3.mdr+y3.acq)/y3.rev*100)|round|int }}% of Y3 revenue and 0% of the GMV case</td><td>NPCI circulars</td></tr>
+    <tr><td><b>🔐 Data privacy</b> (DPDP)</td><td class="ctr"><span class="chip g">L</span></td><td class="ctr"><span class="chip a">M</span></td><td>Consent per data use; delete bill photos after reading; distributors see only their own invoices</td><td>Consent opt-out rate</td></tr>
+   </table>
+   <div class="pad xs muted" style="padding-bottom:2px">L = likelihood, I = impact (analyst judgement).</div>
+   <div style="padding:0 8px 8px"><b class="k">Competitor response playbook</b>
+    <table class="tb" style="margin-top:3px;font-size:11.2px"><tr><th>If they…</th><th>Likely move</th><th>Our response</th></tr>
+     <tr><td>PhonePe</td><td>Adds "pay supplier" + speaker reminders for its 5 Cr+ merchants</td><td>Lock top distributors per city first; ERP buttons; credit on two-sided data</td></tr>
+     <tr><td>Google Pay</td><td>Bundles bill pay with SoundPod; rewards</td><td>No reward war; push records + GST register + Collect</td></tr>
+     <tr><td>Bharat Connect banks</td><td>Offer retailer bill pay in bank apps</td><td>Partner, don't fight: Chukta is a Bharat Connect retailer front-end</td></tr>
+    </table></div></div>
+ </div>
+</div>
+{{ foot('Business impact', 15) }}
+</div>
+
+<!-- ===================== ANNEXURE DIVIDER + A1 ===================== -->
+<div class="slide">
+{{ hdr('Annexure A1 · Model assumptions and sources', 'Every input is editable in KartikRaj_R2_Annexure.xlsx → "Business Model" (blue cells); the deck numbers are generated from the same inputs') }}
+<div class="body">
+ <div class="g" style="grid-template-columns:1fr 1fr;height:100%">
+  <div class="panel chk"><div class="bar">Inputs</div>
+   <table class="tb" style="font-size:11.4px">
+    <tr><th>Assumption</th><th class="num">Value</th><th>Source / reasoning</th></tr>
+    <tr><td>Paytm device merchants</td><td class="num">1.57 Cr</td><td>Paytm Q1 FY27 results (Jul 2026)</td></tr>
+    <tr><td>Share buying stock from suppliers</td><td class="num">45%</td><td>Assumption: retail-heavy Soundbox base; excludes services</td></tr>
+    <tr><td>…paying suppliers over UPI monthly</td><td class="num">60%</td><td>Conservative; Kanpur VOC 48/50</td></tr>
+    <tr><td>Supplier UPI per shop / month</td><td class="num">₹60,000</td><td>₹3 L sales × ~80% on stock × ~25% via UPI; Kanpur avg ₹1.09 L</td></tr>
+    <tr><td>Paytm share today</td><td class="num">8%</td><td>National app share 8.1% (Aug 2026); Kanpur 0%</td></tr>
+    <tr><td>Adoption Y1 / Y2 / Y3</td><td class="num">8 / 20 / 35%</td><td>Cut from R1 (15/30/45%); pilot activation target 40% of reachable</td></tr>
+    <tr><td>Adopter share-of-wallet Y1–Y3</td><td class="num">50 / 60 / 70%</td><td>Rest stays with cash-only and non-pilot suppliers</td></tr>
+    <tr><td>Supplier payments / shop / month</td><td class="num">10</td><td>R1 VOC use-case frequencies</td></tr>
+    <tr><td>MDR-eligible share of Chukta GMV</td><td class="num">50%</td><td>Rest goes to bank a/c rail, P2PM-exempt or ≤ ₹2k</td></tr>
+    <tr><td>Payer-app / acquirer share of MDR</td><td class="num">0.08% / 0.12%</td><td>NPCI split: 20% UPI app, 30% acquirer of 0.4%</td></tr>
+    <tr><td>Supplier QRs acquired by Paytm</td><td class="num">30%</td><td>Assumption; Chukta Collect onboarding</td></tr>
+    <tr><td>Credit users / draw / take</td><td class="num">10–20% · ₹20k · 1.5%</td><td>Assumption; short-tenor line via partners</td></tr>
+    <tr><td>Build / run cost</td><td class="num">₹6 Cr + ₹6 Cr/yr</td><td>1–2 squads, loaded cost</td></tr>
+    <tr><td>CAC per new active shop</td><td class="num">₹220</td><td>Slide 14 build-up</td></tr>
+    <tr><td>National UPI value</td><td class="num">₹29.9 L Cr / mo</td><td>NPCI, Aug 2026</td></tr>
+   </table>
+   <div style="padding:6px 8px 0"><b class="k">Sanity checks on the inputs</b></div>
+   <table class="tb" style="font-size:11.2px;margin:3px 0 6px">
+    <tr><th>Check</th><th>Result</th></tr>
+    <tr><td>42.4 L target shops vs ~1.3 Cr kiranas in India</td><td>≈ ⅓ of kirana count: plausible for Paytm's device base, which also includes chemists and other retail</td></tr>
+    <tr><td>₹60k / shop / month vs the Kanpur sample</td><td>Kanpur average ₹1.09 L, so the base is ~45% lower (conservative)</td></tr>
+    <tr><td>Paytm share today: 8% vs 0%</td><td>Kanpur measured 0%; using 8% shrinks the uplift</td></tr>
+    <tr><td>Year 3 GMV vs Paytm's own UPI value</td><td>₹{{ inr(y3.gmv_m) }} Cr / mo ≈ {{ '%.1f'|format(y3.gmv_m/204000*100) }}% on top of ₹2.04 L Cr / mo: material but not implausible</td></tr>
+   </table></div>
+  <div class="g" style="grid-template-rows:auto 1fr auto">
+   <div class="panel chk"><div class="bar">Outputs</div>
+    <table class="tb" style="font-size:11.4px"><tr><th>Output</th><th class="num">Year 1</th><th class="num">Year 2</th><th class="num">Year 3</th></tr>
+     <tr><td>Active shops</td>{% for y in M.years %}<td class="num">{{ lk(y.adopters) }}</td>{% endfor %}</tr>
+     <tr><td>Incremental GMV / yr</td>{% for y in M.years %}<td class="num">{{ cr(y.gmv_y) }}</td>{% endfor %}</tr>
+     <tr><td>Segment share</td>{% for y in M.years %}<td class="num">{{ '%.1f'|format(y.seg_share*100) }}%</td>{% endfor %}</tr>
+     <tr><td>Revenue / cost</td>{% for y in M.years %}<td class="num">{{ '%.0f'|format(y.rev) }} / {{ '%.0f'|format(y.cost) }}</td>{% endfor %}</tr>
+     <tr><td>Added to Paytm share of all UPI value</td>{% for y in M.years %}<td class="num">+{{ '%.2f'|format(y.nat_pp) }} pp</td>{% endfor %}</tr>
+    </table></div>
+   <div class="panel chk mist"><div class="bar">Sources (full links in workbook → Sources)</div><div class="pad small">
+    <ul class="t">
+     <li>Paytm Q1 FY27 results, 20–21 Jul 2026 (Upstox, HDFC Sky, Inc42)</li>
+     <li>NPCI MDR circular and FAQs, 15 Sep 2026 (Angel One, ICICI Direct, SCC Online, Entrepreneur India)</li>
+     <li>NPCI P2P collect discontinuation circular, 29 Jul 2025 (Outlook Money, PTI)</li>
+     <li>UPI app shares and 30% cap deadline (Inc42, StartupFeed, Sep 2026)</li>
+     <li>Paytm AI Soundbox launch, 9 Oct 2025 (Paytm blog)</li>
+     <li>Paytm Postpaid credit line on UPI with Suryoday SFB (MediaNama, Sep 2025)</li>
+     <li>Bharat Connect for Business: NBBL (Feb 2026), TallyPrime 7.0 (May 2026)</li>
+     <li>E-invoicing ₹5 Cr threshold, signed QR contents (CBIC; Busy, Tally guides 2026)</li>
+     <li>PhonePe Business and Paytm for Business Play Store listings (Sep 2026)</li>
+     <li>Bizom (8 M retailers); FMCG distributor margins &amp; credit days (industry guides, 2026)</li>
+     <li>RBI: small finance banks allowed to offer credit lines on UPI (Business Standard, Dec 2024)</li>
+     <li>Kirana count ~1.3 Cr and distributor credit practices (Spirestock, 2026)</li>
+     <li>Marg ERP 6 L+ users (SoftwareSuggest listing)</li>
+     <li>Round 1 primary research: 50 VOCs, Kanpur, Sep 2026 (KartikRaj_VOC.xlsx)</li>
+    </ul></div></div>
+   <div class="panel chk"><div class="bar">Round 1 vs Round 2 forecast (Year 3)</div>
+    <table class="tb" style="font-size:11.4px"><tr><th>Metric</th><th class="num">R1</th><th class="num">R2</th><th>Why lower</th></tr>
+     <tr><td>Active shops</td><td class="num">19.1 L</td><td class="num">{{ lk(y3.adopters) }}</td><td>Adoption 45% → 35%</td></tr>
+     <tr><td>Incremental GMV / yr</td><td class="num">₹92,020 Cr</td><td class="num">{{ cr(y3.gmv_y) }}</td><td>Share 75% → 70%</td></tr>
+     <tr><td>Revenue / yr</td><td class="num">₹189 Cr</td><td class="num">{{ cr(y3.rev) }}</td><td>MDR-eligible 70% → 50%; acquirer MDR added</td></tr>
+    </table></div>
+  </div>
+ </div>
+</div>
+{{ foot('Annexure', 'A1') }}
+</div>
+
+<!-- ===================== A2 FIELD KIT ===================== -->
+<div class="slide">
+{{ hdr('Annexure A2 · Interview script used in Round 2, and the prototype script for pilot week 1', 'Same order for every shop: last real payment first, then the concept, then the ladder. Answers were given verbally and kept as voice notes') }}
+<div class="body">
+ <div class="g" style="grid-template-columns:1fr 1fr 1fr;height:368px">
+  <div class="panel chk"><div class="bar">Used in R2 · Screener + concept (7 min)</div><div class="pad" style="font-size:12.6px;line-height:1.36">
+   <p><b>S1</b> Dukaan ke supplier ka payment aap khud decide karte hain? <i>(must be yes)</i></p>
+   <p><b>S2</b> Customers kis QR / speaker pe pay karte hain? <i>(must include Paytm)</i></p>
+   <p><b>S3</b> Pichhle 7 din mein kisi supplier ko pay kiya? Kitna, kis app se, kis phone se, kitni der laga?</p>
+   <p style="margin-top:6px"><b>A1</b> Distributor ka bill seedha Paytm mein, raat 9 baje Soundbox bataye "kal kya dena hai", ek tap mein pay, ya 7 din baad. 1 se 5, kitna kaam ka?</p>
+   <p><b>A2</b> Agla bill isme bharenge ya abhi wale app se? Kyon?</p>
+   <p><b>A3</b> Kya cheez aapko rokegi?</p>
+   <div class="sky" style="padding:6px;margin-top:8px"><b>Opening line:</b> "Main IIT Kanpur ka student hoon, Paytm ki ek competition ke liye ek idea test kar raha hoon. Aapka naam ya number nahi likhunga."</div>
+   <div class="mist" style="padding:6px;margin-top:6px"><b>R2 result:</b> 21/21 passed the screener; median last payment ₹29.7k and 4 min; all paid from the owner's personal phone. A1: 20/21 rated 4–5. A2: 8 Yes, 13 Maybe.</div></div></div>
+  <div class="panel chk"><div class="bar">Used in R2 · Stated ladder + distributors (3–15 min)</div><div class="pad" style="font-size:12.6px;line-height:1.36">
+   <p><b>L1</b> Apna ek asli supplier bill Chukta mein padhwane ke liye denge?</p>
+   <p><b>L2</b> Apne 2–3 supplier jodenge aur raat 9 baje ka reminder on karenge?</p>
+   <p><b>L3</b> Agla supplier bill Paytm se chukta karenge?</p>
+   <p><b>L4</b> 90-din ke pilot mein shaamil honge?</p>
+   <p style="margin-top:6px"><b>Distributors:</b> Kitne retailers? Kitne din ka udhaar? Collection cash / QR / bank kitna-kitna? Billing kis software mein? E-invoice QR aata hai? 0.4% MDR ke baare mein kya sochte hain? Pilot mein judenge? 4 hafte ka payment record dikhayenge?</p>
+   <div class="mist" style="padding:6px;margin-top:8px"><b>Logged as stated answers.</b> A "Yes" on L3 means the owner said they would pay the next bill via Paytm; it was not observed in R2.</div>
+   <div class="mist" style="padding:6px;margin-top:6px"><b>R2 result:</b> L1 21 · L2 8 · L3 7 · L4 13 (of 21). Distributors: 2 will join, 1 wants proof from 10 shops first, 1 (hardware, NEFT-only) declined.</div></div></div>
+  <div class="panel chk"><div class="bar">Pilot week 1 · prototype tasks (not run in R2)</div><div class="pad" style="font-size:12.6px;line-height:1.36">
+   <p><b>T1</b> Apna koi asli supplier bill scan kijiye. <i>(e-invoice QR if present, else photo; check fields)</i></p>
+   <p><b>T2</b> Bataiye kal kisko kitna dena hai.</p>
+   <p><b>T3</b> Sharma Traders ka bill pay kijiye aur proof dikhaiye. <i>(sandbox; timed vs today's ~4 min)</i></p>
+   <p><b>T4</b> "7 din baad" dabaiye. Iska matlab kya hai?</p>
+   <p style="margin-top:6px"><b>Score:</b> unaided / helped once / failed. Pass bar: ≥ 70% finish all four unaided.</p>
+   <div class="sky" style="padding:6px;margin-top:8px"><b>Observed L3:</b> the prototype opens a UPI intent for a bill the owner already owes; they pick Paytm and enter their own PIN. Nothing is paid on their behalf.</div>
+   <div class="mist" style="padding:6px;margin-top:6px"><b>First invited:</b> the 13 R2 shops that said yes to the pilot (L4), so stated and observed answers can be compared shop by shop.</div></div></div>
+ </div>
+ <div class="g" style="grid-template-columns:1.2fr 1fr 0.9fr;margin-top:10px;height:208px">
+  <div class="panel chk"><div class="bar">🗣️ Neutral replies when the owner pushes back</div>
+   <table class="tb" style="font-size:12.6px"><tr><th>Owner says</th><th>Interviewer says (doesn't sell)</th></tr>
+    <tr><td><i>"Isme kya fayda?"</i></td><td>"Aap bataiye, kis cheez mein kaam aa sakta hai ya nahi?"</td></tr>
+    <tr><td><i>"Paytm pe bharosa nahi."</i></td><td>"Kis wajah se? Pichhli baar kya hua tha?" (log as objection)</td></tr>
+    <tr><td><i>"Aap Paytm se ho?"</i></td><td>"Main IIT Kanpur ka student hoon, ek idea test kar raha hoon."</td></tr>
+    <tr><td><i>"Baad mein aana."</i></td><td>Thank, leave; never push</td></tr></table></div>
+  <div class="panel chk"><div class="bar">🧾 Question → workbook column</div>
+   <table class="tb" style="font-size:12.4px"><tr><th>Asked</th><th>Logged in "R2 Validation Log"</th></tr>
+    <tr><td>S2–S3</td><td>Receives on · last payment ₹, app, phone, minutes</td></tr>
+    <tr><td>A1–A3</td><td>Usefulness 1–5 · move next bill · objection + code</td></tr>
+    <tr><td>Bills</td><td>Bills they receive: e-invoice QR or paper / photo</td></tr>
+    <tr><td>L1–L4</td><td>Stated ladder answers (Yes / No / Already paid / No bill due)</td></tr>
+    <tr><td>D</td><td>"Distributor Log": system, payment mix, ledger, pilot</td></tr></table></div>
+  <div class="panel chk mist"><div class="bar">🎒 What was used</div><div class="pad" style="font-size:12.6px;line-height:1.45">
+   <ul class="t ck" style="font-size:13px;line-height:1.6"><li>One Hinglish script, same order for all</li><li>Phone voice recorder (with permission)</li><li>Workbook filled from the voice notes</li><li>Area + shop type only; no names or numbers</li><li>No Paytm branding; no gifts or incentives</li></ul></div></div>
+ </div>
+</div>
+{{ foot('Annexure', 'A2') }}
+</div>
+
+<!-- ===================== A3 TRACEABILITY ===================== -->
+<div class="slide">
+{{ hdr('Annexure A3 · From VOC to feature to pilot metric (traceability)', 'Every feature exists because a coded barrier appeared in the 50 VOCs, and every feature has a pilot metric that can prove it wrong') }}
+<div class="body">
+ <div class="panel chk"><div class="bar">Traceability matrix</div>
+  <table class="tb" style="font-size:11.3px" id="trace">
+   <tr><th>VOC evidence</th><th class="num">Count</th><th>Insight</th><th>Chukta feature</th><th>Pilot metric</th></tr>
+   <tr><td>"Paytm sirf aane ke liye hai" · another app is default</td><td class="num">21</td><td>Paytm is a receiving machine in the owner's mind</td><td>Bill inbox next to today's collections; Soundbox nightly dues</td><td>Reminder → payment in 24 h</td></tr>
+   <tr><td>Pays from owner's personal phone</td><td class="num">32</td><td>The business app is the wrong device</td><td>Chukta in both Paytm apps, synced</td><td>Share of payments from Paytm app vs Business app</td></tr>
+   <tr><td>Didn't know Paytm Business can pay suppliers</td><td class="num">40</td><td>Awareness gap, not a capability gap</td><td>Soundbox + salesman launch messaging</td><td>Enrolment by salesmen</td></tr>
+   <tr><td>Salesman / supplier shares his own QR</td><td class="num">10</td><td>The distributor's side decides the app</td><td>Chukta Collect for distributors; "pay in Chukta" ask</td><td>Activation per distributor</td></tr>
+   <tr><td>Short on cash when stock arrives</td><td class="num">9</td><td>Liquidity gap on stock day</td><td>7 din baad (credit line on UPI)</td><td>Credit uptake; first-payment default</td></tr>
+   <tr><td>Big bills go by NEFT / RTGS</td><td class="num">6</td><td>Rail chosen by habit and size</td><td>Pay to bank a/c over UPI with invoice no.</td><td>Rail mix in ledgers</td></tr>
+   <tr><td>Supplier asked for cash / bank transfer recently</td><td class="num">23</td><td>Supplier-side cost sensitivity (now MDR)</td><td>Rail-neutral design</td><td>Distributor retention</td></tr>
+   <tr><td>Hard to track which bill is paid</td><td class="num">2</td><td>Records gap (small but sticky)</td><td>Invoice-tagged payments; purchase register</td><td>Disputes per 100 bills</td></tr>
+   <tr><td>Rated "bills inside Paytm, 1 tap" 4–5 / 5</td><td class="num">41</td><td>Stated demand is high</td><td>Whole loop</td><td>Treated-shop share ≥ 35%</td></tr>
+   <tr><td>Would use 7-day pay-later</td><td class="num">32</td><td>Credit is wanted but secondary</td><td>Phase-2 credit</td><td>Credit sub-cohort uptake</td></tr>
+  </table></div>
+ <div class="g" style="grid-template-columns:1fr 1fr;margin-top:8px;gap:8px">
+  <div class="stat small" style="padding:5px 8px"><b class="k">📒 Workbook:</b> KartikRaj_R2_Annexure.xlsx (logs, dashboard, model, sensitivity, pilot, risks, sources)</div>
+  <div class="stat small" style="padding:5px 8px"><b class="k">📱 Prototype (live):</b> merchant app + Chukta Collect: <span style="color:#0089B8">{{ v('proto_link') }}</span></div>
+ </div>
+ <div class="panel chk" style="margin-top:8px"><div class="bar">📊 Feature prioritisation (RICE = Reach × Impact × Confidence ÷ Effort; analyst judgement from VOC counts)</div>
+  {% set RICE = [
+   ('🔊 Soundbox "due tomorrow" line',78,2,0.7,2,'MVP','39/50 receive on a Paytm device'),
+   ('🔐 Payee check (GSTIN ↔ VPA name)',96,2,0.7,3,'MVP','Trust + fraud guard on every bill'),
+   ('📱 Chukta in the Paytm app too',64,3,0.8,4,'MVP','32/50 pay from personal phone'),
+   ('📥 Bill inbox + due-date engine',96,3,0.8,8,'MVP','48/50 pay suppliers; the core'),
+   ('📷 Photo / PDF bill read',90,2,0.6,6,'MVP','Most bills are paper'),
+   ('🔳 e-invoice QR capture',40,2,0.6,3,'MVP','Distributors above ₹5 Cr turnover'),
+   ('🚚 Chukta Collect (distributor)',20,3,0.6,6,'MVP*','*Low shop reach, but it is the growth channel'),
+   ('⏳ 7 din baad (credit)',64,2,0.4,16,'Phase 2','32/50 want it; lender-dependent'),
+   ('🔗 ERP / Bharat Connect push',40,2,0.5,14,'Phase 2','CSV upload in the pilot'),
+   ('🧾 GST purchase register',4,1,0.6,2,'Phase 2','2/50 raised records')
+  ] %}
+  <table class="tb rice" style="font-size:10.9px"><tr><th>Feature</th><th class="num">Reach %</th><th class="num">Impact (1–3)</th><th class="num">Confidence</th><th class="num">Effort (wks)</th><th class="num">RICE</th><th>Release</th><th>Why</th></tr>
+   {% for f,r,i,c,e,rel,why in RICE %}<tr><td>{{ f }}</td><td class="num">{{ r }}</td><td class="num">{{ i }}</td><td class="num">{{ (c*100)|int }}%</td><td class="num">{{ e }}</td><td class="num"><b>{{ '%.1f'|format(r*i*c/e) }}</b></td><td><span class="chip {{ 'g' if 'MVP' in rel else 'a' }}">{{ rel }}</span></td><td class="small">{{ why }}</td></tr>{% endfor %}
+  </table></div>
+</div>
+{{ foot('Annexure', 'A3') }}
+</div>
+</body></html>
