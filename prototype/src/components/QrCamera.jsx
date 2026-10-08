@@ -58,8 +58,8 @@ export default function QrCamera({ onResult, hint }) {
         }
       } catch (e) {
         setErr(e?.name === 'NotAllowedError'
-          ? 'Camera permission nahi mili. Browser settings mein allow karein, ya photo upload karein.'
-          : 'Camera nahi khula: ' + (e?.message || e))
+          ? 'Camera permission nahi mili. Browser settings mein allow karein, ya "Bill ki photo" / "Gallery / PDF" use karein.'
+          : 'Is device par camera nahi mila (laptop / emulator?). "Bill ki photo" ya "Gallery / PDF" se bill jodein, ya "Sample e-invoice QR" try karein.')
       }
     })()
 

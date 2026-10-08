@@ -4,6 +4,14 @@ import Icon from './Icon.jsx'
 import DesktopPanel from './DesktopPanel.jsx'
 import { ABOUT } from './about.js'
 
+/* ---------- navigation ---------- */
+
+/** Back that never leaves the app: browser-back when there is in-app history, else a fallback route. */
+export function useBack(fallback = '/') {
+  const navigate = useNavigate()
+  return () => ((window.history.state?.idx ?? 0) > 0 ? navigate(-1) : navigate(fallback, { replace: true }))
+}
+
 /* ---------- small building blocks ---------- */
 
 /** Hindi-first label with a small English sub-label. */
@@ -153,9 +161,11 @@ const DemoStrip = () => (
 /** Merchant-app screen. `hero` replaces the plain title bar (home screen); `footer` is a sticky action bar. */
 export function Shell({ title, sub, back, right, hero, children, nav = true, footer }) {
   const navigate = useNavigate()
-  const { pathname, search } = useLocation()
+  const goBack = useBack()
+  const { pathname, search, hash } = useLocation()
   const main = useRef(null)
-  useEffect(() => { main.current?.scrollTo(0, 0) }, [pathname, search])
+  // New screen → top. With a #hash the screen scrolls to that section itself.
+  useEffect(() => { if (!hash) main.current?.scrollTo(0, 0) }, [pathname, search, hash])
   return (
     <Device>
       <header className="z-20 shrink-0 bg-navy text-white">
@@ -163,7 +173,7 @@ export function Shell({ title, sub, back, right, hero, children, nav = true, foo
         {!hero && (
           <div className="flex min-h-14 items-center gap-1.5 px-2 py-2">
             {back !== undefined && (
-              <button aria-label="Back" onClick={() => (typeof back === 'string' ? navigate(back) : navigate(-1))}
+              <button aria-label="Back" onClick={() => (typeof back === 'string' ? navigate(back) : goBack())}
                 className="grid h-10 w-10 shrink-0 place-items-center rounded-full hover:bg-white/10"><Icon name="back" size={24} /></button>
             )}
             <div className={`min-w-0 flex-1 ${back === undefined ? 'pl-2' : ''}`}>

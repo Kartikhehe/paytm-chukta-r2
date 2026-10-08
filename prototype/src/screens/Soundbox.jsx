@@ -1,32 +1,51 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Icon from '../components/Icon.jsx'
 import { Bi, Btn, Card, DemoTag, SectionTitle, Shell, Toggle, toast } from '../components/ui.jsx'
-import { useStore } from '../store.jsx'
+import { balance, useStore } from '../store.jsx'
+import { DEMO_TODAY_IN } from '../data/demo.js'
+import { daysFromToday, dueLabel, inr } from '../lib/fmt.js'
 import { getVoices, pickVoice, speak, speechSupported } from '../lib/speech.js'
 
-// Script from deck slide 9. Spoken in Devanagari when a Hindi voice exists (romanised Hinglish sounds wrong in hi-IN TTS).
-const SCRIPTS = {
-  full: {
-    roman: 'Aaj ₹31,420 aaye. Kal Sharma Traders ke ₹12,400 dene hain. Chukta karne ke liye Paytm kholein.',
-    hindi: 'आज 31,420 रुपये आए। कल शर्मा ट्रेडर्स के 12,400 रुपये देने हैं। चुकता करने के लिए पेटीएम खोलें।',
-    say: 'Aaj 31,420 rupaye aaye. Kal Sharma Traders ke 12,400 rupaye dene hain. Chukta karne ke liye Paytm kholein.',
-  },
-  muted: {
-    roman: 'Aaj ka collection aa gaya. Kal Sharma Traders ka bill dena hai. Chukta karne ke liye Paytm kholein.',
-    hindi: 'आज का कलेक्शन आ गया। कल शर्मा ट्रेडर्स का बिल देना है। चुकता करने के लिए पेटीएम खोलें।',
-    say: 'Aaj ka collection aa gaya. Kal Sharma Traders ka bill dena hai. Chukta karne ke liye Paytm kholein.',
-  },
-  week: {
-    roman: 'Is hafte ₹21,350 dene hain, 2 bills: Sharma Traders aur Gupta Medicals.',
-    hindi: 'इस हफ़्ते 21,350 रुपये देने हैं, दो बिल: शर्मा ट्रेडर्स और गुप्ता मेडिकल्स।',
-    say: 'Is hafte 21,350 rupaye dene hain, 2 bills: Sharma Traders aur Gupta Medicals.',
-  },
-  weekMuted: {
-    roman: 'Is hafte 2 bills dene hain: Sharma Traders aur Gupta Medicals.',
-    hindi: 'इस हफ़्ते दो बिल देने हैं: शर्मा ट्रेडर्स और गुप्ता मेडिकल्स।',
-    say: 'Is hafte 2 bills dene hain: Sharma Traders aur Gupta Medicals.',
-  },
+// Script from deck slide 9, built from the live bill list. With the seed bills it reads exactly as on the
+// slide ("Kal Sharma Traders ke ₹12,400 dene hain"). Spoken in Devanagari when a Hindi voice exists
+// (romanised Hinglish sounds wrong in hi-IN TTS); known demo names have a Devanagari form.
+const DEV = { 'Sharma Traders': 'शर्मा ट्रेडर्स', 'Gupta Medicals': 'गुप्ता मेडिकल्स', 'Jain Stationery Mart': 'जैन स्टेशनरी मार्ट', 'Kanpur Namkeen Agencies': 'कानपुर नमकीन एजेंसीज़', 'Verma Dairy': 'वर्मा डेयरी' }
+const short = (n) => n.replace(/\s+(pvt\.?|private)\s+(ltd\.?|limited)$/i, '').trim()
+const dev = (n) => DEV[short(n)] || short(n)
+const num = (n) => Math.round(n).toLocaleString('en-IN')
+const andList = (xs, word) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} ${word} ${xs[xs.length - 1]}`)
+
+function buildScripts(bills) {
+  const open = bills.filter((b) => b.status === 'due').sort((x, y) => new Date(x.dueDate) - new Date(y.dueDate))
+  const kal = open.filter((b) => daysFromToday(b.dueDate) === 1)
+  const week = open.filter((b) => daysFromToday(b.dueDate) <= 7)
+  const sum = (xs) => xs.reduce((t, b) => t + balance(b), 0)
+  const IN = num(DEMO_TODAY_IN)
+  let full, muted
+  if (kal.length === 1) {
+    const [b] = kal
+    full = { roman: `Aaj ₹${IN} aaye. Kal ${short(b.supplier)} ke ₹${num(balance(b))} dene hain. Chukta karne ke liye Paytm kholein.`,
+      hindi: `आज ${IN} रुपये आए। कल ${dev(b.supplier)} के ${num(balance(b))} रुपये देने हैं। चुकता करने के लिए पेटीएम खोलें।` }
+    muted = { roman: `Aaj ka collection aa gaya. Kal ${short(b.supplier)} ka bill dena hai. Chukta karne ke liye Paytm kholein.`,
+      hindi: `आज का कलेक्शन आ गया। कल ${dev(b.supplier)} का बिल देना है। चुकता करने के लिए पेटीएम खोलें।` }
+  } else if (kal.length > 1) {
+    const r = andList(kal.map((b) => short(b.supplier)), 'aur'), h = andList(kal.map((b) => dev(b.supplier)), 'और')
+    full = { roman: `Aaj ₹${IN} aaye. Kal ${kal.length} bill dene hain, kul ₹${num(sum(kal))}: ${r}. Chukta karne ke liye Paytm kholein.`,
+      hindi: `आज ${IN} रुपये आए। कल ${kal.length} बिल देने हैं, कुल ${num(sum(kal))} रुपये: ${h}। चुकता करने के लिए पेटीएम खोलें।` }
+    muted = { roman: `Aaj ka collection aa gaya. Kal ${kal.length} bill dene hain: ${r}. Chukta karne ke liye Paytm kholein.`,
+      hindi: `आज का कलेक्शन आ गया। कल ${kal.length} बिल देने हैं: ${h}। चुकता करने के लिए पेटीएम खोलें।` }
+  } else {
+    full = { roman: `Aaj ₹${IN} aaye. Kal koi supplier bill due nahi hai.`, hindi: `आज ${IN} रुपये आए। कल कोई सप्लायर बिल देना नहीं है।` }
+    muted = { roman: 'Aaj ka collection aa gaya. Kal koi supplier bill due nahi hai.', hindi: 'आज का कलेक्शन आ गया। कल कोई सप्लायर बिल देना नहीं है।' }
+  }
+  const wr = andList(week.map((b) => short(b.supplier)), 'aur'), wh = andList(week.map((b) => dev(b.supplier)), 'और')
+  const n = week.length
+  const weekFull = n ? { roman: `Is hafte ₹${num(sum(week))} dene hain, ${n} ${n === 1 ? 'bill' : 'bills'}: ${wr}.`, hindi: `इस हफ़्ते ${num(sum(week))} रुपये देने हैं, ${n} बिल: ${wh}।` }
+    : { roman: 'Is hafte koi bill dena baaki nahi hai.', hindi: 'इस हफ़्ते कोई बिल देना बाकी नहीं है।' }
+  const weekMuted = n ? { roman: `Is hafte ${n} ${n === 1 ? 'bill' : 'bills'} dene hain: ${wr}.`, hindi: `इस हफ़्ते ${n} बिल देने हैं: ${wh}।` } : weekFull
+  // the reminder points at tomorrow's bill, else the next one due
+  return { full, muted, week: weekFull, weekMuted, next: kal[0] || open[0] || null }
 }
 
 function Device({ playing }) {
@@ -66,12 +85,18 @@ export default function Soundbox() {
     getVoices().then((v) => { setVoice(pickVoice(v)); setReady(true) })
     return () => { if (speechSupported()) window.speechSynthesis.cancel() }
   }, [])
-  useEffect(() => { if (hash === '#reminder') document.getElementById('reminder')?.scrollIntoView({ block: 'center' }) }, [hash])
+  useEffect(() => {
+    if (hash !== '#reminder') return
+    const t = setTimeout(() => document.getElementById('reminder')?.scrollIntoView({ block: 'center', behavior: 'smooth' }), 80)
+    return () => clearTimeout(t)
+  }, [hash])
 
+  const SCRIPTS = useMemo(() => buildScripts(bills), [bills])
   const play = (key) => {
     const s = SCRIPTS[key]
     setPlaying(key)
-    speak({ hindi: s.hindi, roman: s.say }, voice, () => setPlaying(''))
+    // the romanised line is for screen reading; the voice reads "rupaye", not the ₹ sign
+    speak({ hindi: s.hindi, roman: s.roman.replace(/₹([\d,]+)/g, '$1 rupaye') }, voice, () => setPlaying(''))
   }
   const remind = (on) => {
     setSettings((s) => ({ ...s, reminderOn: on }))
@@ -80,7 +105,7 @@ export default function Soundbox() {
   }
   const main = mute ? 'muted' : 'full'
   const isHi = voice && /^hi/i.test(voice.lang)
-  const sharma = bills.find((b) => b.id === 'b1' && b.status === 'due')
+  const next = SCRIPTS.next
 
   return (
     <Shell title="Soundbox" sub="Raat 9 baje ka reminder · simulator">
@@ -113,18 +138,28 @@ export default function Soundbox() {
       </Card>
 
       <SectionTitle right={<DemoTag>demo preview</DemoTag>}>Phone par notification</SectionTitle>
-      <button onClick={() => sharma ? navigate(`/payee/${sharma.id}`) : navigate('/')}
-        className="w-full rounded-2xl bg-white/95 p-3.5 text-left shadow-[var(--shadow-lift)] ring-1 ring-line active:scale-[.99]">
+      <div className="w-full rounded-2xl bg-white/95 p-3.5 text-left shadow-[var(--shadow-lift)] ring-1 ring-line">
         <div className="flex items-center gap-2 text-[11.5px] text-grey">
           <span className="grid h-5 w-5 place-items-center rounded-md bg-navy text-[9px] font-extrabold text-cyan">P</span>
           Paytm for Business · 9:00 pm
         </div>
-        <div className="mt-1.5 text-[14px] font-semibold text-ink">Kal ₹12,400 dene hain: Sharma Traders</div>
-        <div className="text-[13px] text-ink2">Inv #4471 · Tap karke ek baar mein chukta karein</div>
-        <div className="mt-2.5 flex gap-2 text-[12.5px] font-semibold text-navy">
-          <span className="rounded-lg bg-sky px-3 py-1.5">Chukta karein</span><span className="rounded-lg bg-mist px-3 py-1.5">7 din baad</span>
-        </div>
-      </button>
+        {next ? (
+          <>
+            <button onClick={() => navigate(`/bill/${next.id}`)} className="mt-1.5 block w-full text-left">
+              <div className="text-[14px] font-semibold text-ink">
+                {daysFromToday(next.dueDate) === 1 ? 'Kal' : dueLabel(next.dueDate).hi + ':'} {inr(balance(next))} dene hain: {short(next.supplier)}
+              </div>
+              <div className="text-[13px] text-ink2">Inv #{next.invoiceNo} · Tap karke ek baar mein chukta karein</div>
+            </button>
+            <div className="mt-2.5 flex gap-2 text-[12.5px] font-semibold text-navy">
+              <button onClick={() => navigate(`/payee/${next.id}`)} className="rounded-lg bg-sky px-3 py-1.5 hover:bg-sky2">Chukta karein</button>
+              <button onClick={() => navigate(`/later/${next.id}`)} className="rounded-lg bg-mist px-3 py-1.5 hover:bg-line">7 din baad</button>
+            </div>
+          </>
+        ) : (
+          <div className="mt-1.5 text-[14px] font-semibold text-ink">Sab supplier bills chukta. Koi reminder nahi.</div>
+        )}
+      </div>
       <div className="mt-2 px-0.5 text-[12px] text-grey">Reminder se paid tak: notification → bill → Chukta karein → Paytm PIN (4 taps).</div>
 
       <div className="mt-4 rounded-2xl bg-mist p-3.5 text-[12px] text-ink2">

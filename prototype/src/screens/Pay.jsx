@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import Icon from '../components/Icon.jsx'
+import BillClosed from '../components/BillClosed.jsx'
 import { DueChip } from '../components/BillCard.jsx'
 import { Avatar, Btn, Card, Chip, DemoTag, Field, Shell, inputCls, toast } from '../components/ui.jsx'
 import { balance, paidSoFar, useStore } from '../store.jsx'
@@ -62,6 +63,7 @@ export default function Pay() {
   const [done, setDone] = useState(null)
 
   if (!bill) return <Navigate to="/" replace />
+  if (bill.status !== 'due' && !done) return <BillClosed bill={bill} />
   if (done) return <Receipt bill={bills.find((b) => b.id === id)} done={done} onDone={() => navigate('/')} />
 
   const due = balance(bill)
@@ -76,7 +78,15 @@ export default function Pay() {
     logEvent('pay_intent_opened', { billId: bill.id, demoBill: !!bill.demo, partial: mode === 'part' })
     setOpened(true)
     setHow('intent')
+    // If no UPI app takes the link (laptop, or a phone without one), the page stays visible: say so.
+    let left = false
+    const onHide = () => { if (document.hidden) left = true }
+    document.addEventListener('visibilitychange', onHide)
     window.location.href = intent // Android shows the UPI app chooser; the owner picks Paytm and enters their own PIN
+    setTimeout(() => {
+      document.removeEventListener('visibilitychange', onHide)
+      if (!left && !document.hidden) toast('UPI app nahi khula. Phone par kholein, ya neeche "QR scan" wala tareeka use karein.')
+    }, 1800)
   }
   const copy = async (label, text) => { if (await copyText(text)) toast(`${label} copied`) }
 

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import Icon from '../components/Icon.jsx'
+import BillClosed from '../components/BillClosed.jsx'
 import { Avatar, Btn, Card, DemoTag, Shell } from '../components/ui.jsx'
 import { balance, useStore } from '../store.jsx'
 import { payeeCheck } from '../lib/names.js'
@@ -25,13 +26,14 @@ export default function Payee() {
   const cooling = isNew || changed
 
   useEffect(() => {
-    if (bill && !logged.current) {
+    if (bill && bill.status === 'due' && !logged.current) {
       logged.current = true
       logEvent('payee_check', { billId: bill.id, demoBill: !!bill.demo, result: check.status, newPayee: !!isNew, changedPayee: !!changed })
     }
   }, [bill, check, isNew, changed, logEvent])
 
   if (!bill) return <Navigate to="/" replace />
+  if (bill.status !== 'due') return <BillClosed bill={bill} />
   const r = RESULT[check.status]
   const until = new Date(Date.now() + 24 * 3600 * 1000).toLocaleString('en-IN', { weekday: 'short', hour: 'numeric', minute: '2-digit' })
 

@@ -1,20 +1,22 @@
 import { useEffect, useRef } from 'react'
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import Icon from '../components/Icon.jsx'
-import { Avatar, Btn, Card, Chip, DemoTag, Shell } from '../components/ui.jsx'
+import BillClosed from '../components/BillClosed.jsx'
+import { Avatar, Btn, Card, Chip, DemoTag, Shell, useBack } from '../components/ui.jsx'
 import { balance, useStore } from '../store.jsx'
 import { inr } from '../lib/fmt.js'
 
 export default function Later() {
   const { id } = useParams()
   const { bills, logEvent } = useStore()
-  const navigate = useNavigate()
+  const goBack = useBack()
   const bill = bills.find((b) => b.id === id)
   const logged = useRef(false)
   useEffect(() => {
-    if (bill && !logged.current) { logged.current = true; logEvent('later_opened', { billId: bill.id, demoBill: !!bill.demo }) }
+    if (bill && bill.status === 'due' && !logged.current) { logged.current = true; logEvent('later_opened', { billId: bill.id, demoBill: !!bill.demo }) }
   }, [bill, logEvent])
   if (!bill) return <Navigate to="/" replace />
+  if (bill.status !== 'due') return <BillClosed bill={bill} />
 
   const qrPayee = bill.rail !== 'bank'
   const due = new Date(); due.setDate(due.getDate() + 7)
@@ -27,7 +29,7 @@ export default function Later() {
 
   return (
     <Shell title="7 din baad" sub="Pay later · explainer only" back={-1} nav={false}
-      footer={<Btn variant="navy" size="lg" className="w-full" onClick={() => navigate(-1)}>Samajh gaya (got it)</Btn>}>
+      footer={<Btn variant="navy" size="lg" className="w-full" onClick={goBack}>Samajh gaya (got it)</Btn>}>
       <div className="relative overflow-hidden rounded-3xl bg-[linear-gradient(135deg,#002E6E,#0A3D86)] p-5 text-white">
         <span className="pointer-events-none absolute -right-8 -top-10 h-36 w-36 rounded-full bg-cyan/20" />
         <div className="flex items-center gap-3">
