@@ -26,7 +26,7 @@ Best on an Android phone in Chrome · on a laptop it opens inside a phone frame,
 | 4 | **Aage: Chukta karein** | Pay screen: GST match tick, supplier's rail, *Abhi chukta* (UPI intent), the NPCI fallback, receipt |
 | 5 | **7 din baad** | Pay-later explainer (no credit is offered) |
 | 6 | **Soundbox** tab | Hindi voice reminder, mute-amounts switch, 9 pm reminder, push preview |
-| 7 | **Collect** quick action | Distributor dashboard: invoices sent → seen → paid, CSV export |
+| 7 | **Collect** quick action | Distributor dashboard: invoices sent → seen → paid, retailers, settlements, Tally CSV |
 
 Every screen on deck slide 9 is at most **two taps** from home.
 
@@ -42,7 +42,7 @@ Every screen on deck slide 9 is at most **two taps** from home.
 | `/later/:id` | *7 din baad* explainer |
 | `/supplier/new` | Add a supplier (scan their UPI QR) + 9 pm reminder |
 | `/soundbox` | Web Speech API reminder (hi-IN voice when installed) |
-| `/collect` | Chukta Collect, distributor view (desktop layout) |
+| `/collect` | Chukta Collect, distributor view: **Overview** · **Invoices** (search, filter, CSV) · **Retailers** (outstanding per shop, Remind) · **Settlements** (rail + invoice match) · **Tally export** (receipt-voucher CSV) |
 
 ## What is real, what is demo
 

@@ -62,6 +62,7 @@ export const GST_DEMO = {
 }
 
 // Chukta Collect: distributor view (DEMO). Tiles are the illustrative numbers shown on deck slide 9.
+// Offsets are days from today; paid rows carry the day paid and the rail the money landed on.
 export const COLLECT_TILES = [
   { value: '₹8.4 L', hi: 'Is hafte bheje', en: 'sent this week' },
   { value: '₹6.1 L', hi: 'Chukta mein mile', en: 'paid in Chukta' },
@@ -70,16 +71,16 @@ export const COLLECT_TILES = [
 ]
 
 export const COLLECT_ROWS = [
-  { retailer: 'Agarwal Kirana', area: 'Kalyanpur', invoice: '4469', amount: 18200, sent: -6, status: 'paid' },
+  { retailer: 'Agarwal Kirana', area: 'Kalyanpur', invoice: '4469', amount: 18200, sent: -6, status: 'paid', paid: -5, rail: 'qr' },
   { retailer: 'New Shiv Medical', area: 'Kakadeo', invoice: '4470', amount: 9450, sent: -5, status: 'seen', due: 3 },
   { retailer: 'Sharma General Store', area: 'Nankari', invoice: '4471', amount: 12400, sent: -5, status: 'later' },
-  { retailer: 'Maa Durga Provision', area: 'Swaroop Nagar', invoice: '4472', amount: 6730, sent: -4, status: 'paid' },
+  { retailer: 'Maa Durga Provision', area: 'Swaroop Nagar', invoice: '4472', amount: 6730, sent: -4, status: 'paid', paid: -3, rail: 'bank' },
   { retailer: 'Campus Canteen', area: 'IITK', invoice: '4473', amount: 4120, sent: -4, status: 'sent', due: 6 },
   { retailer: 'Rastogi Dairy', area: 'MT Section', invoice: '4474', amount: 2980, sent: -3, status: 'overdue', due: -1 },
-  { retailer: 'Gupta Kirana Bhandar', area: 'Generalganj', invoice: '4475', amount: 15600, sent: -3, status: 'paid' },
+  { retailer: 'Gupta Kirana Bhandar', area: 'Generalganj', invoice: '4475', amount: 15600, sent: -3, status: 'paid', paid: -2, rail: 'qr' },
   { retailer: 'Shukla Medical Hall', area: 'Kakadeo', invoice: '4476', amount: 7310, sent: -2, status: 'dispute' },
   { retailer: 'Annapurna Sweets', area: 'Nayaganj', invoice: '4477', amount: 5260, sent: -2, status: 'seen', due: 5 },
-  { retailer: 'Mishra Stores', area: 'Kalyanpur', invoice: '4478', amount: 11040, sent: -1, status: 'paid' },
+  { retailer: 'Mishra Stores', area: 'Kalyanpur', invoice: '4478', amount: 11040, sent: -1, status: 'paid', paid: 0, rail: 'qr' },
   { retailer: 'Krishna Bakery', area: 'Swaroop Nagar', invoice: '4479', amount: 3470, sent: -1, status: 'sent', due: 7 },
   { retailer: 'Pandey Pharmacy', area: 'Nankari', invoice: '4480', amount: 8890, sent: 0, status: 'sent', due: 7 },
 ]
