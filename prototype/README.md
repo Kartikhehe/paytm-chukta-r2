@@ -6,7 +6,7 @@
 
 ### [▶ Open the live prototype](https://chukta-r2-prototype.vercel.app)
 
-Best on an Android phone in Chrome · on a laptop it opens inside a phone frame, with a QR code to switch to your phone
+Best on an Android phone in Chrome · on a laptop it opens inside a phone frame, with a QR code for your phone and a one-click switch to Chukta Collect (the distributor side)
 
 <img src="../chukta_handoff/Chukta_R2_kit/assets/proto_inbox.png" width="200" alt="Inbox"> &nbsp;
 <img src="../chukta_handoff/Chukta_R2_kit/assets/proto_capture.png" width="200" alt="Capture"> &nbsp;
